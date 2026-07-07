@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お問い合わせ・体験予約｜キッズスクールCUBE — 千葉の知能教育・幼児教室・積木教室</title>
+<meta name="description" content="キッズスクールCUBEへのお問い合わせ・体験見学のご予約フォーム。入室・講習・単発授業のお申し込みもこちらから。電話は土曜のみ 043-244-3745。">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header id="hd">
+  <div class="hd-in">
+    <a class="brand" href="index.html" aria-label="キッズスクールCUBE ホーム">
+      <img class="logo-img" src="assets/img/logo.jpg" alt="キッズスクールCUBE" width="230" height="61">
+    </a>
+    <nav class="gnav" aria-label="メイン">
+      <a href="index.html">ホーム</a>
+      <a href="about.html">初めての方へ</a>
+      <a href="index.html#classes">クラス</a>
+      <a href="timetable.html">時間割</a>
+      <a href="special.html">特別講座</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false"><span></span><span></span></button>
+    <a class="hd-cta" href="contact.html"><span class="cta-l">体験・見学のご相談</span><span class="cta-s">体験相談</span></a>
+    <div class="m-panel" id="mPanel">
+      <a href="index.html">ホーム</a>
+      <a href="about.html">初めての方へ — 入塾した理由</a>
+      <a href="class-2sai.html">2歳児クラス</a>
+      <a href="class-youji.html">幼児クラス</a>
+      <a href="class-syougaku.html">小学生クラス</a>
+      <a href="timetable.html">時間割</a>
+      <a href="special.html">特別講座 — 集中・期別講習</a>
+      <a href="recruit.html">採用情報</a>
+      <a href="contact.html">お問い合わせ・体験予約</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="パンくず"><a href="index.html">Home</a><i>/</i><span>お問い合わせ・体験予約</span></nav>
+      <p class="eyebrow rv"><span class="no">Contact</span>お問い合わせ・体験予約</p>
+      <h1 class="h-serif rv" style="--d:.1s">まずは、見学から。</h1>
+      <p class="lead rv" style="--d:.2s">実際の授業と子供たちの様子を見ていただくのが、いちばん伝わります。ご予約・ご質問はお気軽にどうぞ。</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:clamp(36px,6vw,64px)">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-aside rv">
+          <p class="lead">体験・見学のご予約、入室・講習・単発授業のお申し込み、採用のご相談まで、こちらのフォームからどうぞ。内容を確認のうえ、2〜3日以内にご返信します。</p>
+          <div class="ca-tel">
+            <a class="tel num-face" href="tel:0432443745">043-244-3745</a>
+            <small>お電話でのお問い合わせは土曜日のみ承っています（定休：日・月）</small>
+          </div>
+          <dl class="info-tbl" style="margin-top:24px">
+            <div><dt>所在地</dt><dd>〒260-0031<br>千葉県千葉市中央区新田町11-12 松長ビル3F</dd></div>
+            <div><dt>アクセス</dt><dd>JR「千葉駅」東口より徒歩6分</dd></div>
+          </dl>
+          <p class="ca-privacy">いただいた個人情報は、ご返信および教室運営の目的のみに使用します。</p>
+        </div>
+        <div class="cform-wrap rv" style="--d:.15s">
+          <form id="contactForm" class="cform" novalidate>
+            <div class="field full">
+              <label for="cf-youken">ご用件<span class="req">*</span></label>
+              <select id="cf-youken" name="youken" required>
+                <option value="" selected disabled>選択してください</option>
+                <option>体験・見学のご予約</option>
+                <option>入室のお申し込み</option>
+                <option>講習のお申し込み</option>
+                <option>単発授業のお申し込み</option>
+                <option>その他のお問い合わせ</option>
+              </select>
+              <span class="err">ご用件を選択してください</span>
+            </div>
+            <div class="field">
+              <label for="cf-name">お子様のお名前<span class="req">*</span></label>
+              <input id="cf-name" name="name" autocomplete="off" required>
+              <span class="err">お名前をご入力ください</span>
+            </div>
+            <div class="field">
+              <label for="cf-furigana">ふりがな<span class="req">*</span></label>
+              <input id="cf-furigana" name="furigana" autocomplete="off" required>
+              <span class="err">ふりがなをご入力ください</span>
+            </div>
+            <div class="field">
+              <label for="cf-age">お子様の年齢<span class="req">*</span></label>
+              <input id="cf-age" name="age" placeholder="例：3歳2か月 / 小2" required>
+              <span class="err">年齢をご入力ください</span>
+            </div>
+            <div class="field">
+              <label for="cf-email">メールアドレス<span class="req">*</span></label>
+              <input id="cf-email" type="email" name="email" inputmode="email" autocomplete="email" required>
+              <span class="err">正しいメールアドレスをご入力ください</span>
+            </div>
+            <div class="field full">
+              <label for="cf-tel">電話番号（任意）</label>
+              <input id="cf-tel" name="tel" inputmode="tel" autocomplete="tel">
+            </div>
+            <div class="field full">
+              <label for="cf-message">お問い合わせ内容（任意）</label>
+              <textarea id="cf-message" name="message" placeholder="ご希望の曜日・時間帯、ご質問などがあればご記入ください。"></textarea>
+            </div>
+            <div class="cform-actions">
+              <button type="submit" class="btn btn-solid">送信する<span class="ar">→</span></button>
+              <p class="cform-note">送信をもって、個人情報の取り扱いに同意いただいたものとみなします。</p>
+            </div>
+          </form>
+          <div class="form-success" id="formSuccess" hidden>
+            <div class="fs-mark" aria-hidden="true">✓</div>
+            <h3>送信ありがとうございました。</h3>
+            <p>内容を確認のうえ、2〜3日以内にご返信いたします。<br>お急ぎの場合は 043-244-3745（土曜のみ）へお願いいたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="tight">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <svg width="34" height="38" viewBox="0 0 30 34" aria-hidden="true">
+          <polygon points="15,1 29,9 15,17 1,9" fill="#C24E2E"/>
+          <polygon points="1,9 15,17 15,33 1,25" fill="#F4ECDD" opacity=".9"/>
+          <polygon points="29,9 15,17 15,33 29,25" fill="#C99A5B"/>
+        </svg>
+        <b>キッズスクールCUBE株式会社</b>
+        <p>すべては子供の人生のために。<br>知能教育・幼児教室・積木教室｜千葉・千葉駅東口<br>〒260-0031 千葉県千葉市中央区新田町11-12 松長ビル3F</p>
+      </div>
+      <div class="ft-links">
+        <div>
+          <h4>Contents</h4>
+          <ul>
+            <li><a href="index.html#philosophy">教育理念</a></li>
+            <li><a href="index.html#method">メソッド</a></li>
+            <li><a href="about.html">初めての方へ</a></li>
+            <li><a href="timetable.html">時間割</a></li>
+            <li><a href="special.html">特別講座</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Class</h4>
+          <ul>
+            <li><a href="class-2sai.html">2歳児クラス</a></li>
+            <li><a href="class-youji.html">幼児クラス</a></li>
+            <li><a href="class-syougaku.html">小学生クラス</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">お問い合わせ・体験予約</a></li>
+            <li><a href="recruit.html">採用情報</a></li>
+            <li><a href="index.html#access">アクセス</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Family</h4>
+          <ul>
+            <li><a href="https://www.umezono.net" target="_blank" rel="noopener">梅乃園幼稚園<span class="ext">↗</span></a></li>
+            <li><a href="http://www.tsumiki-tokyo.com/" target="_blank" rel="noopener">にっしん積木<span class="ext">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ft-btm">
+      <span>© Kids School CUBE Inc.</span>
+      <span>Chiba, Japan — Walk 6 min from Chiba Sta.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

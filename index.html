@@ -87,6 +87,7 @@
   header.scrolled{box-shadow:0 10px 30px rgba(46,38,32,.07)}
   .hd-in{max-width:1220px;margin:0 auto;height:100%;padding:0 clamp(16px,3vw,36px);display:flex;align-items:center;gap:28px}
   .brand{display:flex;align-items:center;gap:12px;flex-shrink:1;min-width:0}
+  .brand .logo-img{height:34px;width:auto;mix-blend-mode:multiply}
   .brand>span{min-width:0;overflow:hidden}
   .brand b{font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:.06em;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .brand small{display:block;font-family:var(--num);font-size:9px;letter-spacing:.3em;color:var(--ink-50);text-transform:uppercase;line-height:1.4}
@@ -429,6 +430,25 @@
   .access-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
   .map-fig{border:1px solid var(--line);background:#FCF8EE;border-radius:18px;padding:18px;box-shadow:14px 14px 0 rgba(201,138,61,.14)}
   .map-fig figcaption{font-family:var(--num);font-size:10px;letter-spacing:.28em;color:var(--ink-50);text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+  .card .more{
+    display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+    font-family:var(--num);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);
+  }
+  .card .more .ar{transition:transform .3s var(--ease)}
+  .card .more:hover .ar{transform:translateX(4px)}
+  .cta-band{
+    background:var(--night);color:var(--night-ink);border-radius:22px;
+    padding:clamp(34px,5vw,56px) clamp(24px,5vw,56px);
+    display:flex;flex-wrap:wrap;align-items:center;gap:24px 40px;justify-content:space-between;
+    position:relative;overflow:hidden;
+  }
+  .cta-band::before{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,182,92,.22),transparent 70%)}
+  .cta-band h3{font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,28px);letter-spacing:.06em}
+  .cta-band p{font-size:13.5px;color:var(--night-sub);margin-top:8px;max-width:34em}
+  .cta-band .b-col{display:flex;gap:14px;flex-wrap:wrap}
+  .cta-band .btn-ghost{border-color:var(--night-ink);color:var(--night-ink)}
+  .cta-band .btn-ghost:hover{background:var(--night-ink);color:var(--night)}
 
   /* ---------- 07 contact (styled form → Google Forms backend) ---------- */
   .contact{background:var(--paper)}
@@ -563,28 +583,26 @@
 <header id="hd">
   <div class="hd-in">
     <a class="brand" href="#top" aria-label="キッズスクールCUBE ホーム">
-      <svg width="30" height="34" viewBox="0 0 30 34" aria-hidden="true">
-        <polygon points="15,1 29,9 15,17 1,9" fill="#C24E2E"/>
-        <polygon points="1,9 15,17 15,33 1,25" fill="#2E2620"/>
-        <polygon points="29,9 15,17 15,33 29,25" fill="#C99A5B"/>
-      </svg>
-      <span><b>キッズスクールCUBE</b><small>Kids School CUBE — Chiba</small></span>
+      <img class="logo-img" src="assets/img/logo.jpg" alt="キッズスクールCUBE" width="230" height="61">
     </a>
     <nav class="gnav" aria-label="メイン">
       <a href="#philosophy">理念</a>
       <a href="#method">メソッド</a>
       <a href="#classes">クラス</a>
-      <a href="#results">実績</a>
+      <a href="about.html">初めての方へ</a>
       <a href="#access">アクセス</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false"><span></span><span></span></button>
-    <a class="hd-cta" href="#contact"><span class="cta-l">体験・見学のご相談</span><span class="cta-s">体験相談</span></a>
+    <a class="hd-cta" href="contact.html"><span class="cta-l">体験・見学のご相談</span><span class="cta-s">体験相談</span></a>
     <div class="m-panel" id="mPanel">
       <a href="#philosophy">理念 — 素頭を良くする教育</a>
       <a href="#method">メソッド — 150の知能因子</a>
       <a href="#classes">クラス — 2歳児・幼児・小学生</a>
-      <a href="#results">実績 — 算数オリンピック</a>
+      <a href="about.html">初めての方へ — 入塾した理由</a>
+      <a href="timetable.html">時間割</a>
+      <a href="special.html">特別講座 — 集中・期別講習</a>
       <a href="#access">アクセス — 千葉駅東口 徒歩6分</a>
+      <a href="contact.html">お問い合わせ・体験予約</a>
     </div>
   </div>
 </header>
@@ -769,6 +787,7 @@
             <div><dt>時間</dt><dd>1コマ40分</dd></div>
             <div><dt>定員</dt><dd>3〜4名</dd></div>
           </dl>
+          <a class="more" href="class-2sai.html">詳しく見る<span class="ar">→</span></a>
         </article></div>
         <div class="rv" style="--d:.15s"><article class="card c-feature">
           <div class="card-photo"><img src="assets/img/c-youji.jpg" alt="大好きな積み木に取り組む幼児" loading="lazy" width="250" height="167"></div>
@@ -786,6 +805,7 @@
             <div><dt>時間</dt><dd>各40分</dd></div>
             <div><dt>編成</dt><dd>少人数・能力別</dd></div>
           </dl>
+          <a class="more" href="class-youji.html">詳しく見る<span class="ar">→</span></a>
         </article></div>
         <div class="rv" style="--d:.25s"><article class="card">
           <div class="card-photo"><img src="assets/img/c-syou.jpg" alt="木製教材で考える算数に取り組む小学生" loading="lazy" width="250" height="167"></div>
@@ -803,6 +823,7 @@
             <div><dt>定員</dt><dd>8〜10名程度</dd></div>
             <div><dt>編成</dt><dd>能力別クラス</dd></div>
           </dl>
+          <a class="more" href="class-syougaku.html">詳しく見る<span class="ar">→</span></a>
         </article></div>
       </div>
       <div class="special-band rv">
@@ -810,7 +831,7 @@
           <b>特別講座 — 集中・期別講習</b>
           <p>春・夏・冬の集中授業や、単発の有料授業も開講しています。開講時期は最新のお知らせをご覧ください。</p>
         </div>
-        <a class="btn btn-ghost" href="https://www.cube55.net/2017-06-30-07-45-06.html" target="_blank" rel="noopener">単発授業のお申し込み<span class="ar">→</span></a>
+        <a class="btn btn-ghost" href="special.html">特別講座を見る<span class="ar">→</span></a>
       </div>
     </div>
   </section>
@@ -834,8 +855,8 @@
           <figcaption>「できた！」の瞬間<span class="mc-en">Joy of achievement</span></figcaption>
         </figure>
         <figure class="moment">
-          <img src="assets/img/c-syou.jpg" alt="積み木で真剣に考える小学生" loading="lazy" width="250" height="167">
-          <figcaption>手を動かし、考える<span class="mc-en">Thinking by hands</span></figcaption>
+          <img src="assets/img/classroom.jpg" alt="実際の授業風景 — 少人数クラスで積み木に取り組む子供たち" loading="lazy" width="250" height="167">
+          <figcaption>実際の授業風景<span class="mc-en">Real lesson — small class</span></figcaption>
         </figure>
         <figure class="moment m-wide">
           <img src="assets/img/g-youji5.jpg" alt="知能プリントに集中して取り組む様子" loading="lazy" width="250" height="167">
@@ -899,75 +920,19 @@
     </div>
   </section>
 
-  <!-- ============ 07 CONTACT (styled form → Google Forms) ============ -->
+  <!-- ============ 07 CONTACT (CTA -> contact.html) ============ -->
   <section class="ch contact" id="contact">
     <span class="hashira">07 — Contact / お問い合わせ</span>
     <div class="wrap">
-      <div class="ch-head rv">
-        <p class="eyebrow"><span class="no">07</span>Contact — お問い合わせ</p>
-        <h2 class="h-serif">まずは、見学から。</h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-aside rv" style="--d:.1s">
-          <p class="lead">入室・体験・講習のお申し込み、ご相談はこちらのフォームから。内容を確認のうえ、2〜3日以内にご返信します。</p>
-          <div class="ca-tel">
-            <a class="tel num-face" href="tel:0432443745">043-244-3745</a>
-            <small>お電話でのお問い合わせは土曜日のみ承っています（定休：日・月）</small>
-          </div>
-          <p class="ca-privacy">いただいた個人情報は、ご返信および教室運営の目的のみに使用します。</p>
+      <div class="cta-band rv">
+        <div>
+          <p class="eyebrow" style="color:var(--night-sub);margin-bottom:14px"><span class="no">07</span>Contact — お問い合わせ</p>
+          <h3>まずは、見学から。</h3>
+          <p>体験・見学のご予約、入室・講習のお申し込みは専用ページから。お電話は 043-244-3745（土曜のみ）。</p>
         </div>
-        <div class="cform-wrap rv" style="--d:.18s">
-          <form id="contactForm" class="cform" novalidate>
-            <div class="field full">
-              <label for="cf-youken">ご用件<span class="req">*</span></label>
-              <select id="cf-youken" name="youken" required>
-                <option value="" selected disabled>選択してください</option>
-                <option>入室のお申し込み</option>
-                <option>体験のお申し込み</option>
-                <option>講習のお申し込み</option>
-                <option>単発授業のお申し込み</option>
-                <option>その他のお問い合わせ</option>
-              </select>
-              <span class="err">ご用件を選択してください</span>
-            </div>
-            <div class="field">
-              <label for="cf-name">お子様のお名前<span class="req">*</span></label>
-              <input id="cf-name" name="name" autocomplete="off" required>
-              <span class="err">お名前をご入力ください</span>
-            </div>
-            <div class="field">
-              <label for="cf-furigana">ふりがな<span class="req">*</span></label>
-              <input id="cf-furigana" name="furigana" autocomplete="off" required>
-              <span class="err">ふりがなをご入力ください</span>
-            </div>
-            <div class="field">
-              <label for="cf-age">お子様の年齢<span class="req">*</span></label>
-              <input id="cf-age" name="age" placeholder="例：3歳2か月 / 小2" required>
-              <span class="err">年齢をご入力ください</span>
-            </div>
-            <div class="field">
-              <label for="cf-email">メールアドレス<span class="req">*</span></label>
-              <input id="cf-email" type="email" name="email" inputmode="email" autocomplete="email" required>
-              <span class="err">正しいメールアドレスをご入力ください</span>
-            </div>
-            <div class="field full">
-              <label for="cf-tel">電話番号（任意）</label>
-              <input id="cf-tel" name="tel" inputmode="tel" autocomplete="tel">
-            </div>
-            <div class="field full">
-              <label for="cf-message">お問い合わせ内容（任意）</label>
-              <textarea id="cf-message" name="message" placeholder="ご希望の曜日・時間帯、ご質問などがあればご記入ください。"></textarea>
-            </div>
-            <div class="cform-actions">
-              <button type="submit" class="btn btn-solid">送信する<span class="ar">→</span></button>
-              <p class="cform-note">送信をもって、個人情報の取り扱いに同意いただいたものとみなします。</p>
-            </div>
-          </form>
-          <div class="form-success" id="formSuccess" hidden>
-            <div class="fs-mark" aria-hidden="true">✓</div>
-            <h3>送信ありがとうございました。</h3>
-            <p>内容を確認のうえ、2〜3日以内にご返信いたします。<br>お急ぎの場合は 043-244-3745（土曜のみ）へお願いいたします。</p>
-          </div>
+        <div class="b-col">
+          <a class="btn btn-solid" href="contact.html">お問い合わせ・体験予約<span class="ar">→</span></a>
+          <a class="btn btn-ghost" href="tel:0432443745">電話をかける（土曜のみ）</a>
         </div>
       </div>
     </div>
@@ -992,15 +957,25 @@
           <ul>
             <li><a href="#philosophy">教育理念</a></li>
             <li><a href="#method">メソッド</a></li>
-            <li><a href="#classes">クラス案内</a></li>
-            <li><a href="#access">アクセス</a></li>
+            <li><a href="about.html">初めての方へ</a></li>
+            <li><a href="timetable.html">時間割</a></li>
+            <li><a href="special.html">特別講座</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Class</h4>
+          <ul>
+            <li><a href="class-2sai.html">2歳児クラス</a></li>
+            <li><a href="class-youji.html">幼児クラス</a></li>
+            <li><a href="class-syougaku.html">小学生クラス</a></li>
           </ul>
         </div>
         <div>
           <h4>Contact</h4>
           <ul>
-            <li><a href="#contact">お問い合わせ</a></li>
-            <li><a href="https://www.cube55.net/recruit.html" target="_blank" rel="noopener">採用情報<span class="ext">↗</span></a></li>
+            <li><a href="contact.html">お問い合わせ・体験予約</a></li>
+            <li><a href="recruit.html">採用情報</a></li>
+            <li><a href="#access">アクセス</a></li>
           </ul>
         </div>
         <div>
