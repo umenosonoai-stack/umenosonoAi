@@ -292,20 +292,25 @@
   .lat-scene{width:460px;height:440px;perspective:1100px;cursor:grab;touch-action:pan-y;position:relative}
   .lat-scene:active{cursor:grabbing}
   .lat-tilt{position:absolute;inset:0;transform-style:preserve-3d}
-  .dot{
-    position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;
-    background:var(--glow);box-shadow:0 0 12px rgba(255,182,92,.8),0 0 3px rgba(255,182,92,.9);
-    opacity:.12;
-    transform:translate3d(var(--sx),var(--sy),var(--sz));
-    transition:transform 1.3s var(--ease),opacity 1.1s ease;
-    transition-delay:var(--d);
+  /* each knowledge factor = a small solid 3D cube (reads volumetric from any angle) */
+  .node{
+    position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;
+    transform-style:preserve-3d;
+    transform:translate3d(var(--sx),var(--sy),var(--sz)) scale(.15);
+    transition:transform 1.4s var(--ease);transition-delay:var(--d);
   }
-  .formed .dot{opacity:.9;transform:translate3d(var(--tx),var(--ty),var(--tz))}
-  .dot.hot{
-    width:15px;height:15px;margin:-7.5px 0 0 -7.5px;opacity:1;
-    background:#FFE7B0;box-shadow:0 0 26px 4px rgba(255,201,110,.95),0 0 8px 2px #fff;
-    z-index:5;transition:transform 1.3s var(--ease),opacity .35s ease,width .35s var(--ease),height .35s var(--ease),box-shadow .35s ease;
-  }
+  .formed .node{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1)}
+  .nf{position:absolute;inset:0;
+    background:linear-gradient(150deg,rgba(255,208,132,.66),rgba(222,148,72,.5));
+    border:.5px solid rgba(255,226,170,.72);}
+  .nf-f{transform:translateZ(5.5px)}
+  .nf-b{transform:rotateY(180deg) translateZ(5.5px)}
+  .nf-r{transform:rotateY(90deg) translateZ(5.5px)}
+  .nf-l{transform:rotateY(-90deg) translateZ(5.5px)}
+  .nf-t{transform:rotateX(90deg) translateZ(5.5px);background:linear-gradient(150deg,rgba(255,224,164,.8),rgba(240,180,104,.62))}
+  .nf-d{transform:rotateX(-90deg) translateZ(5.5px);background:rgba(196,126,60,.5)}
+  .formed .node.hot{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1.75);z-index:5}
+  .node.hot .nf{background:rgba(255,242,214,.96);border-color:#fff;box-shadow:0 0 10px rgba(255,214,140,.9)}
   .edge{position:absolute;left:50%;top:50%;background:rgba(255,190,120,.3)}
   .lat-readout{
     position:absolute;left:50%;top:14px;transform:translateX(-50%);
@@ -359,6 +364,36 @@
   .special-band b{font-family:var(--serif);font-size:18px;letter-spacing:.08em}
   .special-band p{font-size:13.5px;color:var(--ink-70)}
   .special-band a{flex-shrink:0}
+
+  /* ---------- real photos (unified warm treatment) ---------- */
+  .card-photo{
+    margin:-30px -26px 4px;height:172px;overflow:hidden;position:relative;
+    border-radius:15px 15px 0 0;border-bottom:1px solid var(--line);background:#EFE7D6;
+  }
+  .card-photo img{width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block;
+    transition:transform .7s var(--ease)}
+  .card:hover .card-photo img{transform:scale(1.05)}
+  .card-photo::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(255,247,235,.14),transparent 40%,rgba(46,38,32,.16))}
+  .phil-photo{margin:28px 0 0;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 14px 34px rgba(46,38,32,.10)}
+  .phil-photo img{width:100%;display:block;max-height:300px;object-fit:cover;object-position:center 32%}
+  .phil-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 20px 16px;color:#fff;
+    font-family:var(--serif);font-size:16px;letter-spacing:.07em;
+    background:linear-gradient(transparent,rgba(46,38,32,.6))}
+  /* moments gallery */
+  .moments{background:var(--paper)}
+  .moment-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-auto-rows:150px;gap:14px;margin-top:clamp(26px,3vw,40px)}
+  .moment{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line);margin:0;background:#EFE7D6}
+  .moment img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease)}
+  .moment:hover img{transform:scale(1.05)}
+  .moment figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 13px;
+    font-size:12px;letter-spacing:.05em;color:#fff;
+    background:linear-gradient(transparent,rgba(30,24,18,.68))}
+  .moment .mc-en{display:block;font-family:var(--num);font-size:9px;letter-spacing:.24em;
+    text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:3px}
+  .m-feature{grid-row:span 2}
+  .m-wide{grid-column:span 2}
 
   /* ---------- 05 results ---------- */
   .results{background:var(--paper-2)}
@@ -442,6 +477,9 @@
     .scene{transform:scale(.62)}
     .phil-grid,.theory-grid,.access-grid{grid-template-columns:minmax(0,1fr)}
     .cards{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+    .moment-grid{grid-template-columns:1fr 1fr;grid-auto-rows:132px}
+    .m-feature{grid-row:span 1;grid-column:span 2}
+    .m-wide{grid-column:span 2}
     .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
     .lat-stage{min-height:400px}
     .lat-scene{transform:scale(.8)}
@@ -474,7 +512,7 @@
     html{scroll-behavior:auto}
     *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
     .rv,.mask-line>span{opacity:1;transform:none}
-    .dot{opacity:.95;transform:translate3d(var(--tx),var(--ty),var(--tz))}
+    .node{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1)}
     .spin,.mini-spin{animation:none !important;transform:rotateX(-24deg) rotateY(-10deg)}
   }
 </style>
@@ -559,6 +597,10 @@
           <figure class="formula rv" style="--d:.3s">
             <div class="fx"><span>資質</span><span class="op">×</span><span>環境</span><span class="op">=</span><span class="accent">伸びる力</span></div>
             <figcaption>生まれ持った資質に、正しい環境を掛け合わせる。<br>資質は、環境しだいで伸ばせる——それがCUBEの考え方です。</figcaption>
+          </figure>
+          <figure class="phil-photo rv" style="--d:.4s">
+            <img src="assets/img/hero-child.jpg" alt="木製の積み木に夢中で取り組む子供" loading="lazy" width="505" height="404">
+            <figcaption>夢中は、いちばんの学び。</figcaption>
           </figure>
         </div>
         <div class="phil-points rv" style="--d:.2s">
@@ -673,10 +715,10 @@
       </div>
       <div class="cards">
         <div class="rv" style="--d:.05s"><article class="card">
+          <div class="card-photo"><img src="assets/img/c-2sai.jpg" alt="木製の知能教材で遊ぶ2歳児の笑顔" loading="lazy" width="250" height="167"></div>
           <span class="tag">Golden Age</span>
           <p class="age">1.5 – 3 yrs / 未就園児</p>
           <h3>2歳児クラス</h3>
-          <div class="iso"><svg id="iso1" viewBox="0 0 180 96" aria-hidden="true"></svg></div>
           <p class="catch">「ママやって」が減り、<br>やりきる自信が育つ。</p>
           <p class="body">8種の木製知能教材を介した、指導員との丁寧なやりとり。段階的な刺激で、やる気・意欲・性格の土台をつくる、能力開発のゴールデンエイジのためのクラスです。</p>
           <dl class="spec">
@@ -686,10 +728,10 @@
           </dl>
         </article></div>
         <div class="rv" style="--d:.15s"><article class="card c-feature">
+          <div class="card-photo"><img src="assets/img/c-youji.jpg" alt="大好きな積み木に取り組む幼児" loading="lazy" width="250" height="167"></div>
           <span class="tag">Core Method</span>
           <p class="age">3 – 6 yrs / 年少〜年長</p>
           <h3>幼児クラス</h3>
-          <div class="iso"><svg id="iso2" viewBox="0 0 180 96" aria-hidden="true"></svg></div>
           <p class="catch">遊びの感覚のまま、<br>直感思考とイメージ力を。</p>
           <p class="body">大好きな積み木で、広さ・長さ・位置関係を体で理解。「教わる」のではなく、見て、触って、考える。切り替えのある授業で吸収率を高めます。</p>
           <div class="chiplist">
@@ -703,10 +745,10 @@
           </dl>
         </article></div>
         <div class="rv" style="--d:.25s"><article class="card">
+          <div class="card-photo"><img src="assets/img/c-syou.jpg" alt="木製教材で考える算数に取り組む小学生" loading="lazy" width="250" height="167"></div>
           <span class="tag">Thinking Math</span>
           <p class="age">6 – 12 yrs / 小学生</p>
           <h3>小学生クラス</h3>
-          <div class="iso"><svg id="iso3" viewBox="0 0 180 96" aria-hidden="true"></svg></div>
           <p class="catch">処理ではなく、<br>「考える算数」を。</p>
           <p class="body">速さ・割合・濃度も、積み木で目に見えるかたちに。低学年は直感思考、高学年は論理思考へ。大脳の完成期に、Coreな刺激をしっかり届けます。</p>
           <div class="chiplist">
@@ -726,6 +768,36 @@
           <p>春・夏・冬の集中授業や、単発の有料授業も開講しています。開講時期は最新のお知らせをご覧ください。</p>
         </div>
         <a class="btn btn-ghost" href="https://www.cube55.net/2017-06-30-07-45-06.html" target="_blank" rel="noopener">単発授業のお申し込み<span class="ar">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY / 教室のいちにち ============ -->
+  <section class="ch moments" id="moments">
+    <span class="hashira">Gallery — 教室のいちにち</span>
+    <div class="wrap">
+      <div class="ch-head rv">
+        <p class="eyebrow"><span class="no">◍</span>Moments — 教室のいちにち</p>
+        <h2 class="h-serif">夢中の、その先に。</h2>
+        <p class="lead">授業でつかうのは、色と形で考える木製の知能教材と積み木。<br>「遊び」に夢中になりながら、子供たちは知能の土台を育てています。</p>
+      </div>
+      <div class="moment-grid rv" style="--d:.1s">
+        <figure class="moment m-feature">
+          <img src="assets/img/materials.jpg" alt="実際に使う色とりどりの木製知能教材と積み木" loading="lazy" width="250" height="167">
+          <figcaption>色と形で、考える<span class="mc-en">Wooden intelligence materials</span></figcaption>
+        </figure>
+        <figure class="moment">
+          <img src="assets/img/g-youji3.jpg" alt="できた瞬間に喜ぶ子供" loading="lazy" width="250" height="167">
+          <figcaption>「できた！」の瞬間<span class="mc-en">Joy of achievement</span></figcaption>
+        </figure>
+        <figure class="moment">
+          <img src="assets/img/c-syou.jpg" alt="積み木で真剣に考える小学生" loading="lazy" width="250" height="167">
+          <figcaption>手を動かし、考える<span class="mc-en">Thinking by hands</span></figcaption>
+        </figure>
+        <figure class="moment m-wide">
+          <img src="assets/img/g-youji5.jpg" alt="知能プリントに集中して取り組む様子" loading="lazy" width="250" height="167">
+          <figcaption>知能プリントに向かう集中力<span class="mc-en">Focus &amp; persistence</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -1001,9 +1073,10 @@
     var NX = CON.length, NY = OPS.length, NZ = PRO.length, SP = 38;
     var hx=(NX-1)*SP/2, hy=(NY-1)*SP/2, hz=(NZ-1)*SP/2;
     var nodes = [], idx = 0;
+    var FACES = ["nf-f","nf-b","nf-r","nf-l","nf-t","nf-d"];
     for(var x=0; x<NX; x++) for(var y=0; y<NY; y++) for(var z=0; z<NZ; z++){
       var d = document.createElement("div");
-      d.className = "dot";
+      d.className = "node";
       d.style.setProperty("--tx", (x*SP - hx)+"px");
       d.style.setProperty("--ty", (y*SP - hy)+"px");
       d.style.setProperty("--tz", (z*SP - hz)+"px");
@@ -1011,6 +1084,7 @@
       d.style.setProperty("--sy", (Math.random()*460-230)+"px");
       d.style.setProperty("--sz", (Math.random()*440-220)+"px");
       d.style.setProperty("--d", (idx*8)+"ms");
+      for(var fi=0; fi<6; fi++){ var f=document.createElement("div"); f.className="nf "+FACES[fi]; d.appendChild(f); }
       tiltEl.appendChild(d);
       nodes.push({el:d, c:x, o:y, p:z});
       idx++;
