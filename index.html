@@ -430,6 +430,48 @@
   .map-fig{border:1px solid var(--line);background:#FCF8EE;border-radius:18px;padding:18px;box-shadow:14px 14px 0 rgba(201,138,61,.14)}
   .map-fig figcaption{font-family:var(--num);font-size:10px;letter-spacing:.28em;color:var(--ink-50);text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
 
+  /* ---------- 07 contact (styled form → Google Forms backend) ---------- */
+  .contact{background:var(--paper)}
+  .contact-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(30px,5vw,58px);align-items:start}
+  .contact-aside .lead{margin-bottom:26px}
+  .contact-aside .ca-tel{border-top:1px solid var(--ink);padding-top:18px}
+  .contact-aside .ca-tel .tel{font-family:var(--num);font-size:24px;font-weight:500;letter-spacing:.06em;color:var(--ink);display:inline-block}
+  .contact-aside .ca-tel small{display:block;font-size:12px;color:var(--ink-50);margin-top:4px;line-height:1.8}
+  .contact-aside .ca-privacy{margin-top:22px;font-size:12px;color:var(--ink-50);line-height:1.9}
+  .cform-wrap{background:#FCF8EE;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,34px);
+    box-shadow:0 20px 46px rgba(46,38,32,.07)}
+  .cform{display:grid;grid-template-columns:1fr 1fr;gap:17px 20px}
+  .cform[hidden]{display:none}
+  .field{display:flex;flex-direction:column;gap:7px;min-width:0}
+  .field.full{grid-column:1 / -1}
+  .field label{font-family:var(--num);font-size:10.5px;letter-spacing:.16em;color:var(--ink-50);text-transform:uppercase}
+  .field label .req{color:var(--terra);margin-left:5px;font-style:normal}
+  .field input,.field select,.field textarea{
+    font:inherit;font-size:15px;color:var(--ink);background:var(--paper);
+    border:1px solid var(--line);border-radius:11px;padding:13px 14px;width:100%;
+    transition:border-color .25s var(--ease),box-shadow .25s var(--ease);
+  }
+  .field select{appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:linear-gradient(45deg,transparent 50%,var(--ink-50) 50%),linear-gradient(135deg,var(--ink-50) 50%,transparent 50%);
+    background-position:calc(100% - 20px) 20px,calc(100% - 14px) 20px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:38px}
+  .field textarea{min-height:120px;resize:vertical;line-height:1.8}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(46,38,32,.32)}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(194,78,46,.13)}
+  .field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#B23A22;box-shadow:0 0 0 3px rgba(178,58,34,.12)}
+  .field .err{font-size:11.5px;color:#B23A22;display:none}
+  .field.invalid .err{display:block}
+  .cform-actions{grid-column:1 / -1;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:6px}
+  .cform-actions .cform-note{font-size:11.5px;color:var(--ink-50);line-height:1.7;max-width:24em}
+  .cform-actions .cform-note a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
+  .form-success{text-align:center;padding:20px 10px 8px;animation:fsIn .6s var(--ease) both}
+  @keyframes fsIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .form-success .fs-mark{width:56px;height:56px;border-radius:50%;margin:0 auto 18px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;background:var(--terra);
+    box-shadow:0 10px 24px rgba(194,78,46,.3)}
+  .form-success h3{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.06em;margin-bottom:12px}
+  .form-success p{font-size:14px;color:var(--ink-70);line-height:2}
+
   /* ---------- footer ---------- */
   footer{background:var(--ink);color:rgba(248,243,233,.85);padding:clamp(52px,7vw,84px) 0 34px}
   .ft-grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
@@ -475,7 +517,8 @@
     .hero{padding-top:calc(var(--header-h) + 34px);padding-bottom:90px;min-height:0}
     .hero-stage{margin-top:6px;height:340px}
     .scene{transform:scale(.62)}
-    .phil-grid,.theory-grid,.access-grid{grid-template-columns:minmax(0,1fr)}
+    .phil-grid,.theory-grid,.access-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}
+    .cform{grid-template-columns:1fr}
     .cards{grid-template-columns:1fr;max-width:520px;margin:0 auto}
     .moment-grid{grid-template-columns:1fr 1fr;grid-auto-rows:132px}
     .m-feature{grid-row:span 1;grid-column:span 2}
@@ -535,7 +578,7 @@
       <a href="#access">アクセス</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false"><span></span><span></span></button>
-    <a class="hd-cta" href="#access"><span class="cta-l">体験・見学のご相談</span><span class="cta-s">体験相談</span></a>
+    <a class="hd-cta" href="#contact"><span class="cta-l">体験・見学のご相談</span><span class="cta-s">体験相談</span></a>
     <div class="m-panel" id="mPanel">
       <a href="#philosophy">理念 — 素頭を良くする教育</a>
       <a href="#method">メソッド — 150の知能因子</a>
@@ -561,7 +604,7 @@
         <p class="hero-sub rv" style="--d:.6s">知識の先取りではなく、<b>子供の「素頭」を良くする。</b><br>
         ギルフォード知能構造論にもとづき、記憶力・思考力・集中力——学びの土台そのものを、1歳半から小学生までの「いま」に育てます。</p>
         <div class="hero-ctas rv" style="--d:.75s">
-          <a class="btn btn-solid" href="#access">体験・見学のご相談<span class="ar">→</span></a>
+          <a class="btn btn-solid" href="#contact">体験・見学のご相談<span class="ar">→</span></a>
           <a class="btn btn-ghost" href="#method">教育理論を見る<span class="ar">→</span></a>
         </div>
         <div class="hero-meta rv" style="--d:.9s">
@@ -844,7 +887,7 @@
             <div><dt>定休日</dt><dd>日曜日・月曜日</dd></div>
           </dl>
           <div class="access-ctas">
-            <a class="btn btn-solid" href="https://www.cube55.net/contact.html" target="_blank" rel="noopener">お問い合わせフォーム<span class="ar">→</span></a>
+            <a class="btn btn-solid" href="#contact">お問い合わせフォーム<span class="ar">→</span></a>
             <a class="btn btn-ghost" href="tel:0432443745">電話をかける（土曜のみ）</a>
           </div>
         </div>
@@ -852,6 +895,80 @@
           <svg id="isoMap" viewBox="0 0 460 300" role="img" aria-label="千葉駅東口から教室までの案内イメージ図"></svg>
           <figcaption><span>Area Map — 案内図（イメージ）</span><span>Walk 6 min</span></figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 CONTACT (styled form → Google Forms) ============ -->
+  <section class="ch contact" id="contact">
+    <span class="hashira">07 — Contact / お問い合わせ</span>
+    <div class="wrap">
+      <div class="ch-head rv">
+        <p class="eyebrow"><span class="no">07</span>Contact — お問い合わせ</p>
+        <h2 class="h-serif">まずは、見学から。</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-aside rv" style="--d:.1s">
+          <p class="lead">入室・体験・講習のお申し込み、ご相談はこちらのフォームから。内容を確認のうえ、2〜3日以内にご返信します。</p>
+          <div class="ca-tel">
+            <a class="tel num-face" href="tel:0432443745">043-244-3745</a>
+            <small>お電話でのお問い合わせは土曜日のみ承っています（定休：日・月）</small>
+          </div>
+          <p class="ca-privacy">いただいた個人情報は、ご返信および教室運営の目的のみに使用します。</p>
+        </div>
+        <div class="cform-wrap rv" style="--d:.18s">
+          <form id="contactForm" class="cform" novalidate>
+            <div class="field full">
+              <label for="cf-youken">ご用件<span class="req">*</span></label>
+              <select id="cf-youken" name="youken" required>
+                <option value="" selected disabled>選択してください</option>
+                <option>入室のお申し込み</option>
+                <option>体験のお申し込み</option>
+                <option>講習のお申し込み</option>
+                <option>単発授業のお申し込み</option>
+                <option>その他のお問い合わせ</option>
+              </select>
+              <span class="err">ご用件を選択してください</span>
+            </div>
+            <div class="field">
+              <label for="cf-name">お子様のお名前<span class="req">*</span></label>
+              <input id="cf-name" name="name" autocomplete="off" required>
+              <span class="err">お名前をご入力ください</span>
+            </div>
+            <div class="field">
+              <label for="cf-furigana">ふりがな<span class="req">*</span></label>
+              <input id="cf-furigana" name="furigana" autocomplete="off" required>
+              <span class="err">ふりがなをご入力ください</span>
+            </div>
+            <div class="field">
+              <label for="cf-age">お子様の年齢<span class="req">*</span></label>
+              <input id="cf-age" name="age" placeholder="例：3歳2か月 / 小2" required>
+              <span class="err">年齢をご入力ください</span>
+            </div>
+            <div class="field">
+              <label for="cf-email">メールアドレス<span class="req">*</span></label>
+              <input id="cf-email" type="email" name="email" inputmode="email" autocomplete="email" required>
+              <span class="err">正しいメールアドレスをご入力ください</span>
+            </div>
+            <div class="field full">
+              <label for="cf-tel">電話番号（任意）</label>
+              <input id="cf-tel" name="tel" inputmode="tel" autocomplete="tel">
+            </div>
+            <div class="field full">
+              <label for="cf-message">お問い合わせ内容（任意）</label>
+              <textarea id="cf-message" name="message" placeholder="ご希望の曜日・時間帯、ご質問などがあればご記入ください。"></textarea>
+            </div>
+            <div class="cform-actions">
+              <button type="submit" class="btn btn-solid">送信する<span class="ar">→</span></button>
+              <p class="cform-note">送信をもって、個人情報の取り扱いに同意いただいたものとみなします。</p>
+            </div>
+          </form>
+          <div class="form-success" id="formSuccess" hidden>
+            <div class="fs-mark" aria-hidden="true">✓</div>
+            <h3>送信ありがとうございました。</h3>
+            <p>内容を確認のうえ、2〜3日以内にご返信いたします。<br>お急ぎの場合は 043-244-3745（土曜のみ）へお願いいたします。</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -882,7 +999,7 @@
         <div>
           <h4>Contact</h4>
           <ul>
-            <li><a href="https://www.cube55.net/contact.html" target="_blank" rel="noopener">お問い合わせ<span class="ext">↗</span></a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
             <li><a href="https://www.cube55.net/recruit.html" target="_blank" rel="noopener">採用情報<span class="ext">↗</span></a></li>
           </ul>
         </div>
@@ -1324,6 +1441,57 @@
     pin.setAttribute("cx", 350); pin.setAttribute("cy", 24);
     pin.setAttribute("r", "5"); pin.setAttribute("fill", "#C24E2E");
     m.appendChild(pin);
+  })();
+
+  /* ---------- 07 contact: styled form -> Google Forms backend ----------
+     ▼ 設定はこの GFORM だけ差し替えればOK（Googleフォームの「事前入力したURLを取得」で entry ID が分かります）
+     action : https://docs.google.com/forms/d/e/＜フォームID＞/formResponse
+     map    : 各項目に対応する entry.＜番号＞
+  ------------------------------------------------------------------------ */
+  (function(){
+    var form = document.getElementById("contactForm");
+    if(!form) return;
+    var GFORM = {
+      action: "https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse",
+      map: {
+        youken:  "entry.REPLACE_1",
+        name:    "entry.REPLACE_2",
+        furigana:"entry.REPLACE_3",
+        age:     "entry.REPLACE_4",
+        email:   "entry.REPLACE_5",
+        tel:     "entry.REPLACE_6",
+        message: "entry.REPLACE_7"
+      }
+    };
+    var REQUIRED = ["youken","name","furigana","age","email"];
+    function mark(el, bad){ var f = el.closest(".field"); if(f) f.classList.toggle("invalid", bad); }
+    form.addEventListener("input", function(e){
+      var f = e.target.closest(".field"); if(f) f.classList.remove("invalid");
+    });
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var ok = true, firstBad = null;
+      REQUIRED.forEach(function(k){
+        var el = form.elements[k]; if(!el) return;
+        var bad = !String(el.value).trim();
+        if(k === "email" && el.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)) bad = true;
+        mark(el, bad);
+        if(bad && !firstBad) firstBad = el;
+        if(bad) ok = false;
+      });
+      if(!ok){ if(firstBad) firstBad.focus(); return; }
+      // send to Google Forms (opaque; Google records the response). Skips while still a placeholder.
+      if(GFORM.action.indexOf("REPLACE") < 0){
+        var fd = new FormData();
+        Object.keys(GFORM.map).forEach(function(k){
+          var el = form.elements[k]; if(el) fd.append(GFORM.map[k], el.value);
+        });
+        try { fetch(GFORM.action, {method:"POST", mode:"no-cors", body:fd}); } catch(err){}
+      }
+      form.hidden = true;
+      var s = document.getElementById("formSuccess");
+      if(s){ s.hidden = false; s.scrollIntoView({behavior:"smooth", block:"center"}); }
+    });
   })();
 })();
 </script>
