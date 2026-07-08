@@ -3,607 +3,409 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>キッズスクールCUBE — すべては子供の人生のために。｜千葉の知能教育・幼児教室・積木教室</title>
-<meta name="description" content="千葉駅東口徒歩6分。知識の先取りではなく子供の「素頭」を良くする、ギルフォード知能構造論にもとづく知能教育・幼児教室・積木教室。2歳児・幼児・小学生クラス。">
+<title>キッズスクールCUBE — 考える楽しさが、未来を変えていく。｜千葉の知育・幼児教室</title>
+<meta name="description" content="これからの時代に必要な思考力の土台を育てる知育・幼児教室。積み木を使った独自の教育メソッドで「考える力」を育てます。千葉駅東口徒歩6分。無料体験学習受付中。">
 </head>
 <body>
 <style>
   :root{
-    --paper:#F8F3E9;
-    --paper-2:#F1E8D8;
-    --ink:#2E2620;
-    --ink-70:rgba(46,38,32,.75);
-    --ink-50:rgba(46,38,32,.66);
-    --line:#E0D5C1;
-    --line-soft:rgba(46,38,32,.10);
-    --terra:#C24E2E;
-    --terra-soft:rgba(194,78,46,.09);
-    --amber:#C98A3D;
-    --night:#261D12;
-    --night-ink:#F4ECDD;
-    --night-sub:rgba(244,236,221,.68);
-    --glow:#FFB65C;
-    --serif:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;
+    --wine:#9C1850;
+    --wine-dark:#7C0F3E;
+    --wine-soft:rgba(156,24,80,.08);
+    --ink:#3B3B3B;
+    --ink-70:#5A5A5A;
+    --ink-50:#8A8A8A;
+    --paper:#FFFFFF;
+    --gray:#F0EEEB;
+    --card:#EFEDEA;
+    --line:#E3E0DB;
+    --orange:#F0A03C;
+    --green:#A5C878;
+    --blue:#64B9D9;
     --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","YuGothic","Meiryo",sans-serif;
     --num:"Avenir Next","Helvetica Neue","Segoe UI",Arial,sans-serif;
     --ease:cubic-bezier(.16,1,.3,1);
-    --header-h:64px;
+    --header-h:72px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  ::selection{background:rgba(227,178,60,.4)}
-  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
+  ::selection{background:rgba(156,24,80,.18)}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 10px)}
   body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-size:16px;
-    line-height:1.9;
-    letter-spacing:.03em;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:15.5px;line-height:2;letter-spacing:.04em;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
   a{color:inherit;text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:2px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--wine);outline-offset:3px;border-radius:2px}
   img,svg{max-width:100%;display:block}
-  .wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-
-  /* ---------- type roles ---------- */
-  .eyebrow{
-    font-family:var(--num);
-    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--ink-50);
-    display:flex;align-items:center;gap:14px;
-  }
-  .eyebrow::before{content:"";width:34px;height:1px;background:var(--ink);opacity:.4}
-  .eyebrow .no{color:var(--terra);font-weight:600;letter-spacing:.18em}
-  .h-serif{
-    font-family:var(--serif);
-    font-weight:600;
-    font-feature-settings:"palt";
-    letter-spacing:.05em;
-    line-height:1.42;
-  }
-  h2.h-serif{font-size:clamp(26px,4.2vw,46px)}
-  .lead{max-width:38em;color:var(--ink-70);font-size:clamp(15px,1.6vw,16.5px)}
-  .accent{color:var(--terra)}
-  .marker{background:linear-gradient(transparent 66%, rgba(227,178,60,.42) 66%)}
-  .num-face{font-family:var(--num);font-variant-numeric:tabular-nums}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
 
   /* ---------- reveal ---------- */
-  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
   .rv.on{opacity:1;transform:none}
-  .mask-line{display:block;overflow:hidden}
-  .mask-line>span{display:block;transform:translateY(112%);transition:transform 1s var(--ease);transition-delay:var(--d,0s)}
-  .on .mask-line>span{transform:none}
+  @media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}}
 
   /* ---------- header ---------- */
   header{
-    position:fixed;inset:0 0 auto 0;z-index:60;height:var(--header-h);
-    background:rgba(248,243,233,.78);
-    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);
-    transition:box-shadow .4s ease;
+    position:fixed;inset:0 0 auto 0;z-index:70;height:var(--header-h);
+    background:rgba(255,255,255,.94);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    transition:box-shadow .35s ease;
   }
-  header.scrolled{box-shadow:0 10px 30px rgba(46,38,32,.07)}
-  .hd-in{max-width:1220px;margin:0 auto;height:100%;padding:0 clamp(16px,3vw,36px);display:flex;align-items:center;gap:28px}
-  .brand{display:flex;align-items:center;gap:12px;flex-shrink:1;min-width:0}
-  .brand .logo-img{height:34px;width:auto;mix-blend-mode:multiply}
-  .brand>span{min-width:0;overflow:hidden}
-  .brand b{font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:.06em;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .brand small{display:block;font-family:var(--num);font-size:9px;letter-spacing:.3em;color:var(--ink-50);text-transform:uppercase;line-height:1.4}
-  nav.gnav{display:flex;gap:26px;margin-left:auto}
-  nav.gnav a{font-size:13px;letter-spacing:.12em;color:var(--ink-70);position:relative;padding:6px 0}
-  nav.gnav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+  header.scrolled{box-shadow:0 6px 24px rgba(59,59,59,.10)}
+  .hd-in{max-width:1600px;margin:0 auto;height:100%;padding-left:clamp(16px,3vw,40px);display:flex;align-items:center;gap:clamp(14px,2.4vw,30px)}
+  .brand img{height:40px;width:auto}
+  nav.gnav{display:flex;gap:clamp(12px,1.9vw,26px);margin-left:auto;align-items:center}
+  nav.gnav a{
+    font-size:13.5px;font-weight:600;letter-spacing:.06em;color:var(--ink);
+    padding:8px 0;position:relative;white-space:nowrap;
+  }
+  nav.gnav a::after{content:"";position:absolute;left:0;bottom:2px;width:100%;height:2px;background:var(--wine);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
   nav.gnav a:hover::after{transform:scaleX(1)}
   .hd-cta{
-    flex-shrink:0;margin-left:8px;
-    background:var(--terra);color:#fff;font-size:13px;letter-spacing:.1em;
-    padding:10px 20px;border-radius:999px;
-    transition:transform .3s var(--ease),box-shadow .3s var(--ease);
-    box-shadow:0 6px 18px rgba(194,78,46,.28);
+    height:var(--header-h);flex-shrink:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;
+    background:var(--wine);color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.08em;
+    padding:0 clamp(18px,2.6vw,34px);line-height:1.7;text-align:center;
+    transition:background .3s;
   }
-  .hd-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(194,78,46,.36)}
-  .hd-cta .cta-s{display:none}
-  .menu-btn{display:none;margin-left:auto;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
-  .menu-btn span{position:absolute;left:11px;width:22px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .3s}
-  .menu-btn span:nth-child(1){top:18px}.menu-btn span:nth-child(2){top:26px}
-  .m-panel{display:none;position:absolute;top:var(--header-h);left:0;right:0;background:rgba(248,243,233,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:10px 24px 22px}
-  .m-panel a{display:block;padding:13px 4px;font-size:14.5px;letter-spacing:.12em;border-bottom:1px solid var(--line-soft)}
+  .hd-cta:hover{background:var(--wine-dark)}
+  .menu-btn{display:none;margin-left:auto;background:none;border:0;width:46px;height:46px;cursor:pointer;position:relative}
+  .menu-btn span{position:absolute;left:12px;width:22px;height:2px;background:var(--ink);transition:transform .3s var(--ease)}
+  .menu-btn span:nth-child(1){top:19px}.menu-btn span:nth-child(2){top:27px}
+  .m-panel{display:none;position:absolute;top:var(--header-h);left:0;right:0;background:rgba(255,255,255,.98);border-bottom:1px solid var(--line);padding:8px 24px 20px;box-shadow:0 18px 30px rgba(0,0,0,.08)}
+  .m-panel a{display:block;padding:12px 4px;font-size:14px;font-weight:600;border-bottom:1px solid var(--line)}
   header.open .m-panel{display:block}
-  header.open .menu-btn span:nth-child(1){transform:translateY(4px) rotate(24deg)}
-  header.open .menu-btn span:nth-child(2){transform:translateY(-4px) rotate(-24deg)}
+  header.open .menu-btn span:nth-child(1){transform:translateY(4px) rotate(26deg)}
+  header.open .menu-btn span:nth-child(2){transform:translateY(-4px) rotate(-26deg)}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:14px;
+    background:var(--wine);color:#fff;font-family:var(--sans);font-size:14.5px;font-weight:700;letter-spacing:.1em;
+    padding:17px 40px;border-radius:999px;border:0;cursor:pointer;min-width:260px;
+    box-shadow:0 8px 20px rgba(156,24,80,.24);
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(156,24,80,.32);background:var(--wine-dark)}
+  .btn .ar{font-family:var(--num);font-size:13px;transition:transform .3s var(--ease)}
+  .btn:hover .ar{transform:translateX(4px)}
+  .btn-white{background:#fff;color:var(--wine);box-shadow:0 8px 20px rgba(0,0,0,.14)}
+  .btn-white:hover{background:#fff;color:var(--wine-dark);box-shadow:0 14px 28px rgba(0,0,0,.2)}
+  .btn-center{display:flex;justify-content:center;margin-top:clamp(34px,5vw,52px)}
+
+  /* ---------- section headings ---------- */
+  .sec{padding:clamp(60px,9vw,104px) 0;position:relative}
+  .sec-h{
+    text-align:center;font-size:clamp(24px,3.6vw,36px);font-weight:700;letter-spacing:.08em;line-height:1.7;
+    margin-bottom:clamp(30px,5vw,50px);
+  }
+  .sec-h .w{color:var(--wine)}
+  .sec-h small{display:block;font-size:clamp(16px,2vw,22px);letter-spacing:.1em}
 
   /* ---------- hero ---------- */
   .hero{
-    min-height:100vh;min-height:100svh;
+    margin-top:var(--header-h);
+    position:relative;min-height:min(86vh,760px);
     display:flex;align-items:center;
-    position:relative;overflow:hidden;
-    padding-top:var(--header-h);
-    background-image:
-      linear-gradient(rgba(46,38,32,.045) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(46,38,32,.045) 1px,transparent 1px);
-    background-size:76px 76px;
+    overflow:hidden;background:#DCD9D4;
   }
-  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  .hero-bg{position:absolute;inset:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(100deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.16) 44%,rgba(255,255,255,0) 70%)}
+  .hero-in{position:relative;z-index:2;width:100%;max-width:1600px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,72px)}
+  .hero h1{
+    font-size:clamp(34px,6.2vw,64px);font-weight:700;letter-spacing:.1em;line-height:1.86;
+    color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.16),0 1px 3px rgba(0,0,0,.14);
+  }
+  .hero h1 .ln{display:block;overflow:hidden}
+  .hero h1 .ln>span{display:block;transform:translateY(110%);transition:transform 1s var(--ease);transition-delay:var(--d,0s)}
+  .hero h1.go .ln>span{transform:none}
+  .hero h1 .bx{
+    display:inline-block;background:var(--wine);padding:0 .08em;margin:0 .04em;border-radius:3px;
+    text-shadow:none;box-shadow:0 4px 14px rgba(124,15,62,.3);
+    transform:scale(.6);opacity:0;transition:transform .55s var(--ease),opacity .4s ease;transition-delay:var(--bd,0s);
+  }
+  .hero h1.go .bx{transform:scale(1);opacity:1}
+  @media (prefers-reduced-motion: reduce){
+    .hero h1 .ln>span{transform:none}
+    .hero h1 .bx{transform:none;opacity:1}
+  }
+  .hero-badge{
+    position:absolute;right:clamp(16px,4vw,64px);bottom:clamp(18px,4vw,48px);z-index:3;
+    background:#fff;border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.16);
+    padding:18px 20px;display:flex;gap:16px;align-items:center;
+    transform:translateY(14px);opacity:0;transition:transform .8s var(--ease) .9s,opacity .8s ease .9s;
+  }
+  .hero-badge.on{transform:none;opacity:1}
+  .hero-badge .hb-t b{display:block;font-size:14.5px;font-weight:700;letter-spacing:.06em;margin-bottom:8px}
+  .hero-badge .hb-t .stamp{display:inline-block;background:var(--wine);color:#fff;font-size:clamp(16px,1.6vw,20px);font-weight:700;letter-spacing:.12em;padding:3px 12px;margin:2px 0}
+  .hero-badge img{width:96px;height:78px;object-fit:cover;border-radius:6px}
+  /* hero draggable cube (subtle ornament) */
+  .hero-cube{
+    position:absolute;z-index:2;right:clamp(16px,4.5vw,72px);top:10%;
+    width:min(28vw,280px);height:min(28vw,280px);
+    perspective:900px;cursor:grab;touch-action:pan-y;
+  }
+  .hero-cube:active{cursor:grabbing}
+  .hero-cube .hc-tilt{position:absolute;inset:0;transform-style:preserve-3d}
+  .hero-cube .he{position:absolute;left:50%;top:50%;background:rgba(255,255,255,.62);box-shadow:0 0 6px rgba(255,255,255,.35)}
+  .hero-cube .hv{position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:#fff;opacity:.85}
+  .hero-hint{
+    position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);
+    font-family:var(--num);font-size:9.5px;letter-spacing:.3em;color:rgba(255,255,255,.9);text-transform:uppercase;white-space:nowrap;
+    text-shadow:0 1px 6px rgba(0,0,0,.3);
+  }
+  @media (max-width:760px){.hero-cube{display:none}}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,56px);align-items:center}
+  .about-grid p{margin-bottom:0;font-size:15px;line-height:2.35}
+  .pic4{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .pic4 figure{border-radius:8px;overflow:hidden;box-shadow:0 10px 26px rgba(59,59,59,.10)}
+  .pic4 img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .8s var(--ease)}
+  .pic4 figure:hover img{transform:scale(1.06)}
+
+  /* ---------- method ---------- */
+  .method{
     background:
-      radial-gradient(120% 90% at 70% 20%,transparent 55%,rgba(248,243,233,.9) 100%),
-      radial-gradient(62% 48% at 78% 22%,rgba(227,178,60,.16),transparent 70%)}
-  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:24px;width:100%}
-  .hero-copy .eyebrow{margin-bottom:30px}
-  h1{
-    font-family:var(--serif);font-weight:600;font-feature-settings:"palt";
-    font-size:clamp(40px,6.4vw,78px);
-    line-height:1.32;letter-spacing:.055em;
+      linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.82)),
+      repeating-linear-gradient(0deg,#F4F1EC 0 44px,#EDEAE4 44px 46px),
+      repeating-linear-gradient(90deg,#F4F1EC 0 110px,#EDEAE4 110px 112px);
   }
-  .hero-sub{margin-top:30px;max-width:33em;color:var(--ink-70);font-size:clamp(14.5px,1.5vw,16px)}
-  .hero-sub b{font-weight:700;color:var(--ink)}
-  .hero-ctas{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px}
-  .btn{display:inline-flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.12em;padding:15px 30px;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s}
-  .btn-solid{background:var(--terra);color:#fff;box-shadow:0 8px 22px rgba(194,78,46,.26)}
-  .btn-solid:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(194,78,46,.34)}
-  .btn-ghost{border:1px solid var(--ink);color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
-  .btn .ar{font-family:var(--num);font-size:13px;transition:transform .3s var(--ease)}
-  .btn:hover .ar{transform:translateX(4px)}
-  .hero-meta{margin-top:44px;display:flex;gap:28px;flex-wrap:wrap;font-family:var(--num);font-size:11px;letter-spacing:.22em;color:var(--ink-50);text-transform:uppercase}
-  .hero-meta span{display:flex;align-items:center;gap:8px}
-  .hero-meta i{width:5px;height:5px;background:var(--terra);display:inline-block;transform:rotate(45deg)}
-
-  /* hero 3D lattice */
-  .hero-stage{position:relative;display:flex;justify-content:center;align-items:center}
-  .scene{width:480px;height:480px;perspective:1200px;position:relative;flex-shrink:0;cursor:grab;touch-action:pan-y}
-  .scene:active{cursor:grabbing}
-  .tilt,.spin{position:absolute;inset:0;transform-style:preserve-3d}
-  .tilt{transform:rotateX(var(--my,0deg)) rotateY(var(--mx,0deg));transition:transform .8s var(--ease)}
-  @keyframes heroSpin{from{transform:rotateX(-24deg) rotateY(-10deg)}to{transform:rotateX(-24deg) rotateY(350deg)}}
-  .spin{transform:rotateX(-24deg) rotateY(-10deg)}
-  .hero-drag-hint{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);font-family:var(--num);font-size:10px;letter-spacing:.28em;color:var(--ink-50);text-transform:uppercase;display:flex;align-items:center;gap:8px;white-space:nowrap;pointer-events:none}
-  .hero-drag-hint::before,.hero-drag-hint::after{content:"";width:20px;height:1px;background:rgba(46,38,32,.28)}
-  .qb{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;transform-style:preserve-3d}
-  .qb .f{position:absolute;inset:0;border:1px solid rgba(46,38,32,.16);backface-visibility:hidden}
-  .qb .f-f{background:#F3ECDD;transform:translateZ(26px)}
-  .qb .f-b{background:#F3ECDD;transform:rotateY(180deg) translateZ(26px)}
-  .qb .f-r{background:#E7DDC8;transform:rotateY(90deg) translateZ(26px)}
-  .qb .f-l{background:#E7DDC8;transform:rotateY(-90deg) translateZ(26px)}
-  .qb .f-t{background:#FCF7EB;transform:rotateX(90deg) translateZ(26px)}
-  .qb .f-d{background:#DDD0B6;transform:rotateX(-90deg) translateZ(26px)}
-  .qb.q-red .f{border-color:rgba(150,60,35,.5)}
-  .qb.q-red .f-f,.qb.q-red .f-b{background:#D96A50}
-  .qb.q-red .f-r,.qb.q-red .f-l{background:#BC5740}
-  .qb.q-red .f-t{background:#E8836B}
-  .qb.q-red .f-d{background:#A34732}
-  .qb.q-yellow .f{border-color:rgba(150,110,30,.5)}
-  .qb.q-yellow .f-f,.qb.q-yellow .f-b{background:#E3B23C}
-  .qb.q-yellow .f-r,.qb.q-yellow .f-l{background:#C79A2C}
-  .qb.q-yellow .f-t{background:#EFC65D}
-  .qb.q-yellow .f-d{background:#A87F20}
-  .qb.q-green .f{border-color:rgba(80,105,60,.5)}
-  .qb.q-green .f-f,.qb.q-green .f-b{background:#8FAE7E}
-  .qb.q-green .f-r,.qb.q-green .f-l{background:#789868}
-  .qb.q-green .f-t{background:#A5C193}
-  .qb.q-green .f-d{background:#647F55}
-  .qb.q-denim .f{border-color:rgba(60,80,130,.5)}
-  .qb.q-denim .f-f,.qb.q-denim .f-b{background:#6B87C4}
-  .qb.q-denim .f-r,.qb.q-denim .f-l{background:#5871A9}
-  .qb.q-denim .f-t{background:#86A0D6}
-  .qb.q-denim .f-d{background:#47598B}
-  .lead-label{position:absolute;font-family:var(--num);font-size:10px;letter-spacing:.3em;color:var(--ink-50);text-transform:uppercase;z-index:3}
-  .lead-label::after{content:"";position:absolute;top:50%;width:44px;height:1px;background:rgba(46,38,32,.3)}
-  .lead-label.ll-r::after{left:calc(100% + 10px)}
-  .lead-label.ll-l::after{right:calc(100% + 10px)}
-  .ll-1{top:16%;left:-2%}
-  .ll-2{top:44%;right:-4%}
-  .ll-3{bottom:14%;left:6%}
-  .scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--num);font-size:10px;letter-spacing:.34em;color:var(--ink-50);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:3}
-  .scroll-cue::after{content:"";width:1px;height:44px;background:linear-gradient(var(--ink) 0%,transparent 100%);animation:cue 2.2s var(--ease) infinite}
-  @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
-  /* ---------- chapters common ---------- */
-  section.ch{position:relative;padding:clamp(84px,11vw,150px) 0}
-  .ch-head{display:flex;flex-direction:column;gap:26px;margin-bottom:clamp(40px,6vw,72px)}
-  .hashira{
-    position:absolute;top:clamp(84px,11vw,150px);right:clamp(8px,2vw,26px);
-    writing-mode:vertical-rl;font-family:var(--num);font-size:10px;letter-spacing:.42em;
-    color:var(--ink-50);text-transform:uppercase;
+  .method-body{max-width:920px;margin:0 auto}
+  .method-body p{font-size:15px;line-height:2.35;margin-bottom:1.2em}
+  .method-photo{margin-top:clamp(26px,4vw,44px);border-radius:10px;overflow:hidden;box-shadow:0 16px 40px rgba(59,59,59,.12)}
+  .method-photo img{width:100%;max-height:420px;object-fit:cover}
+  /* 150-factor lattice (tsumiki color ver.) */
+  .lat-box{
+    margin:clamp(34px,5vw,54px) auto 0;max-width:920px;
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:clamp(20px,3.5vw,34px);box-shadow:0 16px 40px rgba(59,59,59,.09);
+    display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(16px,3vw,30px);align-items:center;
   }
-  .rule{border:0;border-top:1px solid var(--line)}
-
-  /* ---------- 01 philosophy ---------- */
-  .phil-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(36px,6vw,80px);align-items:start}
-  .formula{
-    margin-top:8px;border:1px solid var(--line);background:#FCF8EE;border-radius:18px;
-    padding:clamp(28px,4vw,48px) clamp(22px,3.4vw,40px);
-    display:flex;flex-direction:column;gap:18px;
-    box-shadow:14px 14px 0 rgba(201,138,61,.14);
+  .lat-box .lb-t h3{font-size:clamp(17px,2.2vw,21px);font-weight:700;letter-spacing:.08em;line-height:1.8;margin-bottom:12px}
+  .lat-box .lb-t h3 b{color:var(--wine)}
+  .lat-box .lb-t p{font-size:13.5px;color:var(--ink-70);line-height:2.1}
+  .lat-box .lb-t .lr{
+    margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--ink-50);letter-spacing:.1em;
   }
-  .formula .fx{display:flex;align-items:baseline;justify-content:center;gap:clamp(10px,2vw,22px);font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.6vw,40px);letter-spacing:.08em}
-  .formula .fx .op{color:var(--terra);font-family:var(--num);font-weight:400;font-size:.8em}
-  .formula figcaption{text-align:center;font-size:13.5px;color:var(--ink-70);letter-spacing:.08em}
-  .phil-points{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
-  .phil-points>div{display:flex;gap:18px;padding:20px 4px;border-bottom:1px solid var(--line);align-items:baseline}
-  .phil-points .pn{font-family:var(--num);font-size:11px;letter-spacing:.2em;color:var(--terra);flex-shrink:0}
-  .phil-points b{font-weight:700;display:block;margin-bottom:4px;letter-spacing:.06em}
-  .phil-points p{font-size:14px;color:var(--ink-70)}
-
-  /* ---------- 02 critical (sticky) ---------- */
-  .critical{height:340vh;position:relative;background:var(--paper-2)}
-  .critical-sticky{
-    position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
-    display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-    background-image:linear-gradient(rgba(46,38,32,.05) 1px,transparent 1px);
-    background-size:100% 76px;
-  }
-  .crit-eyebrow{position:absolute;top:calc(var(--header-h) + 26px);left:50%;transform:translateX(-50%);white-space:nowrap}
-  .crit-eyebrow::before{display:none}
-  .age-line{display:flex;align-items:baseline;justify-content:center;gap:6px;line-height:1}
-  .age-num{
-    font-family:var(--num);font-weight:200;font-variant-numeric:tabular-nums;
-    font-size:clamp(150px,30vw,320px);
-    color:transparent;-webkit-text-stroke:2px rgba(46,38,32,.75);
-    display:inline-block;
-  }
-  @supports not (-webkit-text-stroke:1px black){.age-num{color:rgba(46,38,32,.22)}}
-  .age-num.pop{animation:agePop .55s var(--ease)}
-  @keyframes agePop{from{opacity:.1;transform:translateY(26px)}to{opacity:1;transform:none}}
-  .age-sai{font-family:var(--serif);font-size:clamp(30px,5vw,54px);font-weight:600;color:var(--ink)}
-  .crit-caps{display:grid;width:min(88vw,640px);margin-top:14px}
-  .crit-caps .ph{
-    grid-area:1/1;display:flex;flex-direction:column;justify-content:flex-start;gap:8px;
-    opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease);
-  }
-  .crit-caps .ph.act{opacity:1;transform:none}
-  .crit-caps .ph .t1{font-family:var(--serif);font-weight:600;font-size:clamp(19px,2.8vw,28px);letter-spacing:.07em;line-height:1.6}
-  .crit-caps .ph .t2{font-size:13.5px;color:var(--ink-70);letter-spacing:.06em}
-  .age-track{position:absolute;bottom:clamp(30px,6vh,58px);left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px}
-  .age-track .blk{width:13px;height:13px;border:1px solid rgba(46,38,32,.4);transform:rotate(45deg);transition:background .45s var(--ease),border-color .45s}
-  .age-track .blk.fill{background:var(--amber);border-color:var(--amber)}
-  .age-track .cap{font-family:var(--num);font-size:10px;letter-spacing:.24em;color:var(--ink-50);margin:0 6px}
-
-  /* ---------- 03 theory (dark) ---------- */
-  .theory{
-    background-color:var(--night);
-    background-image:radial-gradient(58% 52% at 72% 46%,rgba(255,172,84,.10),transparent 72%);
-    color:var(--night-ink);overflow:hidden
-  }
-  .theory .eyebrow{color:var(--night-sub)}
-  .theory .eyebrow::before{background:var(--night-ink)}
-  .theory .hashira{color:rgba(244,236,221,.4)}
-  .theory-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(30px,5vw,60px);align-items:center}
-  .theory .lead{color:var(--night-sub)}
-  .t-num{display:flex;align-items:baseline;gap:16px;margin:26px 0 6px}
-  .t-num .big{
-    font-family:var(--num);font-weight:200;font-size:clamp(88px,12vw,150px);line-height:1;
-    color:transparent;-webkit-text-stroke:1.5px rgba(255,193,110,.95);
-    font-variant-numeric:tabular-nums;
-  }
-  @supports not (-webkit-text-stroke:1px black){.t-num .big{color:rgba(255,193,110,.8)}}
-  .t-num .unit{font-family:var(--serif);font-size:20px;color:var(--night-ink);line-height:1.5}
-  .t-num .unit small{display:block;font-family:var(--num);font-size:11px;letter-spacing:.16em;color:var(--night-sub);margin-top:4px}
-  .soi-dims{display:flex;flex-direction:column;gap:0;margin-top:26px;border-top:1px solid rgba(244,236,221,.18)}
-  .soi-dim{display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:baseline;padding:14px 2px;border-bottom:1px solid rgba(244,236,221,.14)}
-  .soi-dim .soi-k{display:flex;flex-direction:column;gap:3px}
-  .soi-dim .soi-k b{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--night-ink);letter-spacing:.06em}
-  .soi-dim .soi-k i{font-family:var(--num);font-size:9.5px;letter-spacing:.2em;color:var(--glow);font-style:normal;text-transform:uppercase}
-  .soi-dim p{font-size:13px;color:var(--night-sub);letter-spacing:.04em;line-height:1.85}
-  .soi-eq{margin-top:16px;font-family:var(--num);font-size:12.5px;letter-spacing:.16em;color:var(--night-sub)}
-  .soi-eq b{color:var(--glow);font-weight:500}
-  .t-note{margin-top:30px;font-size:13.5px;color:var(--night-sub);border-left:2px solid var(--amber);padding-left:16px;line-height:2}
-  /* lattice */
-  .lat-stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:480px}
-  .lat-scene{width:460px;height:440px;perspective:1100px;cursor:grab;touch-action:pan-y;position:relative}
+  .lat-box .lb-t .lr b{display:block;font-size:15.5px;color:var(--ink);font-weight:700;letter-spacing:.12em;margin-top:4px}
+  .lat-box .lb-t .lr b em{font-style:normal;color:var(--wine)}
+  .lat-stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:300px}
+  .lat-scene{width:320px;height:300px;perspective:900px;cursor:grab;touch-action:pan-y;position:relative}
   .lat-scene:active{cursor:grabbing}
   .lat-tilt{position:absolute;inset:0;transform-style:preserve-3d}
-  /* each knowledge factor = a small solid 3D cube (reads volumetric from any angle) */
   .node{
-    position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;
+    position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;
     transform-style:preserve-3d;
     transform:translate3d(var(--sx),var(--sy),var(--sz)) scale(.15);
-    transition:transform 1.4s var(--ease);transition-delay:var(--d);
+    transition:transform 1.2s var(--ease);transition-delay:var(--d);
   }
   .formed .node{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1)}
-  .nf{position:absolute;inset:0;
-    background:linear-gradient(150deg,rgba(255,208,132,.66),rgba(222,148,72,.5));
-    border:.5px solid rgba(255,226,170,.72);}
-  .nf-f{transform:translateZ(5.5px)}
-  .nf-b{transform:rotateY(180deg) translateZ(5.5px)}
-  .nf-r{transform:rotateY(90deg) translateZ(5.5px)}
-  .nf-l{transform:rotateY(-90deg) translateZ(5.5px)}
-  .nf-t{transform:rotateX(90deg) translateZ(5.5px);background:linear-gradient(150deg,rgba(255,224,164,.8),rgba(240,180,104,.62))}
-  .nf-d{transform:rotateX(-90deg) translateZ(5.5px);background:rgba(196,126,60,.5)}
-  .formed .node.hot{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1.75);z-index:5}
-  .node.hot .nf{background:rgba(255,242,214,.96);border-color:#fff;box-shadow:0 0 10px rgba(255,214,140,.9)}
-  .edge{position:absolute;left:50%;top:50%;background:rgba(255,190,120,.3)}
-  .lat-readout{
-    position:absolute;left:50%;top:14px;transform:translateX(-50%);
-    display:flex;flex-direction:column;align-items:center;gap:5px;white-space:nowrap;pointer-events:none;
-  }
-  .lat-readout .lr-lead{font-family:var(--num);font-size:9.5px;letter-spacing:.28em;color:var(--night-sub);text-transform:uppercase}
-  .lat-readout .lr-val{font-family:var(--serif);font-size:clamp(15px,1.8vw,19px);letter-spacing:.08em;color:var(--night-ink);transition:opacity .3s ease}
-  .lat-readout .lr-val em{font-style:normal;color:var(--glow)}
+  .nf{position:absolute;inset:0;background:var(--c,#E8D5B5);border:.5px solid rgba(255,255,255,.5)}
+  .nf-f{transform:translateZ(4.5px)}
+  .nf-b{transform:rotateY(180deg) translateZ(4.5px)}
+  .nf-r{transform:rotateY(90deg) translateZ(4.5px);filter:brightness(.92)}
+  .nf-l{transform:rotateY(-90deg) translateZ(4.5px);filter:brightness(.92)}
+  .nf-t{transform:rotateX(90deg) translateZ(4.5px);filter:brightness(1.08)}
+  .nf-d{transform:rotateX(-90deg) translateZ(4.5px);filter:brightness(.82)}
+  .formed .node.hot{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1.9);z-index:5}
+  .node.hot .nf{border-color:var(--wine);box-shadow:0 0 10px rgba(156,24,80,.55)}
+  .edge{position:absolute;left:50%;top:50%;background:rgba(59,59,59,.18)}
   .lat-hint{
-    position:absolute;bottom:2px;left:50%;transform:translateX(-50%);
-    font-family:var(--num);font-size:10px;letter-spacing:.3em;color:var(--night-sub);text-transform:uppercase;
+    position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+    font-family:var(--num);font-size:9.5px;letter-spacing:.3em;color:var(--ink-50);text-transform:uppercase;
     display:flex;align-items:center;gap:10px;white-space:nowrap;
   }
-  .lat-hint::before,.lat-hint::after{content:"";width:26px;height:1px;background:rgba(244,236,221,.3)}
+  .lat-hint::before,.lat-hint::after{content:"";width:24px;height:1px;background:var(--line)}
 
-  /* ---------- 04 classes ---------- */
-  .classes{background:var(--paper)}
-  .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
-  .card{
-    background:#FCF8EE;border:1px solid var(--line);border-radius:16px;
-    padding:30px 26px 28px;position:relative;
-    display:flex;flex-direction:column;gap:16px;
-    transform:perspective(900px) rotateX(var(--cx,0deg)) rotateY(var(--cy,0deg)) translateY(var(--lift,0px));
-    transition:transform .5s var(--ease),box-shadow .5s var(--ease);
-    box-shadow:0 1px 0 rgba(46,38,32,.04);
+  /* ---------- reasons ---------- */
+  .reasons{background:#fff}
+  .reason-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;row-gap:56px;margin-top:64px}
+  .reason{
+    background:var(--card);border-radius:6px;padding:58px 20px 30px;position:relative;text-align:center;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease);
   }
-  .card:hover{--lift:-6px;box-shadow:0 24px 48px rgba(46,38,32,.12)}
-  .cards>.rv{display:flex}
-  .cards>.rv>.card{flex:1;width:100%}
-  .card .tag{
-    position:absolute;top:-1px;right:22px;background:var(--ink);color:var(--paper);
-    font-family:var(--num);font-size:10px;letter-spacing:.26em;padding:7px 12px 6px;
-    border-radius:0 0 8px 8px;
+  .reason:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(59,59,59,.12)}
+  .reason .ic{
+    position:absolute;top:-38px;left:50%;transform:translateX(-50%);
+    width:76px;height:76px;border-radius:50%;background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(59,59,59,.08);
   }
-  .card.c-feature .tag{background:var(--terra)}
-  .card .age{font-family:var(--num);font-size:11px;letter-spacing:.24em;color:var(--terra);text-transform:uppercase}
-  .card h3{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:.08em}
-  .card .catch{font-weight:700;font-size:15px;letter-spacing:.05em;line-height:1.8}
-  .card p.body{font-size:13.8px;color:var(--ink-70);line-height:2}
-  .card .iso{height:96px;display:flex;align-items:center;justify-content:center;margin:2px 0}
-  .spec{border-top:1px solid var(--line);margin-top:auto}
-  .spec div{display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--line-soft);font-size:13px}
-  .spec dt{color:var(--ink-50);letter-spacing:.08em;flex-shrink:0}
-  .spec dd{text-align:right;font-weight:600}
-  .chiplist{display:flex;flex-wrap:wrap;gap:7px}
-  .chiplist span{font-size:11.5px;letter-spacing:.06em;border:1px solid var(--line);padding:5px 12px;color:var(--ink-70);background:var(--paper);border-radius:999px}
-  .special-band{
-    margin-top:clamp(36px,5vw,56px);border:1px solid var(--line);background:var(--paper-2);border-radius:18px;
-    padding:26px clamp(20px,3vw,36px);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+  .reason .ic svg{width:38px;height:38px}
+  .reason .no{
+    display:inline-block;color:var(--wine);font-size:15px;font-weight:700;letter-spacing:.14em;
+    border-bottom:2px solid var(--wine);padding-bottom:6px;margin-bottom:16px;
   }
-  .special-band b{font-family:var(--serif);font-size:18px;letter-spacing:.08em}
-  .special-band p{font-size:13.5px;color:var(--ink-70)}
-  .special-band a{flex-shrink:0}
+  .reason p{font-size:14.5px;font-weight:600;line-height:2;letter-spacing:.05em}
 
-  /* ---------- real photos (unified warm treatment) ---------- */
-  .card-photo{
-    margin:-30px -26px 4px;height:172px;overflow:hidden;position:relative;
-    border-radius:15px 15px 0 0;border-bottom:1px solid var(--line);background:#EFE7D6;
+  /* ---------- classes ---------- */
+  .classes{background:var(--gray)}
+  .class-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.6vw,30px)}
+  .cls-card{
+    background:#fff;border-radius:8px;padding:clamp(14px,1.8vw,20px);
+    border:3px solid var(--cc,var(--orange));
+    display:flex;flex-direction:column;gap:0;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease);
   }
-  .card-photo img{width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block;
-    transition:transform .7s var(--ease)}
-  .card:hover .card-photo img{transform:scale(1.05)}
-  .card-photo::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(180deg,rgba(255,247,235,.14),transparent 40%,rgba(46,38,32,.16))}
-  .phil-photo{margin:28px 0 0;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);
-    box-shadow:0 14px 34px rgba(46,38,32,.10)}
-  .phil-photo img{width:100%;display:block;max-height:300px;object-fit:cover;object-position:center 32%}
-  .phil-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 20px 16px;color:#fff;
-    font-family:var(--serif);font-size:16px;letter-spacing:.07em;
-    background:linear-gradient(transparent,rgba(46,38,32,.6))}
-  /* moments gallery */
-  .moments{background:var(--paper)}
-  .moment-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-auto-rows:150px;gap:14px;margin-top:clamp(26px,3vw,40px)}
-  .moment{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line);margin:0;background:#EFE7D6}
-  .moment img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease)}
-  .moment:hover img{transform:scale(1.05)}
-  .moment figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 13px;
-    font-size:12px;letter-spacing:.05em;color:#fff;
-    background:linear-gradient(transparent,rgba(30,24,18,.68))}
-  .moment .mc-en{display:block;font-family:var(--num);font-size:9px;letter-spacing:.24em;
-    text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:3px}
-  .m-feature{grid-row:span 2}
-  .m-wide{grid-column:span 2}
+  .cls-card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(59,59,59,.13)}
+  .cls-card .cp{border-radius:4px;overflow:hidden;margin-bottom:18px}
+  .cls-card .cp img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .8s var(--ease)}
+  .cls-card:hover .cp img{transform:scale(1.05)}
+  .cls-card h3{text-align:center;font-size:clamp(20px,2.4vw,26px);font-weight:700;letter-spacing:.1em;color:var(--cc);margin-bottom:12px}
+  .cls-card h3 small{font-size:.62em;letter-spacing:.14em}
+  .cls-card p{font-size:14px;line-height:2.1;min-height:6.3em}
+  .cls-card .btn{min-width:0;width:100%;margin-top:16px;background:var(--cc);box-shadow:0 8px 18px rgba(59,59,59,.16);font-size:13.5px;padding:14px 10px}
+  .cls-card .btn:hover{background:var(--cc);filter:brightness(1.06);box-shadow:0 12px 24px rgba(59,59,59,.2)}
 
-  /* ---------- 05 results ---------- */
-  .results{background:var(--paper-2)}
-  .pull{
-    font-family:var(--serif);font-weight:600;font-feature-settings:"palt";
-    font-size:clamp(28px,4.6vw,52px);line-height:1.5;letter-spacing:.06em;
-    max-width:22em;
+  /* ---------- intensive band ---------- */
+  .intensive .band{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    border:1px solid var(--line);background:#fff;box-shadow:0 18px 44px rgba(59,59,59,.10);
   }
-  .pull .accent{position:relative;white-space:nowrap}
-  .pull .accent::after{content:"";position:absolute;left:0;bottom:.06em;width:100%;height:2px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease) .5s}
-  .on .pull .accent::after{transform:scaleX(1)}
-  .media-quote{
-    margin-top:clamp(30px,4vw,44px);display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;
-    border-top:1px solid var(--line);padding-top:26px;
-  }
-  .media-quote .q{font-family:var(--serif);font-size:clamp(17px,2vw,21px);letter-spacing:.08em}
-  .media-quote .s{font-family:var(--num);font-size:10.5px;letter-spacing:.26em;color:var(--ink-50);text-transform:uppercase}
-  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:clamp(40px,6vw,64px)}
-  .stat{background:var(--paper-2);padding:26px 14px 22px;text-align:center;display:flex;flex-direction:column;gap:4px}
-  .stat .v{font-family:var(--num);font-weight:300;font-size:clamp(34px,4.4vw,52px);line-height:1.1;font-variant-numeric:tabular-nums;color:var(--ink)}
-  .stat .v small{font-family:var(--serif);font-size:.42em;margin-left:2px}
-  .stat .k{font-size:12px;letter-spacing:.14em;color:var(--ink-50)}
-  .stat-note{margin-top:14px;font-size:11.5px;color:var(--ink-50);letter-spacing:.06em}
+  .intensive .bd-l{background:var(--wine);color:#fff;padding:clamp(28px,4.5vw,54px)}
+  .intensive .bd-l h2{font-size:clamp(21px,3vw,30px);font-weight:700;letter-spacing:.1em;margin-bottom:16px}
+  .intensive .bd-l p{font-size:14px;line-height:2.2;opacity:.95}
+  .intensive .bd-l .btn{margin-top:26px;background:#fff;color:var(--wine);box-shadow:0 10px 22px rgba(0,0,0,.18)}
+  .intensive .bd-l .btn:hover{color:var(--wine-dark)}
+  .intensive .bd-r{position:relative;min-height:260px}
+  .intensive .bd-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-  /* ---------- 06 access ---------- */
-  .access-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:start}
-  .info-tbl{border-top:1px solid var(--ink)}
-  .info-tbl>div{display:grid;grid-template-columns:108px 1fr;gap:16px;padding:18px 2px;border-bottom:1px solid var(--line)}
-  .info-tbl dt{font-size:12.5px;letter-spacing:.2em;color:var(--ink-50);padding-top:3px}
-  .info-tbl dd{font-size:15px;line-height:1.9}
-  .info-tbl dd .tel{font-family:var(--num);font-size:22px;font-weight:500;letter-spacing:.06em;color:var(--ink)}
-  .info-tbl dd small{display:block;font-size:12px;color:var(--ink-50)}
-  .access-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-  .map-fig{border:1px solid var(--line);background:#FCF8EE;border-radius:18px;padding:18px;box-shadow:14px 14px 0 rgba(201,138,61,.14)}
-  .map-fig figcaption{font-family:var(--num);font-size:10px;letter-spacing:.28em;color:var(--ink-50);text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
-  .card .more{
-    display:inline-flex;align-items:center;gap:8px;margin-top:16px;
-    font-family:var(--num);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);
-  }
-  .card .more .ar{transition:transform .3s var(--ease)}
-  .card .more:hover .ar{transform:translateX(4px)}
-  .cta-band{
-    background:var(--night);color:var(--night-ink);border-radius:22px;
-    padding:clamp(34px,5vw,56px) clamp(24px,5vw,56px);
-    display:flex;flex-wrap:wrap;align-items:center;gap:24px 40px;justify-content:space-between;
-    position:relative;overflow:hidden;
-  }
-  .cta-band::before{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;
-    background:radial-gradient(circle,rgba(255,182,92,.22),transparent 70%)}
-  .cta-band h3{font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,28px);letter-spacing:.06em}
-  .cta-band p{font-size:13.5px;color:var(--night-sub);margin-top:8px;max-width:34em}
-  .cta-band .b-col{display:flex;gap:14px;flex-wrap:wrap}
-  .cta-band .btn-ghost{border-color:var(--night-ink);color:var(--night-ink)}
-  .cta-band .btn-ghost:hover{background:var(--night-ink);color:var(--night)}
+  /* ---------- taiken ---------- */
+  .taiken{position:relative;overflow:hidden;background:#F5EFEA;min-height:560px;display:flex;align-items:center}
+  .taiken-bg{position:absolute;inset:0}
+  .taiken-bg img{width:100%;height:100%;object-fit:cover;object-position:72% 40%}
+  .taiken-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(95deg,rgba(255,251,247,.94) 0%,rgba(255,251,247,.86) 38%,rgba(255,251,247,.28) 66%,rgba(255,251,247,0) 88%)}
+  .taiken-in{position:relative;z-index:2;padding:clamp(48px,7vw,84px) 0}
+  .taiken h2{font-size:clamp(23px,3.4vw,34px);font-weight:700;letter-spacing:.1em;line-height:1.9;margin-bottom:22px}
+  .taiken h2 .w{color:var(--wine)}
+  .taiken p{max-width:34em;font-size:15px;line-height:2.3}
+  .taiken .btn{margin-top:30px}
 
-  /* ---------- 07 contact (styled form → Google Forms backend) ---------- */
-  .contact{background:var(--paper)}
-  .contact-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(30px,5vw,58px);align-items:start}
-  .contact-aside .lead{margin-bottom:26px}
-  .contact-aside .ca-tel{border-top:1px solid var(--ink);padding-top:18px}
-  .contact-aside .ca-tel .tel{font-family:var(--num);font-size:24px;font-weight:500;letter-spacing:.06em;color:var(--ink);display:inline-block}
-  .contact-aside .ca-tel small{display:block;font-size:12px;color:var(--ink-50);margin-top:4px;line-height:1.8}
-  .contact-aside .ca-privacy{margin-top:22px;font-size:12px;color:var(--ink-50);line-height:1.9}
-  .cform-wrap{background:#FCF8EE;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,34px);
-    box-shadow:0 20px 46px rgba(46,38,32,.07)}
-  .cform{display:grid;grid-template-columns:1fr 1fr;gap:17px 20px}
-  .cform[hidden]{display:none}
-  .field{display:flex;flex-direction:column;gap:7px;min-width:0}
-  .field.full{grid-column:1 / -1}
-  .field label{font-family:var(--num);font-size:10.5px;letter-spacing:.16em;color:var(--ink-50);text-transform:uppercase}
-  .field label .req{color:var(--terra);margin-left:5px;font-style:normal}
-  .field input,.field select,.field textarea{
-    font:inherit;font-size:15px;color:var(--ink);background:var(--paper);
-    border:1px solid var(--line);border-radius:11px;padding:13px 14px;width:100%;
-    transition:border-color .25s var(--ease),box-shadow .25s var(--ease);
+  /* ---------- faq ---------- */
+  .faq{background:var(--gray)}
+  .faq-list{max-width:980px;margin:0 auto;display:grid;gap:16px}
+  .qa{background:#fff;border-radius:8px;box-shadow:0 6px 18px rgba(59,59,59,.05);overflow:hidden}
+  .qa summary{
+    list-style:none;display:flex;align-items:center;gap:16px;
+    padding:20px clamp(16px,3vw,28px);cursor:pointer;font-size:15px;font-weight:700;letter-spacing:.04em;
   }
-  .field select{appearance:none;-webkit-appearance:none;cursor:pointer;
-    background-image:linear-gradient(45deg,transparent 50%,var(--ink-50) 50%),linear-gradient(135deg,var(--ink-50) 50%,transparent 50%);
-    background-position:calc(100% - 20px) 20px,calc(100% - 14px) 20px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:38px}
-  .field textarea{min-height:120px;resize:vertical;line-height:1.8}
-  .field input::placeholder,.field textarea::placeholder{color:rgba(46,38,32,.32)}
-  .field input:focus,.field select:focus,.field textarea:focus{
-    outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(194,78,46,.13)}
-  .field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#B23A22;box-shadow:0 0 0 3px rgba(178,58,34,.12)}
-  .field .err{font-size:11.5px;color:#B23A22;display:none}
-  .field.invalid .err{display:block}
-  .cform-actions{grid-column:1 / -1;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:6px}
-  .cform-actions .cform-note{font-size:11.5px;color:var(--ink-50);line-height:1.7;max-width:24em}
-  .cform-actions .cform-note a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
-  .form-success{text-align:center;padding:20px 10px 8px;animation:fsIn .6s var(--ease) both}
-  @keyframes fsIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-  .form-success .fs-mark{width:56px;height:56px;border-radius:50%;margin:0 auto 18px;
-    display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;background:var(--terra);
-    box-shadow:0 10px 24px rgba(194,78,46,.3)}
-  .form-success h3{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.06em;margin-bottom:12px}
-  .form-success p{font-size:14px;color:var(--ink-70);line-height:2}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa .qm{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--wine);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:var(--num);font-weight:700;font-size:17px}
+  .qa .tg{
+    margin-left:auto;flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--ink-70);
+    transition:transform .35s var(--ease);
+  }
+  .qa[open] .tg{transform:rotate(180deg)}
+  .qa .ans{
+    display:flex;gap:16px;padding:4px clamp(16px,3vw,28px) 24px;
+    border-top:1px solid var(--line);margin:0 clamp(16px,3vw,28px);padding-left:0;padding-right:0;
+  }
+  .qa .ans .am{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:var(--num);font-weight:700;font-size:17px;margin-top:14px}
+  .qa .ans p{padding-top:16px;font-size:14px;line-height:2.2;color:var(--ink-70)}
+
+  /* ---------- access ---------- */
+  .access-h{text-align:center;margin-bottom:10px}
+  .access-addr{text-align:center;font-size:15px;font-weight:600;letter-spacing:.06em;margin-bottom:clamp(24px,4vw,40px)}
+  .map-box{border-radius:6px;overflow:hidden;box-shadow:0 16px 40px rgba(59,59,59,.12);position:relative}
+  .map-box iframe{display:block;width:100%;height:clamp(320px,44vw,480px);border:0}
+  .map-fallback{display:block;text-align:center;padding:12px;font-size:13px;background:#fff;color:var(--wine);font-weight:600}
+
+  /* ---------- contact band ---------- */
+  .contact-band{background:var(--wine);padding:clamp(48px,7vw,84px) 0}
+  .cb-card{
+    background:#fff;border-radius:10px;max-width:1100px;margin:0 auto;
+    padding:clamp(34px,5vw,56px) clamp(20px,4vw,48px);text-align:center;
+    box-shadow:0 22px 50px rgba(0,0,0,.18);
+  }
+  .cb-card h2{font-size:clamp(21px,3vw,30px);font-weight:700;letter-spacing:.12em;margin-bottom:26px}
+  .cb-card .btn{min-width:min(420px,100%)}
+  .cb-tel{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:2px}
+  .cb-tel .tel{
+    font-family:var(--num);font-size:clamp(30px,4.4vw,40px);font-weight:600;letter-spacing:.04em;color:var(--ink);
+    display:inline-flex;align-items:baseline;gap:12px;
+  }
+  .cb-tel .tel small{font-size:14px;font-weight:700;letter-spacing:.04em}
+  .cb-tel .note{font-size:12.5px;font-weight:600;color:var(--ink-70)}
 
   /* ---------- footer ---------- */
-  footer{background:var(--ink);color:rgba(248,243,233,.85);padding:clamp(52px,7vw,84px) 0 34px}
+  footer{background:#fff;padding:clamp(44px,6vw,64px) 0 0}
   .ft-grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
-  .ft-brand b{font-size:16px;letter-spacing:.08em;font-weight:700;display:block;margin-top:14px}
-  .ft-brand p{font-size:12.5px;color:rgba(248,243,233,.55);margin-top:10px;line-height:2}
-  .ft-links{display:flex;gap:clamp(28px,5vw,72px);flex-wrap:wrap}
-  .ft-links ul{list-style:none}
-  .ft-links h4{font-family:var(--num);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(248,243,233,.6);margin-bottom:14px}
-  .ft-links a{font-size:13.5px;line-height:2.5;color:rgba(248,243,233,.8);transition:color .3s}
-  .ft-links a:hover{color:#fff}
-  .ft-links a .ext{font-family:var(--num);font-size:10px;opacity:.5;margin-left:6px}
-  .ft-btm{margin-top:clamp(40px,6vw,64px);padding-top:22px;border-top:1px solid rgba(248,243,233,.14);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-family:var(--num);font-size:10.5px;letter-spacing:.2em;color:rgba(248,243,233,.6);text-transform:uppercase}
-
-  /* ---------- progress unfold cube ---------- */
-  .progress-cube{position:fixed;right:18px;bottom:18px;z-index:55;width:54px;pointer-events:none}
-  .progress-cube svg{width:54px;height:72px;overflow:visible;transition:opacity .5s ease}
-  .progress-cube svg rect{fill:rgba(248,243,233,.6);stroke:rgba(46,38,32,.35);stroke-width:1;transition:fill .5s var(--ease)}
-  .progress-cube svg rect.done{fill:var(--terra);stroke:var(--terra)}
-  .progress-cube .plabel{font-family:var(--num);font-size:8.5px;letter-spacing:.22em;color:var(--ink-50);text-align:center;margin-top:6px;text-transform:uppercase}
-  .mini-scene{position:absolute;top:22px;left:50%;margin-left:-9px;width:18px;height:18px;perspective:300px;opacity:0;transition:opacity .5s ease}
-  .mini-spin{position:absolute;inset:0;transform-style:preserve-3d;animation:heroSpin 7s linear infinite}
-  .mini-spin .f{position:absolute;inset:0;background:var(--terra);border:1px solid rgba(255,255,255,.35)}
-  .mini-spin .f-f{transform:translateZ(9px)}.mini-spin .f-b{transform:rotateY(180deg) translateZ(9px)}
-  .mini-spin .f-r{transform:rotateY(90deg) translateZ(9px)}.mini-spin .f-l{transform:rotateY(-90deg) translateZ(9px)}
-  .mini-spin .f-t{transform:rotateX(90deg) translateZ(9px)}.mini-spin .f-d{transform:rotateX(-90deg) translateZ(9px)}
-  .progress-cube.folded svg{opacity:0}
-  .progress-cube.folded .mini-scene{opacity:1}
+  .ft-brand img{height:44px;width:auto;margin-bottom:18px}
+  .ft-brand p{font-size:13px;line-height:2.1;color:var(--ink-70)}
+  .ft-cols{display:flex;gap:clamp(24px,4.5vw,64px);flex-wrap:wrap}
+  .ft-cols ul{list-style:none}
+  .ft-cols a{font-size:13.5px;font-weight:600;line-height:2.9;color:var(--ink);transition:color .3s}
+  .ft-cols a:hover{color:var(--wine)}
+  .ft-family{display:flex;gap:14px;margin-top:20px}
+  .ft-family a{
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);border-radius:6px;padding:10px 18px;background:#fff;
+    font-size:12.5px;font-weight:700;letter-spacing:.05em;gap:8px;
+    transition:box-shadow .3s,transform .3s;
+  }
+  .ft-family a:hover{box-shadow:0 8px 18px rgba(59,59,59,.1);transform:translateY(-2px)}
+  .ft-family .fm1{color:#D6006D}
+  .ft-family .fm2{color:#1E6FBA}
+  .ft-btm{
+    margin-top:clamp(36px,5vw,56px);background:#4D4D4D;color:rgba(255,255,255,.85);
+    font-size:12px;letter-spacing:.08em;text-align:center;padding:20px 16px;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .ft-btm a{color:rgba(255,255,255,.6);font-size:11px}
+  .ft-btm a:hover{color:#fff}
 
   /* ---------- responsive ---------- */
-  @media (max-width:1180px){
-    .hashira{display:none}
-    .ll-2{right:2%}
-  }
-  @media (max-width:1000px){
-    .lead-label{display:none}
-    .scene{transform:scale(.8)}
-  }
-  @media (max-width:920px){
+  @media (max-width: 980px){
     nav.gnav{display:none}
-    .menu-btn{display:block;flex-shrink:0}
-    .hd-cta{margin-left:6px}
-    .hero-grid{grid-template-columns:minmax(0,1fr);gap:0}
-    .hero{padding-top:calc(var(--header-h) + 34px);padding-bottom:90px;min-height:0}
-    .hero-stage{margin-top:6px;height:340px}
-    .scene{transform:scale(.62)}
-    .phil-grid,.theory-grid,.access-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}
-    .cform{grid-template-columns:1fr}
-    .cards{grid-template-columns:1fr;max-width:520px;margin:0 auto}
-    .moment-grid{grid-template-columns:1fr 1fr;grid-auto-rows:132px}
-    .m-feature{grid-row:span 1;grid-column:span 2}
-    .m-wide{grid-column:span 2}
-    .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .lat-stage{min-height:400px}
-    .lat-scene{transform:scale(.8)}
-    .theory-grid{gap:8px}
+    .menu-btn{display:block}
+    .reason-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .class-grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}
+    .about-grid{grid-template-columns:minmax(0,1fr)}
+    .lat-box{grid-template-columns:minmax(0,1fr)}
+    .intensive .band{grid-template-columns:minmax(0,1fr)}
+    .intensive .bd-r{min-height:220px;order:-1}
   }
-  @media (max-width:560px){
-    body{font-size:15px}
-    .hd-in{gap:10px}
-    .hd-cta{margin-left:0;font-size:11.5px;padding:9px 13px}
-    .hd-cta .cta-l{display:none}
-    .hd-cta .cta-s{display:inline}
-    .brand small{display:none}
-    .scene{transform:scale(.52)}
-    .hero-stage{height:280px}
-    .lat-scene{transform:scale(.68)}
-    .lat-stage{min-height:340px}
-    .info-tbl>div{grid-template-columns:88px 1fr}
-    .progress-cube{right:10px;bottom:10px;width:44px}
-    .progress-cube svg{width:44px;height:59px}
-    .progress-cube .plabel{display:none}
-    .age-track .blk{width:10px;height:10px}
-  }
-  @media (max-height:430px) and (orientation:landscape){
-    .age-num{font-size:clamp(110px,34vh,150px)}
-    .age-track{bottom:14px}
-  }
-
-  /* ---------- reduced motion ---------- */
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
-    .rv,.mask-line>span{opacity:1;transform:none}
-    .node{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1)}
-    .spin,.mini-spin{animation:none !important;transform:rotateX(-24deg) rotateY(-10deg)}
+  @media (max-width: 560px){
+    .reason-grid{grid-template-columns:minmax(0,1fr);row-gap:52px}
+    .hero-badge{left:16px;right:16px;justify-content:space-between}
+    .hd-cta{font-size:11px;padding:0 14px}
+    .brand img{height:32px}
+    body{font-size:14.5px}
   }
 </style>
 
 <header id="hd">
   <div class="hd-in">
     <a class="brand" href="#top" aria-label="キッズスクールCUBE ホーム">
-      <img class="logo-img" src="assets/img/logo.jpg" alt="キッズスクールCUBE" width="230" height="61">
+      <img src="assets/img/logo.jpg" alt="キッズスクールCUBE" width="230" height="61" style="mix-blend-mode:multiply">
     </a>
     <nav class="gnav" aria-label="メイン">
-      <a href="#philosophy">理念</a>
-      <a href="#method">メソッド</a>
-      <a href="#classes">クラス</a>
-      <a href="about.html">初めての方へ</a>
-      <a href="#access">アクセス</a>
+      <a href="#about">CUBEについて</a>
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#classes">クラスのご案内</a>
+      <a href="#intensive">集中授業</a>
+      <a href="#taiken">無料体験授業</a>
+      <a href="#faq">よくあるご質問</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false"><span></span><span></span></button>
-    <a class="hd-cta" href="contact.html"><span class="cta-l">体験・見学のご相談</span><span class="cta-s">体験相談</span></a>
-    <div class="m-panel" id="mPanel">
-      <a href="#philosophy">理念 — 素頭を良くする教育</a>
-      <a href="#method">メソッド — 150の知能因子</a>
-      <a href="#classes">クラス — 2歳児・幼児・小学生</a>
-      <a href="about.html">初めての方へ — 入塾した理由</a>
-      <a href="timetable.html">時間割</a>
-      <a href="special.html">特別講座 — 集中・期別講習</a>
-      <a href="#access">アクセス — 千葉駅東口 徒歩6分</a>
-      <a href="contact.html">お問い合わせ・体験予約</a>
-    </div>
+    <a class="hd-cta" href="contact.html"><span>無料体験申込</span><span>お問い合わせ</span></a>
+  </div>
+  <div class="m-panel" id="mPanel">
+    <a href="#about">CUBEについて</a>
+    <a href="#reasons">選ばれる理由</a>
+    <a href="#classes">クラスのご案内</a>
+    <a href="#intensive">集中授業</a>
+    <a href="#taiken">無料体験授業</a>
+    <a href="#faq">よくあるご質問</a>
+    <a href="contact.html">無料体験申込・お問い合わせ</a>
   </div>
 </header>
 
@@ -611,328 +413,233 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy rv" id="heroCopy">
-        <p class="eyebrow"><span class="no">KIDS SCHOOL CUBE</span>知能教育・幼児教室・積木教室｜千葉駅東口 徒歩6分</p>
-        <h1 aria-label="すべては子供の人生のために。">
-          <span class="mask-line" style="--d:.1s"><span>すべては</span></span>
-          <span class="mask-line" style="--d:.24s"><span>子供の人生の</span></span>
-          <span class="mask-line" style="--d:.38s"><span>ために。</span></span>
-        </h1>
-        <p class="hero-sub rv" style="--d:.6s">知識の先取りではなく、<b>子供の「素頭」を良くする。</b><br>
-        ギルフォード知能構造論にもとづき、記憶力・思考力・集中力——学びの土台そのものを、1歳半から小学生までの「いま」に育てます。</p>
-        <div class="hero-ctas rv" style="--d:.75s">
-          <a class="btn btn-solid" href="#contact">体験・見学のご相談<span class="ar">→</span></a>
-          <a class="btn btn-ghost" href="#method">教育理論を見る<span class="ar">→</span></a>
-        </div>
-        <div class="hero-meta rv" style="--d:.9s">
-          <span><i></i>Chiba, Japan</span>
-          <span><i></i>1.5–12 yrs</span>
-          <span><i></i>150 Factors Method</span>
-        </div>
-      </div>
-      <div class="hero-stage" aria-hidden="true">
-        <div class="scene" id="heroScene">
-          <div class="tilt" id="heroTilt"><div class="spin" id="heroSpin"></div></div>
-          <span class="hero-drag-hint">Drag — 回せます</span>
-        </div>
-        <span class="lead-label ll-r ll-1">記憶 / Memory</span>
-        <span class="lead-label ll-l ll-2">思考 / Thinking</span>
-        <span class="lead-label ll-r ll-3">集中 / Focus</span>
-      </div>
+    <div class="hero-bg"><img src="assets/img/classroom.jpg" alt="キッズスクールCUBEの授業風景" fetchpriority="high"></div>
+    <div class="hero-cube" id="heroCube" aria-hidden="true">
+      <div class="hc-tilt" id="heroCubeTilt"></div>
+      <span class="hero-hint">Drag — 回せます</span>
     </div>
-    <div class="scroll-cue">Scroll</div>
+    <div class="hero-in">
+      <h1 id="heroTitle" aria-label="考える楽しさが、未来を変えていく。">
+        <span class="ln" style="--d:.1s"><span><span class="bx" style="--bd:.55s">考</span>える<span class="bx" style="--bd:.7s">楽</span>しさが、</span></span>
+        <span class="ln" style="--d:.28s"><span><span class="bx" style="--bd:.85s">未来</span>を<span class="bx" style="--bd:1s">変</span>えていく。</span></span>
+      </h1>
+    </div>
+    <div class="hero-badge" id="heroBadge">
+      <div class="hb-t">
+        <b>お気軽にお申し込みください！</b>
+        <span class="stamp">無料体験学習</span><br>
+        <span class="stamp">受付中！</span>
+      </div>
+      <img src="assets/img/materials.jpg" alt="木製の積み木">
+    </div>
   </section>
 
-  <!-- ============ 01 PHILOSOPHY ============ -->
-  <section class="ch" id="philosophy">
-    <span class="hashira">01 — Philosophy / 巻頭言</span>
+  <!-- ============ ABOUT ============ -->
+  <section class="sec" id="about">
+    <span id="philosophy" style="position:absolute;top:-10px" aria-hidden="true"></span>
     <div class="wrap">
-      <div class="ch-head rv">
-        <p class="eyebrow"><span class="no">01</span>Philosophy — 教育理念</p>
-        <h2 class="h-serif">知識を先取りする教室では、<br>ありません。</h2>
-      </div>
-      <div class="phil-grid">
+      <h2 class="sec-h rv"><small>これからの時代に必要な</small><span class="w">思考力</span>の土台を育てる知育・幼児教室</h2>
+      <div class="about-grid">
         <div class="rv" style="--d:.1s">
-          <p class="lead">CUBEが鍛えるのは、テストの点数ではなく<span class="marker">学びの土台になる「素頭」</span>です。目や耳から入った情報がきちんと脳に届き、自分の頭で考えて動ける子へ。そのために、記憶力・思考力・集中力を、頭のやわらかい幼児期から計画的に育てていきます。</p>
-          <figure class="formula rv" style="--d:.3s">
-            <div class="fx"><span>資質</span><span class="op">×</span><span>環境</span><span class="op">=</span><span class="accent">伸びる力</span></div>
-            <figcaption>生まれ持った資質に、正しい環境を掛け合わせる。<br>資質は、環境しだいで伸ばせる——それがCUBEの考え方です。</figcaption>
-          </figure>
-          <figure class="phil-photo rv" style="--d:.4s">
-            <img src="assets/img/hero-child.jpg" alt="木製の積み木に夢中で取り組む子供" loading="lazy" width="505" height="404">
-            <figcaption>夢中は、いちばんの学び。</figcaption>
-          </figure>
+          <p>子どもたちが、これからの時代を“自分で考え、自分らしく生きていける力”を育てたい。<br>
+          それが、キッズスクール・キューブの想いです。<br>
+          私たちが大切にしているのは、単に「答えを出す力」ではありません。「なぜそうなるのか」を考え、試行錯誤し、自分で答えにたどり着く力です。<br>
+          積み木を使った独自の教育メソッドを通して、思考力・集中力・見通す力・言葉の力を育みながら、“できないから諦める”のではなく、“できるまで考えてみる”姿勢を大切にしています。</p>
         </div>
-        <div class="phil-points rv" style="--d:.2s">
-          <div>
-            <span class="pn">A</span>
-            <div><b>素頭を、鍛える</b><p>知識の量ではなく、考えるための頭の性能そのものを高めます。</p></div>
-          </div>
-          <div>
-            <span class="pn">B</span>
-            <div><b>遊びの感覚で、学ぶ</b><p>木製知能教材と積み木。子供が夢中になる「遊び」が、そのまま知能への刺激になります。</p></div>
-          </div>
-          <div>
-            <span class="pn">C</span>
-            <div><b>少人数・能力別</b><p>定員3〜10名程度の能力別クラス。一人ひとりの「いま」に合わせて進みます。</p></div>
-          </div>
-          <div>
-            <span class="pn">D</span>
-            <div><b>粘り強さが、育つ</b><p>具体物でのトライ&amp;エラーを繰り返し、あきらめずに取り組む力を養います。</p></div>
-          </div>
+        <div class="pic4 rv" style="--d:.2s">
+          <figure><img src="assets/img/c-2sai.jpg" alt="笑顔で積み木に取り組む子ども" loading="lazy"></figure>
+          <figure><img src="assets/img/c-youji.jpg" alt="積み木で遊びながら学ぶ幼児" loading="lazy"></figure>
+          <figure><img src="assets/img/g-youji3.jpg" alt="できた瞬間に喜ぶ子ども" loading="lazy"></figure>
+          <figure><img src="assets/img/g-youji5.jpg" alt="集中して課題に取り組む様子" loading="lazy"></figure>
         </div>
       </div>
+      <div class="btn-center rv"><a class="btn" href="about.html">キッズスクールCUBEについて<span class="ar">→</span></a></div>
     </div>
   </section>
 
-  <!-- ============ 02 CRITICAL PERIOD (sticky) ============ -->
-  <div class="critical" id="critical">
-    <div class="critical-sticky">
-      <p class="eyebrow crit-eyebrow"><span class="no">02</span>Critical Period — 臨界期</p>
-      <div class="age-line" aria-hidden="true">
-        <span class="age-num num-face" id="ageNum">2</span><span class="age-sai">才</span>
-      </div>
-      <div class="crit-caps">
-        <div class="ph act" data-ph="0">
-          <p class="t1">2才は、能力開発のゴールデンエイジ。</p>
-          <p class="t2">頭のやわらかさが頂点にあるこの時期の働きかけが、いちばんよく効きます。</p>
-        </div>
-        <div class="ph" data-ph="1">
-          <p class="t1">「3才で何をしたかで——</p>
-          <p class="t2">幼児期の環境づくりは、親から子への何よりの贈りもの。</p>
-        </div>
-        <div class="ph" data-ph="2">
-          <p class="t1">——4才が決まります。」</p>
-          <p class="t2">一年の積み重ねが、次の一年の伸びしろになる。</p>
-        </div>
-        <div class="ph" data-ph="3">
-          <p class="t1">大脳の完成は、10才前後。</p>
-          <p class="t2">大脳がほぼ完成する10才前後までが、いちばんの伸ばしどき。だからCUBEは「いま」に集中します。</p>
-        </div>
-      </div>
-      <div class="age-track" aria-hidden="true">
-        <span class="cap">2才</span>
-        <span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span>
-        <span class="cap">10才</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============ 03 THEORY (dark showpiece) ============ -->
-  <section class="ch theory" id="method">
-    <span class="hashira">03 — Theory / 知能構造論</span>
+  <!-- ============ METHOD ============ -->
+  <section class="sec method" id="method">
     <div class="wrap">
-      <div class="theory-grid">
-        <div>
-          <div class="ch-head rv" style="margin-bottom:0">
-            <p class="eyebrow"><span class="no">03</span>Theory — ギルフォード知能構造論</p>
-            <h2 class="h-serif">CUBEという名前は、<br>理論のかたち。</h2>
-          </div>
-          <div class="t-num rv" style="--d:.15s">
-            <span class="big num-face" data-count="150">0</span>
-            <span class="unit">の知能因子<small>5 領域 × 5 働き × 6 所産</small></span>
-          </div>
-          <p class="lead rv" style="--d:.25s">知能を「働き × 領域 × 所産」の3つの軸でとらえる、J.P.ギルフォードの知能構造論（Structure of Intellect）。3軸の組み合わせが<b style="color:var(--night-ink)">立方体モデル</b>となり、そのひとマスひとマスが一つの知能因子。CUBEは、この150の因子をかたよりなく刺激します。</p>
-          <div class="soi-dims rv" style="--d:.35s">
-            <div class="soi-dim">
-              <span class="soi-k"><b>働き</b><i>Operations · 5</i></span>
-              <p>認知／記憶／拡散思考／集中思考／評価</p>
-            </div>
-            <div class="soi-dim">
-              <span class="soi-k"><b>領域</b><i>Contents · 5</i></span>
-              <p>図形／聴覚／記号／概念／行動</p>
-            </div>
-            <div class="soi-dim">
-              <span class="soi-k"><b>所産</b><i>Products · 6</i></span>
-              <p>単位／分類／関係／体系／転換／見通し</p>
-            </div>
-          </div>
-          <p class="soi-eq rv" style="--d:.4s">5 <b>×</b> 5 <b>×</b> 6 <b>=</b> 150 factors</p>
-          <p class="t-note rv" style="--d:.45s">授業では特殊な木製知能教材（8種）と積み木を使い、遊びのなかで因子をひとつずつ灯していきます。</p>
+      <h2 class="sec-h rv"><span class="w">積み木</span>を使った、独自の<span class="w">教育メソッド</span></h2>
+      <div class="method-body rv" style="--d:.1s">
+        <p>キッズスクール・キューブでは、積み木を使った学びを通して、子どもたちの「考える力」を育てています。<br>
+        数字や図形など、言葉や式だけではイメージしづらい内容も、実際に見て、触れて、動かしながら学ぶことで、子どもたちは自然と理解を深めていきます。</p>
+        <p>積み木を使うことで、「数」「形」「高さ」「割合」といった抽象的な考え方を目で見て理解できるようになり、幼児期からでも無理なく本質的な理解につなげることができます。また、ただ答えを覚えるのではなく、「どうしたらできるかな？」「なぜこうなるんだろう？」と、自分で考える時間を大切にしているのも、私たちの特徴です。</p>
+        <p>試行錯誤を繰り返しながら、自分で答えを見つけていく経験を積むことで、思考力だけでなく、集中力や工夫する力、最後までやり抜く力も自然と育っていきます。積み木を使った「見て・触れて・考える学び」だからこそ、子どもたちは考えることが好きになり、自分で答えを導き出せる力を身につけていきます。</p>
+      </div>
+
+      <div class="lat-box rv" style="--d:.15s">
+        <div class="lb-t">
+          <h3>メソッドの土台は、<b>150の知能因子</b>。</h3>
+          <p>CUBEのカリキュラムは、知能を「働き×領域×所産」の3つの軸でとらえるギルフォード知能構造論にもとづいています。5×5×6＝150マスの立方体モデルを、授業でひとつずつ、かたよりなく刺激していきます。</p>
+          <p class="lr">いま光っている知能因子<b id="latReadout">認知 <em>×</em> 図形 <em>×</em> 単位</b></p>
         </div>
-        <div class="lat-stage rv" style="--d:.2s">
-          <div class="lat-readout">
-            <span class="lr-lead">いま光っている知能因子</span>
-            <span class="lr-val" id="latReadout">認知 <em>×</em> 図形 <em>×</em> 単位</span>
-          </div>
-          <div class="lat-scene" id="latScene" role="img" aria-label="ギルフォードの150の知能因子（5領域×5働き×6所産）を表す3D立方体モデル。ドラッグで回転できます">
+        <div class="lat-stage">
+          <div class="lat-scene" id="latScene" role="img" aria-label="150の知能因子を表す立方体モデル。ドラッグで回転できます">
             <div class="lat-tilt" id="latTilt"></div>
           </div>
           <p class="lat-hint">Drag — 指で回せます</p>
         </div>
       </div>
+
+      <figure class="method-photo rv" style="--d:.2s">
+        <img src="assets/img/materials.jpg" alt="授業で使う色とりどりの積み木" loading="lazy">
+      </figure>
     </div>
   </section>
 
-  <!-- ============ 04 CLASSES ============ -->
-  <section class="ch classes" id="classes">
-    <span class="hashira">04 — Classes / クラス案内</span>
+  <!-- ============ REASONS ============ -->
+  <section class="sec reasons" id="reasons">
     <div class="wrap">
-      <div class="ch-head rv">
-        <p class="eyebrow"><span class="no">04</span>Classes — クラス案内</p>
-        <h2 class="h-serif">年齢ではなく、<br>「脳の育ち」に合わせて。</h2>
-        <p class="lead">すべてのクラスが少人数・能力別。いまのその子に、ちょうどいい刺激を。</p>
-      </div>
-      <div class="cards">
-        <div class="rv" style="--d:.05s"><article class="card">
-          <div class="card-photo"><img src="assets/img/c-2sai.jpg" alt="木製の知能教材で遊ぶ2歳児の笑顔" loading="lazy" width="250" height="167"></div>
-          <span class="tag">Golden Age</span>
-          <p class="age">1.5 – 3 yrs / 未就園児</p>
-          <h3>2歳児クラス</h3>
-          <p class="catch">「ママやって」が減り、<br>やりきる自信が育つ。</p>
-          <p class="body">8種の木製知能教材を介した、指導員との丁寧なやりとり。段階的な刺激で、やる気・意欲・性格の土台をつくる、能力開発のゴールデンエイジのためのクラスです。</p>
-          <dl class="spec">
-            <div><dt>回数</dt><dd>週2回</dd></div>
-            <div><dt>時間</dt><dd>1コマ40分</dd></div>
-            <div><dt>定員</dt><dd>3〜4名</dd></div>
-          </dl>
-          <a class="more" href="class-2sai.html">詳しく見る<span class="ar">→</span></a>
-        </article></div>
-        <div class="rv" style="--d:.15s"><article class="card c-feature">
-          <div class="card-photo"><img src="assets/img/c-youji.jpg" alt="大好きな積み木に取り組む幼児" loading="lazy" width="250" height="167"></div>
-          <span class="tag">Core Method</span>
-          <p class="age">3 – 6 yrs / 年少〜年長</p>
-          <h3>幼児クラス</h3>
-          <p class="catch">遊びの感覚のまま、<br>直感思考とイメージ力を。</p>
-          <p class="body">大好きな積み木で、広さ・長さ・位置関係を体で理解。「教わる」のではなく、見て、触って、考える。切り替えのある授業で吸収率を高めます。</p>
-          <div class="chiplist">
-            <span>Coreシンキング｜図形・直感思考</span>
-            <span>Coreラーニング｜聞く力</span>
-            <span>知能プリント｜年中〜</span>
-          </div>
-          <dl class="spec">
-            <div><dt>時間</dt><dd>各40分</dd></div>
-            <div><dt>編成</dt><dd>少人数・能力別</dd></div>
-          </dl>
-          <a class="more" href="class-youji.html">詳しく見る<span class="ar">→</span></a>
-        </article></div>
-        <div class="rv" style="--d:.25s"><article class="card">
-          <div class="card-photo"><img src="assets/img/c-syou.jpg" alt="木製教材で考える算数に取り組む小学生" loading="lazy" width="250" height="167"></div>
-          <span class="tag">Thinking Math</span>
-          <p class="age">6 – 12 yrs / 小学生</p>
-          <h3>小学生クラス</h3>
-          <p class="catch">処理ではなく、<br>「考える算数」を。</p>
-          <p class="body">速さ・割合・濃度も、積み木で目に見えるかたちに。低学年は直感思考、高学年は論理思考へ。大脳の完成期に、Coreな刺激をしっかり届けます。</p>
-          <div class="chiplist">
-            <span>Coreラーニング｜考える算数</span>
-            <span>Coreシンキング｜図形力</span>
-            <span>知能プリント｜150因子</span>
-          </div>
-          <dl class="spec">
-            <div><dt>定員</dt><dd>8〜10名程度</dd></div>
-            <div><dt>編成</dt><dd>能力別クラス</dd></div>
-          </dl>
-          <a class="more" href="class-syougaku.html">詳しく見る<span class="ar">→</span></a>
-        </article></div>
-      </div>
-      <div class="special-band rv">
-        <div>
-          <b>特別講座 — 集中・期別講習</b>
-          <p>春・夏・冬の集中授業や、単発の有料授業も開講しています。開講時期は最新のお知らせをご覧ください。</p>
+      <h2 class="sec-h rv">キッズスクールCUBEが<span class="w">選ばれる理由</span></h2>
+      <div class="reason-grid">
+        <div class="reason rv" style="--d:.02s">
+          <span class="ic"><svg viewBox="0 0 40 40" fill="none" stroke="#3B3B3B" stroke-width="1.6"><rect x="6" y="12" width="10" height="10" rx="1.5"/><rect x="16" y="12" width="10" height="10" rx="1.5" stroke="#9C1850"/><rect x="6" y="22" width="10" height="10" rx="1.5"/><path d="M26 8l3 3M31 6l1 4" stroke="#9C1850" stroke-linecap="round"/></svg></span>
+          <span class="no">理由 1</span>
+          <p>答えではなく、<br>考える力を育てます。</p>
         </div>
-        <a class="btn btn-ghost" href="special.html">特別講座を見る<span class="ar">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ GALLERY / 教室のいちにち ============ -->
-  <section class="ch moments" id="moments">
-    <span class="hashira">Gallery — 教室のいちにち</span>
-    <div class="wrap">
-      <div class="ch-head rv">
-        <p class="eyebrow"><span class="no">◍</span>Moments — 教室のいちにち</p>
-        <h2 class="h-serif">夢中の、その先に。</h2>
-        <p class="lead">授業でつかうのは、色と形で考える木製の知能教材と積み木。<br>「遊び」に夢中になりながら、子供たちは知能の土台を育てています。</p>
-      </div>
-      <div class="moment-grid rv" style="--d:.1s">
-        <figure class="moment m-feature">
-          <img src="assets/img/materials.jpg" alt="実際に使う色とりどりの木製知能教材と積み木" loading="lazy" width="250" height="167">
-          <figcaption>色と形で、考える<span class="mc-en">Wooden intelligence materials</span></figcaption>
-        </figure>
-        <figure class="moment">
-          <img src="assets/img/g-youji3.jpg" alt="できた瞬間に喜ぶ子供" loading="lazy" width="250" height="167">
-          <figcaption>「できた！」の瞬間<span class="mc-en">Joy of achievement</span></figcaption>
-        </figure>
-        <figure class="moment">
-          <img src="assets/img/classroom.jpg" alt="実際の授業風景 — 少人数クラスで積み木に取り組む子供たち" loading="lazy" width="250" height="167">
-          <figcaption>実際の授業風景<span class="mc-en">Real lesson — small class</span></figcaption>
-        </figure>
-        <figure class="moment m-wide">
-          <img src="assets/img/g-youji5.jpg" alt="知能プリントに集中して取り組む様子" loading="lazy" width="250" height="167">
-          <figcaption>知能プリントに向かう集中力<span class="mc-en">Focus &amp; persistence</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 05 RESULTS ============ -->
-  <section class="ch results" id="results">
-    <span class="hashira">05 — Results / 実績</span>
-    <div class="wrap">
-      <div class="ch-head rv">
-        <p class="eyebrow"><span class="no">05</span>Results — 実績と信頼</p>
-      </div>
-      <div class="rv">
-        <p class="pull">算数オリンピック・ファイナル、<br><span class="accent">満点。</span></p>
-        <div class="media-quote">
-          <span class="q">教育誌『プレジデントファミリー』掲載</span>
-          <span class="s">Media — President Family</span>
+        <div class="reason rv" style="--d:.08s">
+          <span class="ic"><svg viewBox="0 0 40 40" fill="none" stroke="#3B3B3B" stroke-width="1.6"><path d="M10 24c3-1 5-4 9-4s7 3 9 3" stroke-linecap="round"/><path d="M8 30c6 2 18 2 24-2" stroke-linecap="round"/><rect x="22" y="8" width="9" height="9" rx="1" stroke="#9C1850" transform="rotate(8 26 12)"/></svg></span>
+          <span class="no">理由 2</span>
+          <p>積み木を使った、<br>独自の教育メソッド。</p>
+        </div>
+        <div class="reason rv" style="--d:.14s">
+          <span class="ic"><svg viewBox="0 0 40 40" fill="none" stroke="#3B3B3B" stroke-width="1.6"><circle cx="20" cy="21" r="10"/><path d="M15 22c1 2 3 3 5 3s4-1 5-3" stroke-linecap="round"/><circle cx="16.5" cy="18.5" r=".8" fill="#3B3B3B"/><circle cx="23.5" cy="18.5" r=".8" fill="#3B3B3B"/><path d="M29 8l2 2M33 7l.5 3" stroke="#9C1850" stroke-linecap="round"/></svg></span>
+          <span class="no">理由 3</span>
+          <p>幼児期から本質理解を<br>育てる学び。</p>
+        </div>
+        <div class="reason rv" style="--d:.2s">
+          <span class="ic"><svg viewBox="0 0 40 40" fill="none" stroke="#3B3B3B" stroke-width="1.6"><path d="M8 30V20M15 30V16M22 30V22" stroke-linecap="round" stroke-width="3"/><path d="M8 14L28 8" stroke="#9C1850" stroke-linecap="round"/><path d="M24 6l5 1-1 5" stroke="#9C1850" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="no">理由 4</span>
+          <p>できないで<br>終わらせない指導。</p>
+        </div>
+        <div class="reason rv" style="--d:.02s">
+          <span class="ic"><svg viewBox="0 0 40 40" fill="none" stroke="#3B3B3B" stroke-width="1.6"><rect x="7" y="10" width="16" height="11" rx="2"/><path d="M11 25l-1 4 5-4h8" stroke-linecap="round" stroke-linejoin="round"/><rect x="20" y="16" width="13" height="9" rx="2" stroke="#9C1850"/><circle cx="12" cy="15.5" r=".9" fill="#3B3B3B"/><circle cx="15.5" cy="15.5" r=".9" fill="#3B3B3B"/><circle cx="19" cy="15.5" r=".9" fill="#3B3B3B"/></svg></span>
+          <span class="no">理由 5</span>
+          <p>学力だけでなく、<br>集中力や語彙力も育てる。</p>
+        </div>
+        <div class="reason rv" style="--d:.08s">
+          <span class="ic"><svg viewBox="0 0 40 40" fill="none" stroke="#3B3B3B" stroke-width="1.6"><path d="M20 12a7 7 0 0 1 7 7c0 3-2 4.5-3 6h-8c-1-1.5-3-3-3-6a7 7 0 0 1 7-7z"/><path d="M17 28h6M18 31h4" stroke-linecap="round"/><path d="M20 4v3M9 9l2 2M31 9l-2 2M6 19h3M34 19h-3" stroke="#9C1850" stroke-linecap="round"/></svg></span>
+          <span class="no">理由 6</span>
+          <p>年齢ではなく、理解度に<br>合わせた能力別指導。</p>
+        </div>
+        <div class="reason rv" style="--d:.14s">
+          <span class="ic"><svg viewBox="0 0 40 40" fill="none" stroke="#3B3B3B" stroke-width="1.6"><rect x="9" y="10" width="22" height="16" rx="3" stroke="#9C1850"/><circle cx="16" cy="18" r="1.6" fill="#9C1850" stroke="none"/><circle cx="24" cy="18" r="1.6" fill="#9C1850" stroke="none"/><path d="M16 22.5h8" stroke="#9C1850" stroke-linecap="round"/><path d="M13 30l-2 4 6-4h10" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 6v4M14 7l1 3M26 7l-1 3" stroke-linecap="round"/></svg></span>
+          <span class="no">理由 7</span>
+          <p>AI時代に必要な、<br>自分で考える力を。</p>
+        </div>
+        <div class="reason rv" style="--d:.2s">
+          <span class="ic"><svg viewBox="0 0 40 40" fill="none" stroke="#3B3B3B" stroke-width="1.6"><circle cx="20" cy="20" r="12"/><circle cx="20" cy="20" r="12" stroke="#9C1850" stroke-dasharray="3 5"/><path d="M25 15l-3.4 6.4L15 25l3.4-6.4L25 15z" stroke="#9C1850" stroke-linejoin="round"/><circle cx="20" cy="20" r="1.2" fill="#3B3B3B" stroke="none"/></svg></span>
+          <span class="no">理由 8</span>
+          <p>受験のためだけではない、<br>人生につながる学び。</p>
         </div>
       </div>
-      <div class="stats rv" style="--d:.2s">
-        <div class="stat"><span class="v"><span class="cnt" data-count="150">0</span><small>因子</small></span><span class="k">刺激する知能因子</span></div>
-        <div class="stat"><span class="v"><span class="cnt" data-count="8">0</span><small>種</small></span><span class="k">木製知能教材（2歳児）</span></div>
-        <div class="stat"><span class="v"><span class="cnt" data-count="3">0</span><small>〜4名</small></span><span class="k">2歳児クラス定員</span></div>
-        <div class="stat"><span class="v"><span class="cnt" data-count="6">0</span><small>分</small></span><span class="k">千葉駅東口から徒歩</span></div>
-      </div>
-      <p class="stat-note">※ 算数オリンピック・ファイナル満点は塾生の実績、『プレジデントファミリー』は当教室が紹介されたメディア掲載です(いずれも公式サイトのお知らせより)。</p>
+      <div class="btn-center rv"><a class="btn" href="about.html">選ばれる理由について<span class="ar">→</span></a></div>
     </div>
   </section>
 
-  <!-- ============ 06 ACCESS ============ -->
-  <section class="ch" id="access">
-    <span class="hashira">06 — Access / アクセス</span>
+  <!-- ============ CLASSES ============ -->
+  <section class="sec classes" id="classes">
     <div class="wrap">
-      <div class="ch-head rv">
-        <p class="eyebrow"><span class="no">06</span>Access — 教室のご案内</p>
-        <h2 class="h-serif">千葉駅東口から、徒歩6分。</h2>
-      </div>
-      <div class="access-grid">
-        <div class="rv" style="--d:.1s">
-          <dl class="info-tbl">
-            <div><dt>教室名</dt><dd>キッズスクールCUBE株式会社</dd></div>
-            <div><dt>所在地</dt><dd>〒260-0031<br>千葉県千葉市中央区新田町11-12 松長ビル3F</dd></div>
-            <div><dt>アクセス</dt><dd>JR「千葉駅」東口より徒歩6分</dd></div>
-            <div><dt>お電話</dt><dd><a class="tel num-face" href="tel:0432443745">043-244-3745</a><small>お電話でのお問い合わせは土曜日のみ承っています</small></dd></div>
-            <div><dt>定休日</dt><dd>日曜日・月曜日</dd></div>
-          </dl>
-          <div class="access-ctas">
-            <a class="btn btn-solid" href="#contact">お問い合わせフォーム<span class="ar">→</span></a>
-            <a class="btn btn-ghost" href="tel:0432443745">電話をかける（土曜のみ）</a>
-          </div>
-        </div>
-        <figure class="map-fig rv" style="--d:.2s">
-          <svg id="isoMap" viewBox="0 0 460 300" role="img" aria-label="千葉駅東口から教室までの案内イメージ図"></svg>
-          <figcaption><span>Area Map — 案内図（イメージ）</span><span>Walk 6 min</span></figcaption>
-        </figure>
+      <h2 class="sec-h rv"><span class="w">クラス</span>のご案内</h2>
+      <div class="class-grid">
+        <article class="cls-card rv" style="--cc:var(--orange);--d:.05s">
+          <div class="cp"><img src="assets/img/c-2sai.jpg" alt="2歳児クラスの様子" loading="lazy"></div>
+          <h3>２歳児<small>クラス</small></h3>
+          <p>ゴールデンエイジであるこの年代に、やる気、意欲、性格の明るさなどを養います。</p>
+          <a class="btn" href="class-2sai.html">２歳児クラスについて<span class="ar">→</span></a>
+        </article>
+        <article class="cls-card rv" style="--cc:var(--green);--d:.15s">
+          <div class="cp"><img src="assets/img/c-youji.jpg" alt="幼児クラスの様子" loading="lazy"></div>
+          <h3>幼児<small>クラス</small></h3>
+          <p>図形や記号(色)に多く触れ、直感思考、ひらめきの基、理解力を高めていきます。</p>
+          <a class="btn" href="class-youji.html">幼児クラスについて<span class="ar">→</span></a>
+        </article>
+        <article class="cls-card rv" style="--cc:var(--blue);--d:.25s">
+          <div class="cp"><img src="assets/img/c-syou.jpg" alt="小学生クラスの様子" loading="lazy"></div>
+          <h3>小学生<small>クラス</small></h3>
+          <p>大脳の発達が完成期を迎える小学校期です。CUBEのCoreな刺激を受けて大脳をしっかり育てましょう。</p>
+          <a class="btn" href="class-syougaku.html">小学生クラスについて<span class="ar">→</span></a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ 07 CONTACT (CTA -> contact.html) ============ -->
-  <section class="ch contact" id="contact">
-    <span class="hashira">07 — Contact / お問い合わせ</span>
+  <!-- ============ INTENSIVE ============ -->
+  <section class="sec intensive" id="intensive">
     <div class="wrap">
-      <div class="cta-band rv">
-        <div>
-          <p class="eyebrow" style="color:var(--night-sub);margin-bottom:14px"><span class="no">07</span>Contact — お問い合わせ</p>
-          <h3>まずは、見学から。</h3>
-          <p>体験・見学のご予約、入室・講習のお申し込みは専用ページから。お電話は 043-244-3745（土曜のみ）。</p>
+      <div class="band rv">
+        <div class="bd-l">
+          <h2>集中授業で、力を伸ばす。</h2>
+          <p>集中授業では、あえて一つ下や一つ上のクラスにも挑戦しながら、思考力や理解力を伸ばしていきます。</p>
+          <a class="btn" href="special.html">集中授業について<span class="ar">→</span></a>
         </div>
-        <div class="b-col">
-          <a class="btn btn-solid" href="contact.html">お問い合わせ・体験予約<span class="ar">→</span></a>
-          <a class="btn btn-ghost" href="tel:0432443745">電話をかける（土曜のみ）</a>
+        <div class="bd-r"><img src="assets/img/classroom.jpg" alt="集中授業の様子" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TAIKEN ============ -->
+  <section class="taiken" id="taiken">
+    <div class="taiken-bg"><img src="assets/img/g-youji3.jpg" alt="笑顔の子ども" loading="lazy"></div>
+    <div class="wrap taiken-in">
+      <h2 class="rv">まずは、考える楽しさを<br><span class="w">体験</span>してみませんか？</h2>
+      <p class="rv" style="--d:.1s">キッズスクール・キューブでは、<br>実際の授業を体験できる無料体験授業を実施しています。<br>積み木を使った独自の学びを通して、<br>「考えるって楽しい！」をぜひ体感してください。</p>
+      <div class="rv" style="--d:.2s"><a class="btn" href="contact.html">無料体験授業について<span class="ar">→</span></a></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="sec faq" id="faq">
+    <div class="wrap">
+      <h2 class="sec-h rv">よくある<span class="w">ご質問</span></h2>
+      <div class="faq-list">
+        <details class="qa rv" open>
+          <summary><span class="qm">Q</span>何歳から通えますか？<span class="tg" aria-hidden="true">▾</span></summary>
+          <div class="ans"><span class="am">A</span><p>1歳半からの2歳児クラスをご用意しています。未就園児から小学生まで、年齢ではなく「いまの能力」に合わせたクラスをご案内します。</p></div>
+        </details>
+        <details class="qa rv" style="--d:.05s">
+          <summary><span class="qm">Q</span>無料体験はできますか？<span class="tg" aria-hidden="true">▾</span></summary>
+          <div class="ans"><span class="am">A</span><p>はい、無料体験学習を受付中です。実際の授業に参加して、積み木を使った学びを体感していただけます。お申し込みフォームからご希望をお知らせください。</p></div>
+        </details>
+        <details class="qa rv" style="--d:.1s">
+          <summary><span class="qm">Q</span>クラスはどのように決まりますか？<span class="tg" aria-hidden="true">▾</span></summary>
+          <div class="ans"><span class="am">A</span><p>年齢ではなく理解度に合わせた完全能力別のクラス編成です。体験時のお子様の様子をもとに、ちょうどいいクラス・時間帯をご案内します。</p></div>
+        </details>
+        <details class="qa rv" style="--d:.15s">
+          <summary><span class="qm">Q</span>授業は何曜日にありますか？<span class="tg" aria-hidden="true">▾</span></summary>
+          <div class="ans"><span class="am">A</span><p>授業は土曜日に行っています（定休：日曜・月曜）。時間割の詳細は<a href="timetable.html" style="color:var(--wine);text-decoration:underline">時間割ページ</a>をご覧ください。</p></div>
+        </details>
+        <details class="qa rv" style="--d:.2s">
+          <summary><span class="qm">Q</span>電話での問い合わせはできますか？<span class="tg" aria-hidden="true">▾</span></summary>
+          <div class="ans"><span class="am">A</span><p>お電話（043-244-3745）でのお問い合わせは土曜日のみ承っています。フォームからのお問い合わせは、いつでも受け付けています。</p></div>
+        </details>
+      </div>
+      <div class="btn-center rv"><button class="btn" id="faqAll" type="button">全ての質問を見る<span class="ar">→</span></button></div>
+    </div>
+  </section>
+
+  <!-- ============ ACCESS ============ -->
+  <section class="sec" id="access">
+    <div class="wrap">
+      <h2 class="sec-h access-h rv">アクセス</h2>
+      <p class="access-addr rv" style="--d:.05s">〒260-0031　千葉県千葉市中央区新田町11－12松長ビル3F</p>
+      <div class="map-box rv" style="--d:.1s">
+        <iframe src="https://www.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%96%B0%E7%94%B0%E7%94%BA11-12%20%E6%9D%BE%E9%95%B7%E3%83%93%E3%83%AB&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="キッズスクールCUBEの地図"></iframe>
+        <a class="map-fallback" href="https://www.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%96%B0%E7%94%B0%E7%94%BA11-12" target="_blank" rel="noopener">Googleマップで開く（JR千葉駅東口より徒歩6分）</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT BAND ============ -->
+  <section class="contact-band" id="contact">
+    <div class="wrap">
+      <div class="cb-card rv">
+        <h2>お気軽にお問い合わせください</h2>
+        <a class="btn" href="contact.html">✉&nbsp;&nbsp;無料体験申込・お問い合わせ<span class="ar">→</span></a>
+        <div class="cb-tel">
+          <a class="tel" href="tel:0432443745">043-244-3745<small>［営業時間 10:00〜18:00］</small></a>
+          <span class="note">※お電話でのお問い合わせは、土曜日のみとなります。</span>
         </div>
       </div>
     </div>
@@ -943,136 +650,85 @@
   <div class="wrap">
     <div class="ft-grid">
       <div class="ft-brand">
-        <svg width="34" height="38" viewBox="0 0 30 34" aria-hidden="true">
-          <polygon points="15,1 29,9 15,17 1,9" fill="#C24E2E"/>
-          <polygon points="1,9 15,17 15,33 1,25" fill="#6B5A48"/>
-          <polygon points="29,9 15,17 15,33 29,25" fill="#C99A5B"/>
-        </svg>
-        <b>キッズスクールCUBE株式会社</b>
-        <p>すべては子供の人生のために。<br>知能教育・幼児教室・積木教室｜千葉・千葉駅東口</p>
+        <img src="assets/img/logo.jpg" alt="キッズスクールCUBE" style="mix-blend-mode:multiply">
+        <p>〒260-0031<br>千葉県千葉市中央区新田町11－12<br>松長ビル3F</p>
       </div>
-      <div class="ft-links">
-        <div>
-          <h4>Contents</h4>
+      <div>
+        <div class="ft-cols">
           <ul>
-            <li><a href="#philosophy">教育理念</a></li>
-            <li><a href="#method">メソッド</a></li>
-            <li><a href="about.html">初めての方へ</a></li>
-            <li><a href="timetable.html">時間割</a></li>
-            <li><a href="special.html">特別講座</a></li>
+            <li><a href="about.html">キッズスクールCUBEについて</a></li>
+            <li><a href="#reasons">選ばれる理由</a></li>
+          </ul>
+          <ul>
+            <li><a href="#classes">クラスのご案内</a></li>
+            <li><a href="special.html">集中授業</a></li>
+          </ul>
+          <ul>
+            <li><a href="contact.html">無料体験授業について</a></li>
+            <li><a href="#faq">よくあるご質問</a></li>
+            <li><a href="contact.html">無料体験申込・お問い合わせ</a></li>
           </ul>
         </div>
-        <div>
-          <h4>Class</h4>
-          <ul>
-            <li><a href="class-2sai.html">2歳児クラス</a></li>
-            <li><a href="class-youji.html">幼児クラス</a></li>
-            <li><a href="class-syougaku.html">小学生クラス</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="contact.html">お問い合わせ・体験予約</a></li>
-            <li><a href="recruit.html">採用情報</a></li>
-            <li><a href="#access">アクセス</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Family</h4>
-          <ul>
-            <li><a href="https://www.umezono.net" target="_blank" rel="noopener">梅乃園幼稚園<span class="ext">↗</span></a></li>
-            <li><a href="http://www.tsumiki-tokyo.com/" target="_blank" rel="noopener">にっしん積木<span class="ext">↗</span></a></li>
-          </ul>
+        <div class="ft-family">
+          <a class="fm1" href="https://www.umezono.net" target="_blank" rel="noopener">学校法人梅園学園 梅乃園幼稚園</a>
+          <a class="fm2" href="http://www.tsumiki-tokyo.com/" target="_blank" rel="noopener">積み木の にっしん</a>
         </div>
       </div>
-    </div>
-    <div class="ft-btm">
-      <span>© Kids School CUBE Inc.</span>
-      <span>Renewal Design Proposal for cube55.net</span>
     </div>
   </div>
+  <div class="ft-btm">
+    <span>© 2026 キッズスクールCUBE株式会社 All Rights Reserved.</span>
+    <span><a href="classic.html">別デザイン案（クラフト版）はこちら</a></span>
+  </div>
 </footer>
-
-<!-- progress unfold cube -->
-<div class="progress-cube" id="progCube" aria-hidden="true">
-  <svg viewBox="0 0 52 70">
-    <rect x="17.5" y="0.5"  width="16" height="16" rx="3"/>
-    <rect x="0.5"  y="17.5" width="16" height="16" rx="3"/>
-    <rect x="17.5" y="17.5" width="16" height="16" rx="3"/>
-    <rect x="34.5" y="17.5" width="16" height="16" rx="3"/>
-    <rect x="17.5" y="34.5" width="16" height="16" rx="3"/>
-    <rect x="17.5" y="51.5" width="16" height="16" rx="3"/>
-  </svg>
-  <div class="mini-scene"><div class="mini-spin">
-    <div class="f f-f"></div><div class="f f-b"></div><div class="f f-r"></div><div class="f f-l"></div><div class="f f-t"></div><div class="f f-d"></div>
-  </div></div>
-  <p class="plabel">Blueprint</p>
-</div>
 
 <script>
 (function(){
   "use strict";
   var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var FINE = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var clamp = function(v,a,b){ return Math.min(b, Math.max(a, v)); };
 
-  /* ---------- header ---------- */
+  /* header */
   var hd = document.getElementById("hd");
-  var menuBtn = document.getElementById("menuBtn");
-  menuBtn.addEventListener("click", function(){
+  var onScroll = function(){ hd.classList.toggle("scrolled", window.scrollY > 8); };
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+  var mb = document.getElementById("menuBtn");
+  mb.addEventListener("click", function(){
     var open = hd.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    mb.setAttribute("aria-expanded", open ? "true" : "false");
   });
   document.getElementById("mPanel").addEventListener("click", function(e){
-    if(e.target.closest("a")){ hd.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); }
+    if(e.target.tagName === "A"){ hd.classList.remove("open"); mb.setAttribute("aria-expanded","false"); }
   });
 
-  /* ---------- reveal ---------- */
-  var rvEls = [].slice.call(document.querySelectorAll(".rv"));
+  /* reveal */
+  var rvs = [].slice.call(document.querySelectorAll(".rv"));
   if(RM || !("IntersectionObserver" in window)){
-    rvEls.forEach(function(el){ el.classList.add("on"); });
+    rvs.forEach(function(el){ el.classList.add("on"); });
   } else {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
         if(en.isIntersecting){ en.target.classList.add("on"); io.unobserve(en.target); }
       });
-    }, {threshold:.15, rootMargin:"0px 0px -40px 0px"});
-    rvEls.forEach(function(el){ io.observe(el); });
+    }, {threshold:.14, rootMargin:"0px 0px -40px 0px"});
+    rvs.forEach(function(el){ io.observe(el); });
   }
 
-  /* ---------- counters ---------- */
-  function runCounter(el){
-    var target = parseInt(el.getAttribute("data-count"), 10);
-    if(RM){ el.textContent = target; return; }
-    var t0 = null, dur = 1300;
-    function step(ts){
-      if(!t0) t0 = ts;
-      var p = clamp((ts - t0)/dur, 0, 1);
-      var e = 1 - Math.pow(1-p, 3);
-      el.textContent = Math.round(target * e);
-      if(p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  var cntEls = [].slice.call(document.querySelectorAll("[data-count]"));
-  if(RM || !("IntersectionObserver" in window)){
-    cntEls.forEach(function(el){ el.textContent = el.getAttribute("data-count"); });
-  } else {
-    var cio = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){ runCounter(en.target); cio.unobserve(en.target); }
-      });
-    }, {threshold:.6});
-    cntEls.forEach(function(el){ cio.observe(el); });
+  /* hero title + badge */
+  var ht = document.getElementById("heroTitle");
+  var hb = document.getElementById("heroBadge");
+  if(RM){ ht.classList.add("go"); hb.classList.add("on"); }
+  else {
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ ht.classList.add("go"); hb.classList.add("on"); }); });
   }
 
-  /* ---------- shared: draggable auto-spinner ---------- */
+  /* shared: draggable auto-spinner */
   function makeSpinner(scene, rotator, opts){
     opts = opts || {};
     var rx = opts.rx0 != null ? opts.rx0 : -20;
     var ry = opts.ry0 != null ? opts.ry0 : -20;
-    var auto = opts.auto != null ? opts.auto : 0.07;
+    var auto = opts.auto != null ? opts.auto : 0.06;
     var vy = 0, dragging = false, activeId = null, inView = false, rafId = null;
     var px = 0, py = 0;
     function apply(){ rotator.style.transform = "rotateX(" + rx + "deg) rotateY(" + ry + "deg)"; }
@@ -1099,90 +755,76 @@
     scene.addEventListener("pointercancel", up);
     scene.addEventListener("lostpointercapture", up);
     return {
-      apply: apply,
-      dragging: function(){ return dragging; },
       start: function(){ inView = true; if(rafId === null && !RM) rafId = requestAnimationFrame(loop); },
       stop: function(){ inView = false; }
     };
   }
 
-  /* ---------- hero 27-cube exploded lattice ---------- */
+  /* hero wireframe cube */
   (function(){
-    var spin = document.getElementById("heroSpin");
-    var scene = document.getElementById("heroScene");
-    if(!spin || !scene) return;
-    var G = 96;
-    var accents = {"0,1,1":"q-red","2,2,0":"q-yellow","1,0,2":"q-denim","1,2,2":"q-green"};
-    var faces = ["f-f","f-b","f-r","f-l","f-t","f-d"];
-    for(var x=0; x<3; x++) for(var y=0; y<3; y++) for(var z=0; z<3; z++){
-      var cube = document.createElement("div");
-      cube.className = "qb " + (accents[x+","+y+","+z] || "");
-      cube.style.transform = "translate3d(" + ((x-1)*G) + "px," + ((y-1)*G) + "px," + ((z-1)*G) + "px)";
-      for(var i=0; i<6; i++){
-        var f = document.createElement("div");
-        f.className = "f " + faces[i];
-        cube.appendChild(f);
-      }
-      spin.appendChild(cube);
+    var scene = document.getElementById("heroCube");
+    var tilt = document.getElementById("heroCubeTilt");
+    if(!scene || !tilt) return;
+    var S = 96; /* half size */
+    function edge(w,h,transform){
+      var e = document.createElement("div");
+      e.className = "he";
+      e.style.width = w+"px"; e.style.height = h+"px";
+      e.style.marginLeft = (-w/2)+"px"; e.style.marginTop = (-h/2)+"px";
+      e.style.transform = transform;
+      tilt.appendChild(e);
     }
-    var spinner = makeSpinner(scene, spin, {rx0:-24, ry0:-10, auto:0.055});
-    var hero = document.querySelector(".hero");
+    [-1,1].forEach(function(sy){ [-1,1].forEach(function(sz){ edge(S*2, 2, "translate3d(0px,"+(sy*S)+"px,"+(sz*S)+"px)"); }); });
+    [-1,1].forEach(function(sx){ [-1,1].forEach(function(sz){ edge(2, S*2, "translate3d("+(sx*S)+"px,0px,"+(sz*S)+"px)"); }); });
+    [-1,1].forEach(function(sx){ [-1,1].forEach(function(sy){ edge(S*2, 2, "translate3d("+(sx*S)+"px,"+(sy*S)+"px,0px) rotateY(90deg)"); }); });
+    [-1,1].forEach(function(sx){ [-1,1].forEach(function(sy){ [-1,1].forEach(function(sz){
+      var v = document.createElement("div");
+      v.className = "hv";
+      v.style.transform = "translate3d("+(sx*S)+"px,"+(sy*S)+"px,"+(sz*S)+"px)";
+      tilt.appendChild(v);
+    }); }); });
+    var sp = makeSpinner(scene, tilt, {rx0:-18, ry0:22, auto:0.10});
     if("IntersectionObserver" in window){
       var io2 = new IntersectionObserver(function(es){
-        es.forEach(function(en){ if(en.isIntersecting){ spinner.start(); } else { spinner.stop(); } });
+        es.forEach(function(en){ if(en.isIntersecting){ sp.start(); } else { sp.stop(); } });
       }, {threshold:0});
-      io2.observe(hero);
-    } else { spinner.start(); }
-    // mouse parallax (paused while dragging)
-    if(FINE && !RM){
-      var tiltEl = document.getElementById("heroTilt");
-      hero.addEventListener("pointermove", function(e){
-        if(spinner.dragging()) return;
-        var r = hero.getBoundingClientRect();
-        var mx = ((e.clientX - r.left)/r.width - .5) * 12;
-        var my = -((e.clientY - r.top)/r.height - .5) * 8;
-        tiltEl.style.setProperty("--mx", mx + "deg");
-        tiltEl.style.setProperty("--my", my + "deg");
-      });
-      hero.addEventListener("pointerleave", function(){
-        tiltEl.style.setProperty("--mx","0deg");
-        tiltEl.style.setProperty("--my","0deg");
-      });
-    }
+      io2.observe(scene);
+    } else { sp.start(); }
   })();
 
-  /* ---------- theory: Guilford Structure of Intellect (5 領域 × 5 働き × 6 所産 = 150) ---------- */
+  /* 150-factor lattice (tsumiki colors) */
   (function(){
     var tiltEl = document.getElementById("latTilt");
     var scene = document.getElementById("latScene");
     var readout = document.getElementById("latReadout");
     if(!tiltEl || !scene) return;
 
-    var OPS = ["認知","記憶","拡散思考","集中思考","評価"];       // 働き Operations (5) → Y
-    var CON = ["図形","聴覚","記号","概念","行動"];             // 領域 Contents (5)  → X
-    var PRO = ["単位","分類","関係","体系","転換","見通し"];     // 所産 Products (6)  → Z
+    var OPS = ["認知","記憶","拡散思考","集中思考","評価"];
+    var CON = ["図形","聴覚","記号","概念","行動"];
+    var PRO = ["単位","分類","関係","体系","転換","見通し"];
+    var COLORS = ["#D9534F","#F0C24B","#9BBB59","#5B9BD5","#E8D5B5"];
 
-    var NX = CON.length, NY = OPS.length, NZ = PRO.length, SP = 38;
+    var NX = CON.length, NY = OPS.length, NZ = PRO.length, SP = 27;
     var hx=(NX-1)*SP/2, hy=(NY-1)*SP/2, hz=(NZ-1)*SP/2;
-    var nodes = [], idx = 0;
     var FACES = ["nf-f","nf-b","nf-r","nf-l","nf-t","nf-d"];
+    var nodes = [], idx = 0;
     for(var x=0; x<NX; x++) for(var y=0; y<NY; y++) for(var z=0; z<NZ; z++){
       var d = document.createElement("div");
       d.className = "node";
       d.style.setProperty("--tx", (x*SP - hx)+"px");
       d.style.setProperty("--ty", (y*SP - hy)+"px");
       d.style.setProperty("--tz", (z*SP - hz)+"px");
-      d.style.setProperty("--sx", (Math.random()*520-260)+"px");
-      d.style.setProperty("--sy", (Math.random()*460-230)+"px");
-      d.style.setProperty("--sz", (Math.random()*440-220)+"px");
-      d.style.setProperty("--d", (idx*8)+"ms");
+      d.style.setProperty("--sx", (Math.random()*380-190)+"px");
+      d.style.setProperty("--sy", (Math.random()*340-170)+"px");
+      d.style.setProperty("--sz", (Math.random()*320-160)+"px");
+      d.style.setProperty("--d", (idx*6)+"ms");
+      d.style.setProperty("--c", COLORS[(x+y+z) % COLORS.length]);
       for(var fi=0; fi<6; fi++){ var f=document.createElement("div"); f.className="nf "+FACES[fi]; d.appendChild(f); }
       tiltEl.appendChild(d);
       nodes.push({el:d, c:x, o:y, p:z});
       idx++;
     }
-    // wireframe box
-    var PAD=24, bx=hx+PAD, by=hy+PAD, bz=hz+PAD;
+    var PAD=18, bx=hx+PAD, by=hy+PAD, bz=hz+PAD;
     function edge(w,h,transform){
       var e = document.createElement("div");
       e.className = "edge";
@@ -1195,9 +837,8 @@
     [-1,1].forEach(function(sx){ [-1,1].forEach(function(sz){ edge(1, by*2, "translate3d("+(sx*bx)+"px,0px,"+(sz*bz)+"px)"); }); });
     [-1,1].forEach(function(sx){ [-1,1].forEach(function(sy){ edge(bz*2, 1, "translate3d("+(sx*bx)+"px,"+(sy*by)+"px,0px) rotateY(90deg)"); }); });
 
-    var spinner = makeSpinner(scene, tiltEl, {rx0:-18, ry0:-26, auto:0.05});
+    var spinner = makeSpinner(scene, tiltEl, {rx0:-16, ry0:-28, auto:0.05});
 
-    // highlight one factor at a time, updating the readout
     var hot = null, cycleTimer = null;
     function setFactor(node){
       if(hot) hot.el.classList.remove("hot");
@@ -1206,16 +847,16 @@
     }
     function cycle(){ setFactor(nodes[(Math.random()*nodes.length)|0]); }
 
-    var section = document.getElementById("method");
     function activate(){
       scene.classList.add("formed");
       spinner.start();
       if(cycleTimer){ clearInterval(cycleTimer); cycleTimer = null; }
-      if(!RM){ cycleTimer = setInterval(cycle, 2600); }
+      if(!RM){ cycleTimer = setInterval(cycle, 2400); }
     }
     function deactivate(){ spinner.stop(); if(cycleTimer){ clearInterval(cycleTimer); cycleTimer = null; } }
 
     setFactor(nodes[0]);
+    var box = scene.closest(".lat-box") || scene;
     if(RM || !("IntersectionObserver" in window)){
       scene.classList.add("formed");
       if(!RM){ activate(); }
@@ -1223,251 +864,20 @@
       var tio = new IntersectionObserver(function(entries){
         entries.forEach(function(en){ if(en.isIntersecting){ activate(); } else { deactivate(); } });
       }, {threshold:.15});
-      tio.observe(section);
+      tio.observe(box);
     }
   })();
 
-  /* ---------- 02 critical sticky scrolltelling ---------- */
-  (function(){
-    var wrap = document.getElementById("critical");
-    if(!wrap) return;
-    var num = document.getElementById("ageNum");
-    var phs = [].slice.call(wrap.querySelectorAll(".ph"));
-    var blks = [].slice.call(wrap.querySelectorAll(".age-track .blk"));
-    var ages = ["2","3","4","10"];
-    var cur = 0;
-    function setPhase(i){
-      if(i === cur) return;
-      cur = i;
-      num.textContent = ages[i];
-      if(!RM){
-        num.classList.remove("pop");
-        void num.offsetWidth;
-        num.classList.add("pop");
-      }
-      phs.forEach(function(p,j){ p.classList.toggle("act", j === i); });
-    }
-    var ticking = false;
-    function onScroll(){
-      if(ticking) return;
-      ticking = true;
-      requestAnimationFrame(function(){
-        ticking = false;
-        var vh = window.innerHeight;
-        var r = wrap.getBoundingClientRect();
-        var total = r.height - vh;
-        if(total <= 0) return;
-        var p = clamp(-r.top / total, 0, 1);
-        var i = p < .24 ? 0 : p < .52 ? 1 : p < .78 ? 2 : 3;
-        setPhase(i);
-        var fillN = Math.round(p * blks.length);
-        blks.forEach(function(b,j){ b.classList.toggle("fill", j < fillN); });
-      });
-    }
-    window.addEventListener("scroll", onScroll, {passive:true});
-    onScroll();
-  })();
-
-  /* ---------- page progress: unfold cube ---------- */
-  (function(){
-    var pc = document.getElementById("progCube");
-    if(!pc) return;
-    var rects = [].slice.call(pc.querySelectorAll("rect"));
-    var ticking = false;
-    function onScroll(){
-      if(ticking) return;
-      ticking = true;
-      requestAnimationFrame(function(){
-        ticking = false;
-        var doc = document.documentElement;
-        var max = doc.scrollHeight - window.innerHeight;
-        var p = max > 0 ? clamp(window.scrollY / max, 0, 1) : 0;
-        rects.forEach(function(r,i){ r.classList.toggle("done", p >= (i+1)/6 - .001); });
-        pc.classList.toggle("folded", p > .985);
-        if(hd) hd.classList.toggle("scrolled", window.scrollY > 8);
-      });
-    }
-    window.addEventListener("scroll", onScroll, {passive:true});
-    window.addEventListener("resize", onScroll, {passive:true});
-    onScroll();
-  })();
-
-  /* ---------- class card tilt ---------- */
-  if(FINE && !RM){
-    [].slice.call(document.querySelectorAll(".card")).forEach(function(card){
-      card.addEventListener("pointermove", function(e){
-        var r = card.getBoundingClientRect();
-        var cy = ((e.clientX - r.left)/r.width - .5) * 6;
-        var cx = -((e.clientY - r.top)/r.height - .5) * 5;
-        card.style.setProperty("--cx", cx + "deg");
-        card.style.setProperty("--cy", cy + "deg");
-      });
-      card.addEventListener("pointerleave", function(){
-        card.style.setProperty("--cx","0deg");
-        card.style.setProperty("--cy","0deg");
-      });
+  /* faq: open all */
+  var fa = document.getElementById("faqAll");
+  if(fa){
+    fa.addEventListener("click", function(){
+      var qas = [].slice.call(document.querySelectorAll(".qa"));
+      var anyClosed = qas.some(function(q){ return !q.open; });
+      qas.forEach(function(q){ q.open = anyClosed; });
+      fa.firstChild.textContent = anyClosed ? "全ての質問を閉じる" : "全ての質問を見る";
     });
   }
-
-  /* ---------- isometric SVG blocks ---------- */
-  var NS = "http://www.w3.org/2000/svg";
-  function poly(svg, pts, fill, stroke){
-    var p = document.createElementNS(NS, "polygon");
-    p.setAttribute("points", pts.map(function(pt){ return pt[0]+","+pt[1]; }).join(" "));
-    p.setAttribute("fill", fill);
-    p.setAttribute("stroke", stroke || "rgba(46,38,32,.35)");
-    p.setAttribute("stroke-width", "1");
-    p.setAttribute("stroke-linejoin", "round");
-    svg.appendChild(p);
-  }
-  // iso cube: c = center-top point, s = half width, h = face height
-  function isoCube(svg, cx, cy, s, cols){
-    var t = s/2; // iso 2:1
-    poly(svg, [[cx,cy],[cx+s,cy+t],[cx,cy+2*t],[cx-s,cy+t]], cols[0]);           // top
-    poly(svg, [[cx-s,cy+t],[cx,cy+2*t],[cx,cy+2*t+s],[cx-s,cy+t+s]], cols[1]);   // left
-    poly(svg, [[cx+s,cy+t],[cx,cy+2*t],[cx,cy+2*t+s],[cx+s,cy+t+s]], cols[2]);   // right
-  }
-  var WOOD  = ["#E0A85F","#B57A34","#CE9147"];
-  var PAPER = ["#FCF7EB","#E7DDC8","#F3ECDD"];
-  var RED   = ["#E8836B","#BC5740","#D96A50"];
-  var YELLOW= ["#EFC65D","#C79A2C","#E3B23C"];
-  var GREEN = ["#A5C193","#789868","#8FAE7E"];
-  var DENIM = ["#86A0D6","#5871A9","#6B87C4"];
-
-  var iso1 = document.getElementById("iso1");
-  if(iso1){
-    isoCube(iso1, 70, 44, 24, WOOD);
-    isoCube(iso1, 70, 12, 20, PAPER);
-    isoCube(iso1, 122, 40, 18, RED);
-  }
-  var iso2 = document.getElementById("iso2");
-  if(iso2){
-    isoCube(iso2, 52, 46, 22, WOOD);
-    isoCube(iso2, 96, 46, 22, PAPER);
-    isoCube(iso2, 74, 14, 22, GREEN);
-    isoCube(iso2, 140, 44, 16, YELLOW);
-  }
-  var iso3 = document.getElementById("iso3");
-  if(iso3){
-    isoCube(iso3, 46, 48, 20, PAPER);
-    isoCube(iso3, 86, 48, 20, WOOD);
-    isoCube(iso3, 126, 48, 20, PAPER);
-    isoCube(iso3, 66, 18, 20, DENIM);
-    isoCube(iso3, 106, 18, 20, YELLOW);
-  }
-
-  /* ---------- iso map ---------- */
-  (function(){
-    var m = document.getElementById("isoMap");
-    if(!m) return;
-    // ground grid
-    for(var i=0; i<7; i++){
-      var l1 = document.createElementNS(NS, "line");
-      l1.setAttribute("x1", 20 + i*70); l1.setAttribute("y1", 40);
-      l1.setAttribute("x2", -80 + i*70); l1.setAttribute("y2", 290);
-      l1.setAttribute("stroke", "rgba(46,38,32,.08)");
-      m.appendChild(l1);
-      var l2 = document.createElementNS(NS, "line");
-      l2.setAttribute("x1", -40); l2.setAttribute("y1", 20 + i*45);
-      l2.setAttribute("x2", 500); l2.setAttribute("y2", -40 + i*45 + 60);
-      l2.setAttribute("stroke", "rgba(46,38,32,.06)");
-      m.appendChild(l2);
-    }
-    // walking route
-    var route = document.createElementNS(NS, "path");
-    route.setAttribute("d", "M96,196 L200,168 L236,120 L330,96");
-    route.setAttribute("fill", "none");
-    route.setAttribute("stroke", "#C24E2E");
-    route.setAttribute("stroke-width", "2");
-    route.setAttribute("stroke-dasharray", "6 6");
-    m.appendChild(route);
-    // station (big flat block) + school building (tall, bottom-up draw order)
-    isoCube(m, 82, 168, 42, ["#E7DDC8","#D3C6AB","#DDD0B6"]);
-    isoCube(m, 350, 100, 30, PAPER);
-    isoCube(m, 350, 70, 30, PAPER);
-    isoCube(m, 350, 40, 30, RED);
-    // labels
-    function label(x, y, txt, sub, anchor){
-      var t = document.createElementNS(NS, "text");
-      t.setAttribute("x", x); t.setAttribute("y", y);
-      t.setAttribute("fill", "#2E2620");
-      t.setAttribute("font-size", "13");
-      t.setAttribute("font-weight", "600");
-      t.setAttribute("letter-spacing", "1");
-      if(anchor) t.setAttribute("text-anchor", anchor);
-      t.textContent = txt;
-      m.appendChild(t);
-      if(sub){
-        var s = document.createElementNS(NS, "text");
-        s.setAttribute("x", x); s.setAttribute("y", y + 16);
-        s.setAttribute("fill", "rgba(46,38,32,.64)");
-        s.setAttribute("font-size", "9");
-        s.setAttribute("letter-spacing", "2");
-        if(anchor) s.setAttribute("text-anchor", anchor);
-        s.textContent = sub;
-        m.appendChild(s);
-      }
-    }
-    label(82, 262, "JR 千葉駅 東口", "CHIBA STA. EAST", "middle");
-    label(350, 196, "松長ビル 3F", "KIDS SCHOOL CUBE", "middle");
-    label(210, 210, "徒歩 6 分", "WALK 6 MIN", "middle");
-    // pin above school
-    var pin = document.createElementNS(NS, "circle");
-    pin.setAttribute("cx", 350); pin.setAttribute("cy", 24);
-    pin.setAttribute("r", "5"); pin.setAttribute("fill", "#C24E2E");
-    m.appendChild(pin);
-  })();
-
-  /* ---------- 07 contact: styled form -> Google Forms backend ----------
-     ▼ 設定はこの GFORM だけ差し替えればOK（Googleフォームの「事前入力したURLを取得」で entry ID が分かります）
-     action : https://docs.google.com/forms/d/e/＜フォームID＞/formResponse
-     map    : 各項目に対応する entry.＜番号＞
-  ------------------------------------------------------------------------ */
-  (function(){
-    var form = document.getElementById("contactForm");
-    if(!form) return;
-    var GFORM = {
-      action: "https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse",
-      map: {
-        youken:  "entry.REPLACE_1",
-        name:    "entry.REPLACE_2",
-        furigana:"entry.REPLACE_3",
-        age:     "entry.REPLACE_4",
-        email:   "entry.REPLACE_5",
-        tel:     "entry.REPLACE_6",
-        message: "entry.REPLACE_7"
-      }
-    };
-    var REQUIRED = ["youken","name","furigana","age","email"];
-    function mark(el, bad){ var f = el.closest(".field"); if(f) f.classList.toggle("invalid", bad); }
-    form.addEventListener("input", function(e){
-      var f = e.target.closest(".field"); if(f) f.classList.remove("invalid");
-    });
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      var ok = true, firstBad = null;
-      REQUIRED.forEach(function(k){
-        var el = form.elements[k]; if(!el) return;
-        var bad = !String(el.value).trim();
-        if(k === "email" && el.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)) bad = true;
-        mark(el, bad);
-        if(bad && !firstBad) firstBad = el;
-        if(bad) ok = false;
-      });
-      if(!ok){ if(firstBad) firstBad.focus(); return; }
-      // send to Google Forms (opaque; Google records the response). Skips while still a placeholder.
-      if(GFORM.action.indexOf("REPLACE") < 0){
-        var fd = new FormData();
-        Object.keys(GFORM.map).forEach(function(k){
-          var el = form.elements[k]; if(el) fd.append(GFORM.map[k], el.value);
-        });
-        try { fetch(GFORM.action, {method:"POST", mode:"no-cors", body:fd}); } catch(err){}
-      }
-      form.hidden = true;
-      var s = document.getElementById("formSuccess");
-      if(s){ s.hidden = false; s.scrollIntoView({behavior:"smooth", block:"center"}); }
-    });
-  })();
 })();
 </script>
 </body>
