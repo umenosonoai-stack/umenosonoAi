@@ -235,7 +235,7 @@
   }
   .crit-eyebrow{position:absolute;top:calc(var(--header-h) + 26px);left:50%;transform:translateX(-50%);white-space:nowrap}
   .crit-eyebrow::before{display:none}
-  .age-line{display:flex;align-items:baseline;justify-content:center;gap:6px;line-height:1}
+  .age-line{display:flex;align-items:baseline;justify-content:center;gap:6px;line-height:1;position:relative;z-index:2}
   .age-num{
     font-family:var(--num);font-weight:200;font-variant-numeric:tabular-nums;
     font-size:clamp(150px,30vw,320px);
@@ -246,7 +246,7 @@
   .age-num.pop{animation:agePop .55s var(--ease)}
   @keyframes agePop{from{opacity:.1;transform:translateY(26px)}to{opacity:1;transform:none}}
   .age-sai{font-family:var(--serif);font-size:clamp(30px,5vw,54px);font-weight:600;color:var(--ink)}
-  .crit-caps{display:grid;width:min(88vw,640px);margin-top:14px}
+  .crit-caps{display:grid;width:min(88vw,640px);margin-top:14px;position:relative;z-index:2}
   .crit-caps .ph{
     grid-area:1/1;display:flex;flex-direction:column;justify-content:flex-start;gap:8px;
     opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease);
@@ -505,20 +505,76 @@
   .ft-links a .ext{font-family:var(--num);font-size:10px;opacity:.5;margin-left:6px}
   .ft-btm{margin-top:clamp(40px,6vw,64px);padding-top:22px;border-top:1px solid rgba(248,243,233,.14);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-family:var(--num);font-size:10.5px;letter-spacing:.2em;color:rgba(248,243,233,.6);text-transform:uppercase}
 
-  /* ---------- progress unfold cube ---------- */
-  .progress-cube{position:fixed;right:18px;bottom:18px;z-index:55;width:54px;pointer-events:none}
-  .progress-cube svg{width:54px;height:72px;overflow:visible;transition:opacity .5s ease}
-  .progress-cube svg rect{fill:rgba(248,243,233,.6);stroke:rgba(46,38,32,.35);stroke-width:1;transition:fill .5s var(--ease)}
-  .progress-cube svg rect.done{fill:var(--terra);stroke:var(--terra)}
-  .progress-cube .plabel{font-family:var(--num);font-size:8.5px;letter-spacing:.22em;color:var(--ink-50);text-align:center;margin-top:6px;text-transform:uppercase}
-  .mini-scene{position:absolute;top:22px;left:50%;margin-left:-9px;width:18px;height:18px;perspective:300px;opacity:0;transition:opacity .5s ease}
-  .mini-spin{position:absolute;inset:0;transform-style:preserve-3d;animation:heroSpin 7s linear infinite}
-  .mini-spin .f{position:absolute;inset:0;background:var(--terra);border:1px solid rgba(255,255,255,.35)}
-  .mini-spin .f-f{transform:translateZ(9px)}.mini-spin .f-b{transform:rotateY(180deg) translateZ(9px)}
-  .mini-spin .f-r{transform:rotateY(90deg) translateZ(9px)}.mini-spin .f-l{transform:rotateY(-90deg) translateZ(9px)}
-  .mini-spin .f-t{transform:rotateX(90deg) translateZ(9px)}.mini-spin .f-d{transform:rotateX(-90deg) translateZ(9px)}
-  .progress-cube.folded svg{opacity:0}
-  .progress-cube.folded .mini-scene{opacity:1}
+  /* ---------- page progress: 3D assembling cube (bottom-right) ---------- */
+  .progress-cube{position:fixed;right:18px;bottom:16px;z-index:55;width:64px;pointer-events:none}
+  .prog3d{position:relative;width:64px;height:64px;perspective:420px;margin:0 auto}
+  .prog3d .p-tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(-26deg) rotateY(-38deg)}
+  .pc-piece{
+    position:absolute;left:50%;top:50%;width:15px;height:15px;margin:-7.5px 0 0 -7.5px;
+    transform-style:preserve-3d;
+    transform:translate3d(var(--sx),var(--sy),var(--sz)) scale(.2);
+    opacity:0;
+    transition:transform .55s var(--ease),opacity .35s ease;
+  }
+  .pc-piece.in{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1);opacity:1}
+  .pcf{position:absolute;inset:0;background:#F3EAD8;border:.5px solid rgba(46,38,32,.28)}
+  .pc-piece .pcf-f{transform:translateZ(7.5px)}
+  .pc-piece .pcf-b{transform:rotateY(180deg) translateZ(7.5px)}
+  .pc-piece .pcf-r{transform:rotateY(90deg) translateZ(7.5px);background:#E4D8C0}
+  .pc-piece .pcf-l{transform:rotateY(-90deg) translateZ(7.5px);background:#E4D8C0}
+  .pc-piece .pcf-t{transform:rotateX(90deg) translateZ(7.5px);background:#FBF5E8}
+  .pc-piece .pcf-d{transform:rotateX(-90deg) translateZ(7.5px);background:#D9CCB2}
+  .pc-piece.last .pcf{background:var(--terra);border-color:rgba(255,255,255,.4)}
+  .progress-cube .plabel{font-family:var(--num);font-size:9px;letter-spacing:.2em;color:var(--ink-50);text-align:center;margin-top:4px;text-transform:uppercase;font-variant-numeric:tabular-nums}
+
+  /* ---------- critical: brain-building cube ---------- */
+  .crit-cube{
+    position:absolute;z-index:1;right:clamp(8px,4vw,70px);top:50%;
+    width:min(30vw,340px);height:min(30vw,340px);
+    transform:translateY(-54%);
+    perspective:900px;pointer-events:none;
+  }
+  .cc-tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(-22deg) rotateY(-30deg)}
+  .cc{
+    position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;
+    transform-style:preserve-3d;
+    transform:translate3d(var(--sx),var(--sy),var(--sz)) scale(.2) rotateY(120deg);
+    opacity:0;
+    transition:transform .8s var(--ease),opacity .45s ease;
+  }
+  .cc.in{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1);opacity:1}
+  .ccf{position:absolute;inset:0;background:#F3EAD8;border:1px solid rgba(46,38,32,.2)}
+  .cc .ccf-f{transform:translateZ(22px)}
+  .cc .ccf-b{transform:rotateY(180deg) translateZ(22px)}
+  .cc .ccf-r{transform:rotateY(90deg) translateZ(22px);background:#E7DDC8}
+  .cc .ccf-l{transform:rotateY(-90deg) translateZ(22px);background:#E7DDC8}
+  .cc .ccf-t{transform:rotateX(90deg) translateZ(22px);background:#FCF7EB}
+  .cc .ccf-d{transform:rotateX(-90deg) translateZ(22px);background:#DDD0B6}
+  .cc.a-terra .ccf{background:#C86A4B}.cc.a-terra .ccf-t{background:#D67D5C}.cc.a-terra .ccf-r,.cc.a-terra .ccf-l{background:#B85B3F}
+  .cc.a-amber .ccf{background:#E3B94F}.cc.a-amber .ccf-t{background:#EFC96A}.cc.a-amber .ccf-r,.cc.a-amber .ccf-l{background:#D4A83E}
+  .cc.a-denim .ccf{background:#6E88A6}.cc.a-denim .ccf-t{background:#7F98B4}.cc.a-denim .ccf-r,.cc.a-denim .ccf-l{background:#5F7893}
+  .cc.a-green .ccf{background:#94A66B}.cc.a-green .ccf-t{background:#A4B57C}.cc.a-green .ccf-r,.cc.a-green .ccf-l{background:#84955D}
+  .cc-glow{
+    position:absolute;left:50%;top:50%;width:130%;height:130%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(227,178,60,.32),transparent 62%);
+    opacity:0;transition:opacity 1s ease;border-radius:50%;
+  }
+  .crit-cube.done .cc-glow{opacity:1}
+  .cc-count{
+    position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);
+    font-family:var(--num);font-size:10px;letter-spacing:.26em;color:var(--ink-50);
+    text-transform:uppercase;white-space:nowrap;font-variant-numeric:tabular-nums;
+  }
+  .cc-count b{color:var(--terra);font-weight:600}
+  @media (max-width:860px){
+    .crit-cube{
+      right:auto;left:50%;top:44%;
+      width:240px;height:240px;
+      transform:translate(-50%,-50%);
+      opacity:.5;
+    }
+    .cc-count{display:none}
+  }
 
   /* ---------- responsive ---------- */
   @media (max-width:1180px){
@@ -690,6 +746,11 @@
   <div class="critical" id="critical">
     <div class="critical-sticky">
       <p class="eyebrow crit-eyebrow"><span class="no">02</span>Critical Period — 臨界期</p>
+      <div class="crit-cube" id="critCube" aria-hidden="true">
+        <div class="cc-glow"></div>
+        <div class="cc-tilt" id="critCubeTilt"></div>
+        <p class="cc-count">Brain Building — <b id="ccN">0</b> / 27</p>
+      </div>
       <div class="age-line" aria-hidden="true">
         <span class="age-num num-face" id="ageNum">2</span><span class="age-sai">才</span>
       </div>
@@ -994,20 +1055,10 @@
   </div>
 </footer>
 
-<!-- progress unfold cube -->
+<!-- page progress: 3D assembling cube -->
 <div class="progress-cube" id="progCube" aria-hidden="true">
-  <svg viewBox="0 0 52 70">
-    <rect x="17.5" y="0.5"  width="16" height="16" rx="3"/>
-    <rect x="0.5"  y="17.5" width="16" height="16" rx="3"/>
-    <rect x="17.5" y="17.5" width="16" height="16" rx="3"/>
-    <rect x="34.5" y="17.5" width="16" height="16" rx="3"/>
-    <rect x="17.5" y="34.5" width="16" height="16" rx="3"/>
-    <rect x="17.5" y="51.5" width="16" height="16" rx="3"/>
-  </svg>
-  <div class="mini-scene"><div class="mini-spin">
-    <div class="f f-f"></div><div class="f f-b"></div><div class="f f-r"></div><div class="f f-l"></div><div class="f f-t"></div><div class="f f-d"></div>
-  </div></div>
-  <p class="plabel">Blueprint</p>
+  <div class="prog3d"><div class="p-tilt" id="progTilt"></div></div>
+  <p class="plabel" id="progLabel">0%</p>
 </div>
 
 <script>
@@ -1227,7 +1278,41 @@
     }
   })();
 
-  /* ---------- 02 critical sticky scrolltelling ---------- */
+  /* ---------- shared: build an assembling mini-cube lattice ----------
+     n×n×n pieces, assembled bottom-up by toggling .in on the first k pieces */
+  function buildLattice(tiltEl, opts){
+    var N = opts.n, SP = opts.sp, cls = opts.cls, faceCls = opts.faceCls;
+    var FACES = ["f","b","r","l","t","d"];
+    var half = (N-1)*SP/2;
+    var pieces = [];
+    for(var x=0; x<N; x++) for(var y=0; y<N; y++) for(var z=0; z<N; z++){
+      var d = document.createElement("div");
+      d.className = cls;
+      d.style.setProperty("--tx", (x*SP - half)+"px");
+      d.style.setProperty("--ty", (y*SP - half)+"px");
+      d.style.setProperty("--tz", (z*SP - half)+"px");
+      d.style.setProperty("--sx", (Math.random()*opts.scatter*2 - opts.scatter)+"px");
+      d.style.setProperty("--sy", (-opts.scatter*0.6 - Math.random()*opts.scatter*0.8)+"px");
+      d.style.setProperty("--sz", (Math.random()*opts.scatter*2 - opts.scatter)+"px");
+      for(var fi=0; fi<6; fi++){
+        var f = document.createElement("div");
+        f.className = faceCls + " " + faceCls + "-" + FACES[fi];
+        d.appendChild(f);
+      }
+      tiltEl.appendChild(d);
+      pieces.push({el:d, x:x, y:y, z:z});
+    }
+    /* build order: bottom layer first (y max = lower on screen), diagonal sweep inside a layer */
+    pieces.sort(function(a,b){
+      if(a.y !== b.y) return b.y - a.y;
+      var da = a.x + a.z, db = b.x + b.z;
+      if(da !== db) return da - db;
+      return a.x - b.x;
+    });
+    return pieces;
+  }
+
+  /* ---------- 02 critical sticky scrolltelling + brain-building cube ---------- */
   (function(){
     var wrap = document.getElementById("critical");
     if(!wrap) return;
@@ -1247,6 +1332,44 @@
       }
       phs.forEach(function(p,j){ p.classList.toggle("act", j === i); });
     }
+
+    /* brain-building cube: 27 pieces assemble as the ages advance */
+    var cubeWrap = document.getElementById("critCube");
+    var tilt = document.getElementById("critCubeTilt");
+    var ccN = document.getElementById("ccN");
+    var pieces = [];
+    if(tilt){
+      pieces = buildLattice(tilt, {n:3, sp:50, cls:"cc", faceCls:"ccf", scatter:260});
+      var accents = {5:"a-terra", 11:"a-denim", 17:"a-green", 22:"a-amber", 26:"a-terra"};
+      pieces.forEach(function(pc,i){ if(accents[i]) pc.el.classList.add(accents[i]); });
+    }
+    var built = -1;
+    function setBuilt(k){
+      if(k === built) return;
+      built = k;
+      pieces.forEach(function(pc,i){ pc.el.classList.toggle("in", i < k); });
+      if(ccN) ccN.textContent = k;
+      if(cubeWrap) cubeWrap.classList.toggle("done", k >= pieces.length);
+    }
+    if(RM) setBuilt(pieces.length);
+
+    /* slow rotation while the section is on screen */
+    var ry = -30, rafId = null, inView = false;
+    function spin(){
+      ry += 0.12;
+      tilt.style.transform = "rotateX(-22deg) rotateY(" + ry + "deg)";
+      rafId = inView ? requestAnimationFrame(spin) : null;
+    }
+    if(tilt && !RM && "IntersectionObserver" in window){
+      var cio = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          inView = en.isIntersecting;
+          if(inView && rafId === null) rafId = requestAnimationFrame(spin);
+        });
+      }, {threshold:0});
+      cio.observe(wrap);
+    }
+
     var ticking = false;
     function onScroll(){
       if(ticking) return;
@@ -1260,6 +1383,7 @@
         var p = clamp(-r.top / total, 0, 1);
         var i = p < .24 ? 0 : p < .52 ? 1 : p < .78 ? 2 : 3;
         setPhase(i);
+        if(!RM) setBuilt(Math.round(p * pieces.length));
         var fillN = Math.round(p * blks.length);
         blks.forEach(function(b,j){ b.classList.toggle("fill", j < fillN); });
       });
@@ -1268,11 +1392,29 @@
     onScroll();
   })();
 
-  /* ---------- page progress: unfold cube ---------- */
+  /* ---------- page progress: 3D assembling cube (bottom-right) ---------- */
   (function(){
     var pc = document.getElementById("progCube");
-    if(!pc) return;
-    var rects = [].slice.call(pc.querySelectorAll("rect"));
+    var tilt = document.getElementById("progTilt");
+    var label = document.getElementById("progLabel");
+    if(!pc || !tilt) return;
+    var pieces = buildLattice(tilt, {n:2, sp:17, cls:"pc-piece", faceCls:"pcf", scatter:60});
+    pieces[pieces.length-1].el.classList.add("last");
+    var built = -1;
+    function setBuilt(k){
+      if(k === built) return;
+      built = k;
+      pieces.forEach(function(p,i){ p.el.classList.toggle("in", i < k); });
+    }
+    /* gentle perpetual rotation (decorative) */
+    if(!RM){
+      var ry = -38;
+      (function spin(){
+        ry += 0.25;
+        tilt.style.transform = "rotateX(-26deg) rotateY(" + ry + "deg)";
+        requestAnimationFrame(spin);
+      })();
+    }
     var ticking = false;
     function onScroll(){
       if(ticking) return;
@@ -1282,8 +1424,8 @@
         var doc = document.documentElement;
         var max = doc.scrollHeight - window.innerHeight;
         var p = max > 0 ? clamp(window.scrollY / max, 0, 1) : 0;
-        rects.forEach(function(r,i){ r.classList.toggle("done", p >= (i+1)/6 - .001); });
-        pc.classList.toggle("folded", p > .985);
+        setBuilt(Math.ceil(p * pieces.length - 0.0001));
+        if(label) label.textContent = Math.round(p * 100) + "%";
         if(hd) hd.classList.toggle("scrolled", window.scrollY > 8);
       });
     }

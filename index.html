@@ -110,9 +110,19 @@
     overflow:hidden;background:#DCD9D4;
   }
   .hero-bg{position:absolute;inset:0}
-  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-  .hero-bg::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(100deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.16) 44%,rgba(255,255,255,0) 70%)}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:left center}
+  @keyframes kburns{from{transform:scale(1)}to{transform:scale(1.05)}}
+  .hero-bg img{animation:kburns 24s ease-in-out infinite alternate}
+  @media (prefers-reduced-motion: reduce){.hero-bg img{animation:none}}
+  @media (min-width: 761px){
+    .hero{aspect-ratio:1600/905;min-height:0;max-height:none}
+    .hero h1,.hero-badge{display:none}
+  }
+  @media (max-width: 760px){
+    .hero-bg img{object-position:center}
+    .hero-bg::after{content:"";position:absolute;inset:0;
+      background:linear-gradient(100deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,.14) 46%,rgba(255,255,255,0) 72%)}
+  }
   .hero-in{position:relative;z-index:2;width:100%;max-width:1600px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,72px)}
   .hero h1{
     font-size:clamp(34px,6.2vw,64px);font-weight:700;letter-spacing:.1em;line-height:1.86;
@@ -175,8 +185,8 @@
   }
   .method-body{max-width:920px;margin:0 auto}
   .method-body p{font-size:15px;line-height:2.35;margin-bottom:1.2em}
-  .method-photo{margin-top:clamp(26px,4vw,44px);border-radius:10px;overflow:hidden;box-shadow:0 16px 40px rgba(59,59,59,.12)}
-  .method-photo img{width:100%;max-height:420px;object-fit:cover}
+  .method-photo{margin:clamp(26px,4vw,44px) calc(50% - 50vw) calc(-1*clamp(60px,9vw,104px));width:100vw}
+  .method-photo img{width:100%;object-fit:cover}
   /* 150-factor lattice (tsumiki color ver.) */
   .lat-box{
     margin:clamp(34px,5vw,54px) auto 0;max-width:920px;
@@ -275,11 +285,12 @@
   .intensive .bd-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
   /* ---------- taiken ---------- */
-  .taiken{position:relative;overflow:hidden;background:#F5EFEA;min-height:560px;display:flex;align-items:center}
+  .taiken{position:relative;overflow:hidden;background:#F6F1EB;min-height:560px;display:flex;align-items:center}
   .taiken-bg{position:absolute;inset:0}
-  .taiken-bg img{width:100%;height:100%;object-fit:cover;object-position:72% 40%}
+  .taiken-bg img{position:absolute;right:0;top:0;height:100%;width:min(68%,980px);object-fit:cover;object-position:center 30%}
   .taiken-bg::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(95deg,rgba(255,251,247,.94) 0%,rgba(255,251,247,.86) 38%,rgba(255,251,247,.28) 66%,rgba(255,251,247,0) 88%)}
+    background:linear-gradient(90deg,#F6F1EB 0%,#F6F1EB 34%,rgba(246,241,235,.86) 46%,rgba(246,241,235,0) 68%)}
+  @media (max-width:760px){.taiken-bg img{width:100%}}
   .taiken-in{position:relative;z-index:2;padding:clamp(48px,7vw,84px) 0}
   .taiken h2{font-size:clamp(23px,3.4vw,34px);font-weight:700;letter-spacing:.1em;line-height:1.9;margin-bottom:22px}
   .taiken h2 .w{color:var(--wine)}
@@ -314,9 +325,14 @@
   /* ---------- access ---------- */
   .access-h{text-align:center;margin-bottom:10px}
   .access-addr{text-align:center;font-size:15px;font-weight:600;letter-spacing:.06em;margin-bottom:clamp(24px,4vw,40px)}
-  .map-box{border-radius:6px;overflow:hidden;box-shadow:0 16px 40px rgba(59,59,59,.12);position:relative}
-  .map-box iframe{display:block;width:100%;height:clamp(320px,44vw,480px);border:0}
-  .map-fallback{display:block;text-align:center;padding:12px;font-size:13px;background:#fff;color:var(--wine);font-weight:600}
+  .map-box{display:block;border-radius:4px;overflow:hidden;box-shadow:0 16px 40px rgba(59,59,59,.12);position:relative}
+  .map-box img{width:100%;display:block;transition:transform .8s var(--ease)}
+  .map-box:hover img{transform:scale(1.015)}
+  .map-box .map-open{
+    position:absolute;right:14px;bottom:14px;background:#fff;color:var(--wine);
+    font-size:12px;font-weight:700;letter-spacing:.06em;padding:9px 16px;border-radius:999px;
+    box-shadow:0 6px 16px rgba(0,0,0,.16);
+  }
 
   /* ---------- contact band ---------- */
   .contact-band{background:var(--wine);padding:clamp(48px,7vw,84px) 0}
@@ -344,16 +360,14 @@
   .ft-cols ul{list-style:none}
   .ft-cols a{font-size:13.5px;font-weight:600;line-height:2.9;color:var(--ink);transition:color .3s}
   .ft-cols a:hover{color:var(--wine)}
-  .ft-family{display:flex;gap:14px;margin-top:20px}
+  .ft-family{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
   .ft-family a{
     display:flex;align-items:center;justify-content:center;
-    border:1px solid var(--line);border-radius:6px;padding:10px 18px;background:#fff;
-    font-size:12.5px;font-weight:700;letter-spacing:.05em;gap:8px;
+    border:1px solid var(--line);border-radius:4px;padding:8px 14px;background:#fff;
     transition:box-shadow .3s,transform .3s;
   }
   .ft-family a:hover{box-shadow:0 8px 18px rgba(59,59,59,.1);transform:translateY(-2px)}
-  .ft-family .fm1{color:#D6006D}
-  .ft-family .fm2{color:#1E6FBA}
+  .ft-family img{height:42px;width:auto}
   .ft-btm{
     margin-top:clamp(36px,5vw,56px);background:#4D4D4D;color:rgba(255,255,255,.85);
     font-size:12px;letter-spacing:.08em;text-align:center;padding:20px 16px;
@@ -413,7 +427,12 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-bg"><img src="assets/img/classroom.jpg" alt="キッズスクールCUBEの授業風景" fetchpriority="high"></div>
+    <div class="hero-bg">
+      <picture>
+        <source media="(min-width:761px)" srcset="assets/img/top-hero.jpg">
+        <img src="assets/img/top-hero-m.jpg" alt="考える楽しさが、未来を変えていく。— 手を挙げる子どもたち" fetchpriority="high">
+      </picture>
+    </div>
     <div class="hero-cube" id="heroCube" aria-hidden="true">
       <div class="hc-tilt" id="heroCubeTilt"></div>
       <span class="hero-hint">Drag — 回せます</span>
@@ -430,7 +449,7 @@
         <span class="stamp">無料体験学習</span><br>
         <span class="stamp">受付中！</span>
       </div>
-      <img src="assets/img/materials.jpg" alt="木製の積み木">
+      <img src="assets/img/top-badge.jpg" alt="木製の積み木">
     </div>
   </section>
 
@@ -447,10 +466,10 @@
           積み木を使った独自の教育メソッドを通して、思考力・集中力・見通す力・言葉の力を育みながら、“できないから諦める”のではなく、“できるまで考えてみる”姿勢を大切にしています。</p>
         </div>
         <div class="pic4 rv" style="--d:.2s">
-          <figure><img src="assets/img/c-2sai.jpg" alt="笑顔で積み木に取り組む子ども" loading="lazy"></figure>
-          <figure><img src="assets/img/c-youji.jpg" alt="積み木で遊びながら学ぶ幼児" loading="lazy"></figure>
-          <figure><img src="assets/img/g-youji3.jpg" alt="できた瞬間に喜ぶ子ども" loading="lazy"></figure>
-          <figure><img src="assets/img/g-youji5.jpg" alt="集中して課題に取り組む様子" loading="lazy"></figure>
+          <figure><img src="assets/img/top-about1.jpg" alt="笑顔で積み木に取り組む子ども" loading="lazy"></figure>
+          <figure><img src="assets/img/top-about2.jpg" alt="手を挙げて答える男の子" loading="lazy"></figure>
+          <figure><img src="assets/img/top-about3.jpg" alt="木の積み木で遊びながら学ぶ女の子" loading="lazy"></figure>
+          <figure><img src="assets/img/top-about4.jpg" alt="カラフルな積み木に取り組む子どもの手元" loading="lazy"></figure>
         </div>
       </div>
       <div class="btn-center rv"><a class="btn" href="about.html">キッズスクールCUBEについて<span class="ar">→</span></a></div>
@@ -483,7 +502,7 @@
       </div>
 
       <figure class="method-photo rv" style="--d:.2s">
-        <img src="assets/img/materials.jpg" alt="授業で使う色とりどりの積み木" loading="lazy">
+        <img src="assets/img/top-method.jpg" alt="授業で使う色とりどりの積み木" loading="lazy">
       </figure>
     </div>
   </section>
@@ -544,19 +563,19 @@
       <h2 class="sec-h rv"><span class="w">クラス</span>のご案内</h2>
       <div class="class-grid">
         <article class="cls-card rv" style="--cc:var(--orange);--d:.05s">
-          <div class="cp"><img src="assets/img/c-2sai.jpg" alt="2歳児クラスの様子" loading="lazy"></div>
+          <div class="cp"><img src="assets/img/top-class-2sai.jpg" alt="2歳児クラスの様子" loading="lazy"></div>
           <h3>２歳児<small>クラス</small></h3>
           <p>ゴールデンエイジであるこの年代に、やる気、意欲、性格の明るさなどを養います。</p>
           <a class="btn" href="class-2sai.html">２歳児クラスについて<span class="ar">→</span></a>
         </article>
         <article class="cls-card rv" style="--cc:var(--green);--d:.15s">
-          <div class="cp"><img src="assets/img/c-youji.jpg" alt="幼児クラスの様子" loading="lazy"></div>
+          <div class="cp"><img src="assets/img/top-class-youji.jpg" alt="幼児クラスの様子" loading="lazy"></div>
           <h3>幼児<small>クラス</small></h3>
           <p>図形や記号(色)に多く触れ、直感思考、ひらめきの基、理解力を高めていきます。</p>
           <a class="btn" href="class-youji.html">幼児クラスについて<span class="ar">→</span></a>
         </article>
         <article class="cls-card rv" style="--cc:var(--blue);--d:.25s">
-          <div class="cp"><img src="assets/img/c-syou.jpg" alt="小学生クラスの様子" loading="lazy"></div>
+          <div class="cp"><img src="assets/img/top-class-syo.jpg" alt="小学生クラスの様子" loading="lazy"></div>
           <h3>小学生<small>クラス</small></h3>
           <p>大脳の発達が完成期を迎える小学校期です。CUBEのCoreな刺激を受けて大脳をしっかり育てましょう。</p>
           <a class="btn" href="class-syougaku.html">小学生クラスについて<span class="ar">→</span></a>
@@ -574,14 +593,14 @@
           <p>集中授業では、あえて一つ下や一つ上のクラスにも挑戦しながら、思考力や理解力を伸ばしていきます。</p>
           <a class="btn" href="special.html">集中授業について<span class="ar">→</span></a>
         </div>
-        <div class="bd-r"><img src="assets/img/classroom.jpg" alt="集中授業の様子" loading="lazy"></div>
+        <div class="bd-r"><img src="assets/img/top-intensive.jpg" alt="集中授業で手を挙げる子どもたち" loading="lazy"></div>
       </div>
     </div>
   </section>
 
   <!-- ============ TAIKEN ============ -->
   <section class="taiken" id="taiken">
-    <div class="taiken-bg"><img src="assets/img/g-youji3.jpg" alt="笑顔の子ども" loading="lazy"></div>
+    <div class="taiken-bg"><img src="assets/img/top-taiken.jpg" alt="声をあげて笑う女の子" loading="lazy"></div>
     <div class="wrap taiken-in">
       <h2 class="rv">まずは、考える楽しさを<br><span class="w">体験</span>してみませんか？</h2>
       <p class="rv" style="--d:.1s">キッズスクール・キューブでは、<br>実際の授業を体験できる無料体験授業を実施しています。<br>積み木を使った独自の学びを通して、<br>「考えるって楽しい！」をぜひ体感してください。</p>
@@ -624,10 +643,10 @@
     <div class="wrap">
       <h2 class="sec-h access-h rv">アクセス</h2>
       <p class="access-addr rv" style="--d:.05s">〒260-0031　千葉県千葉市中央区新田町11－12松長ビル3F</p>
-      <div class="map-box rv" style="--d:.1s">
-        <iframe src="https://www.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%96%B0%E7%94%B0%E7%94%BA11-12%20%E6%9D%BE%E9%95%B7%E3%83%93%E3%83%AB&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="キッズスクールCUBEの地図"></iframe>
-        <a class="map-fallback" href="https://www.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%96%B0%E7%94%B0%E7%94%BA11-12" target="_blank" rel="noopener">Googleマップで開く（JR千葉駅東口より徒歩6分）</a>
-      </div>
+      <a class="map-box rv" style="--d:.1s" href="https://www.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%96%B0%E7%94%B0%E7%94%BA11-12" target="_blank" rel="noopener">
+        <img src="assets/img/top-map.jpg" alt="教室周辺の地図 — JR千葉駅東口より徒歩6分" loading="lazy">
+        <span class="map-open">Googleマップで開く ↗</span>
+      </a>
     </div>
   </section>
 
@@ -670,8 +689,8 @@
           </ul>
         </div>
         <div class="ft-family">
-          <a class="fm1" href="https://www.umezono.net" target="_blank" rel="noopener">学校法人梅園学園 梅乃園幼稚園</a>
-          <a class="fm2" href="http://www.tsumiki-tokyo.com/" target="_blank" rel="noopener">積み木の にっしん</a>
+          <a href="https://www.umezono.net" target="_blank" rel="noopener"><img src="assets/img/logo-umezono.jpg" alt="学校法人梅園学園 梅乃園幼稚園" loading="lazy"></a>
+          <a href="http://www.tsumiki-tokyo.com/" target="_blank" rel="noopener"><img src="assets/img/logo-nisshin.jpg" alt="積み木の にっしん" loading="lazy"></a>
         </div>
       </div>
     </div>
