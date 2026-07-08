@@ -440,6 +440,21 @@
   .cb-tel .tel small{font-size:14px;font-weight:700;letter-spacing:.04em}
   .cb-tel .note{font-size:12.5px;font-weight:600;color:var(--ink-70)}
 
+  /* ---------- page progress: staircase cube net -> folds into a cube ---------- */
+  .prognet{position:fixed;right:16px;bottom:14px;z-index:60;width:72px;pointer-events:none}
+  .prognet svg{display:block;width:66px;height:50px;margin:0 auto;overflow:visible;transition:opacity .45s ease,transform .45s var(--ease)}
+  .prognet svg rect{fill:rgba(255,255,255,.75);stroke:rgba(59,59,59,.35);stroke-width:1;transition:fill .4s var(--ease),stroke .4s}
+  .prognet svg rect.done{fill:var(--wine);stroke:var(--wine)}
+  .prognet .fold-scene{position:absolute;left:50%;top:15px;width:20px;height:20px;margin-left:-10px;perspective:320px;opacity:0;transform:scale(.4);transition:opacity .5s ease,transform .5s var(--ease)}
+  @keyframes pnSpin{from{transform:rotateX(-24deg) rotateY(0deg)}to{transform:rotateX(-24deg) rotateY(360deg)}}
+  .prognet .fold-cube{position:absolute;inset:0;transform-style:preserve-3d;animation:pnSpin 7s linear infinite}
+  .prognet .fold-cube i{position:absolute;inset:0;background:var(--wine);border:1px solid rgba(255,255,255,.4)}
+  .prognet.folded svg{opacity:0;transform:scale(.6)}
+  .prognet.folded .fold-scene{opacity:1;transform:scale(1)}
+  .prognet .pn-label{font-family:var(--num);font-size:9px;letter-spacing:.2em;color:var(--ink-50);text-align:center;margin-top:4px;text-transform:uppercase;font-variant-numeric:tabular-nums}
+  @media (max-width:560px){.prognet{right:10px;bottom:10px;transform:scale(.85);transform-origin:bottom right}}
+  @media (prefers-reduced-motion: reduce){.prognet .fold-cube{animation:none;transform:rotateX(-24deg) rotateY(-30deg)}}
+
   /* ---------- footer ---------- */
   footer{background:#fff;padding:clamp(44px,6vw,64px) 0 0}
   .ft-grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
@@ -828,6 +843,22 @@
   </div>
 </footer>
 
+<!-- page progress: staircase cube net -->
+<div class="prognet" id="progNet" aria-hidden="true">
+  <svg viewBox="0 0 66 50">
+    <rect x="1"  y="1"  width="14" height="14" rx="2.5"/>
+    <rect x="17" y="1"  width="14" height="14" rx="2.5"/>
+    <rect x="17" y="17" width="14" height="14" rx="2.5"/>
+    <rect x="33" y="17" width="14" height="14" rx="2.5"/>
+    <rect x="33" y="33" width="14" height="14" rx="2.5"/>
+    <rect x="49" y="33" width="14" height="14" rx="2.5"/>
+  </svg>
+  <div class="fold-scene"><div class="fold-cube">
+    <i style="transform:translateZ(10px)"></i><i style="transform:rotateY(180deg) translateZ(10px)"></i><i style="transform:rotateY(90deg) translateZ(10px)"></i><i style="transform:rotateY(-90deg) translateZ(10px)"></i><i style="transform:rotateX(90deg) translateZ(10px)"></i><i style="transform:rotateX(-90deg) translateZ(10px)"></i>
+  </div></div>
+  <p class="pn-label" id="pnLabel">0%</p>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -1121,6 +1152,31 @@
       });
     }
     window.addEventListener("scroll", onScroll, {passive:true});
+    onScroll();
+  })();
+
+  /* ---------- page progress: staircase net fills, folds into a cube at 100% ---------- */
+  (function(){
+    var pn = document.getElementById("progNet");
+    if(!pn) return;
+    var rects = [].slice.call(pn.querySelectorAll("rect"));
+    var label = document.getElementById("pnLabel");
+    var ticking = false;
+    function onScroll(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        ticking = false;
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - window.innerHeight;
+        var p = max > 0 ? clamp(window.scrollY / max, 0, 1) : 0;
+        rects.forEach(function(r,i){ r.classList.toggle("done", p >= (i+1)/6 - .001); });
+        pn.classList.toggle("folded", p > .985);
+        if(label) label.textContent = Math.round(p * 100) + "%";
+      });
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    window.addEventListener("resize", onScroll, {passive:true});
     onScroll();
   })();
 
