@@ -231,6 +231,95 @@
   }
   .lat-hint::before,.lat-hint::after{content:"";width:24px;height:1px;background:var(--line)}
 
+  /* ---------- critical period (sticky scrolltelling, ported from classic) ---------- */
+  .critical{height:340vh;position:relative;background:var(--gray)}
+  .critical-sticky{
+    position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    background-image:linear-gradient(rgba(59,59,59,.05) 1px,transparent 1px);
+    background-size:100% 76px;
+  }
+  .crit-eyebrow{
+    position:absolute;top:calc(var(--header-h) + 26px);left:50%;transform:translateX(-50%);white-space:nowrap;
+    font-family:var(--num);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-50);
+  }
+  .crit-eyebrow .no{color:var(--wine);font-weight:600;letter-spacing:.18em;margin-right:12px}
+  .age-line{display:flex;align-items:baseline;justify-content:center;gap:6px;line-height:1;position:relative;z-index:2}
+  .age-num{
+    font-family:var(--num);font-weight:200;font-variant-numeric:tabular-nums;
+    font-size:clamp(150px,30vw,320px);
+    color:transparent;-webkit-text-stroke:2px rgba(59,59,59,.75);
+    display:inline-block;
+  }
+  @supports not (-webkit-text-stroke:1px black){.age-num{color:rgba(59,59,59,.22)}}
+  .age-num.pop{animation:agePop .55s var(--ease)}
+  @keyframes agePop{from{opacity:.1;transform:translateY(26px)}to{opacity:1;transform:none}}
+  .age-sai{font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;font-size:clamp(30px,5vw,54px);font-weight:600;color:var(--ink)}
+  .crit-caps{display:grid;width:min(88vw,640px);margin-top:14px;position:relative;z-index:2}
+  .crit-caps .ph{
+    grid-area:1/1;display:flex;flex-direction:column;justify-content:flex-start;gap:8px;
+    opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease);
+  }
+  .crit-caps .ph.act{opacity:1;transform:none}
+  .crit-caps .ph .t1{font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","YuMincho",serif;font-weight:600;font-size:clamp(19px,2.8vw,28px);letter-spacing:.07em;line-height:1.6}
+  .crit-caps .ph .t2{font-size:13.5px;color:var(--ink-70);letter-spacing:.06em}
+  .age-track{position:absolute;bottom:clamp(30px,6vh,58px);left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px}
+  .age-track .blk{width:13px;height:13px;border:1px solid rgba(59,59,59,.4);transform:rotate(45deg);transition:background .45s var(--ease),border-color .45s}
+  .age-track .blk.fill{background:#E3B23C;border-color:#E3B23C}
+  .age-track .cap{font-family:var(--num);font-size:10px;letter-spacing:.24em;color:var(--ink-50);margin:0 6px}
+  .crit-cube{
+    position:absolute;z-index:1;right:clamp(8px,4vw,70px);top:50%;
+    width:min(30vw,340px);height:min(30vw,340px);
+    transform:translateY(-54%);
+    perspective:900px;pointer-events:none;
+  }
+  .cc-tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(-22deg) rotateY(-30deg)}
+  .cc{
+    position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;
+    transform-style:preserve-3d;
+    transform:translate3d(var(--sx),var(--sy),var(--sz)) scale(.2) rotateY(120deg);
+    opacity:0;
+    transition:transform .8s var(--ease),opacity .45s ease;
+  }
+  .cc.in{transform:translate3d(var(--tx),var(--ty),var(--tz)) scale(1);opacity:1}
+  .ccf{position:absolute;inset:0;background:#F3EAD8;border:1px solid rgba(59,59,59,.2)}
+  .cc .ccf-f{transform:translateZ(22px)}
+  .cc .ccf-b{transform:rotateY(180deg) translateZ(22px)}
+  .cc .ccf-r{transform:rotateY(90deg) translateZ(22px);background:#E7DDC8}
+  .cc .ccf-l{transform:rotateY(-90deg) translateZ(22px);background:#E7DDC8}
+  .cc .ccf-t{transform:rotateX(90deg) translateZ(22px);background:#FCF7EB}
+  .cc .ccf-d{transform:rotateX(-90deg) translateZ(22px);background:#DDD0B6}
+  .cc.a-terra .ccf{background:#C86A4B}.cc.a-terra .ccf-t{background:#D67D5C}.cc.a-terra .ccf-r,.cc.a-terra .ccf-l{background:#B85B3F}
+  .cc.a-amber .ccf{background:#E3B94F}.cc.a-amber .ccf-t{background:#EFC96A}.cc.a-amber .ccf-r,.cc.a-amber .ccf-l{background:#D4A83E}
+  .cc.a-denim .ccf{background:#6E88A6}.cc.a-denim .ccf-t{background:#7F98B4}.cc.a-denim .ccf-r,.cc.a-denim .ccf-l{background:#5F7893}
+  .cc.a-green .ccf{background:#94A66B}.cc.a-green .ccf-t{background:#A4B57C}.cc.a-green .ccf-r,.cc.a-green .ccf-l{background:#84955D}
+  .cc-glow{
+    position:absolute;left:50%;top:50%;width:130%;height:130%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(227,178,60,.32),transparent 62%);
+    opacity:0;transition:opacity 1s ease;border-radius:50%;
+  }
+  .crit-cube.done .cc-glow{opacity:1}
+  .cc-count{
+    position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);
+    font-family:var(--num);font-size:10px;letter-spacing:.26em;color:var(--ink-50);
+    text-transform:uppercase;white-space:nowrap;font-variant-numeric:tabular-nums;
+  }
+  .cc-count b{color:var(--wine);font-weight:600}
+  @media (max-width:860px){
+    .crit-cube{
+      right:auto;left:50%;top:44%;
+      width:240px;height:240px;
+      transform:translate(-50%,-50%);
+      opacity:.5;
+    }
+    .cc-count{display:none}
+  }
+  @media (max-width:560px){
+    .age-num{font-size:clamp(110px,34vh,150px)}
+    .age-track{bottom:14px}
+    .age-track .blk{width:10px;height:10px}
+  }
+
   /* ---------- reasons ---------- */
   .reasons{background:#fff}
   .reason-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;row-gap:56px;margin-top:64px}
@@ -506,6 +595,44 @@
       </figure>
     </div>
   </section>
+
+  <!-- ============ CRITICAL PERIOD (sticky) ============ -->
+  <div class="critical" id="critical">
+    <div class="critical-sticky">
+      <p class="crit-eyebrow"><span class="no">Critical Period</span>臨界期 — 伸びる時期は、決まっている</p>
+      <div class="crit-cube" id="critCube" aria-hidden="true">
+        <div class="cc-glow"></div>
+        <div class="cc-tilt" id="critCubeTilt"></div>
+        <p class="cc-count">Brain Building — <b id="ccN">0</b> / 27</p>
+      </div>
+      <div class="age-line" aria-hidden="true">
+        <span class="age-num num-face" id="ageNum">2</span><span class="age-sai">才</span>
+      </div>
+      <div class="crit-caps">
+        <div class="ph act" data-ph="0">
+          <p class="t1">2才は、能力開発のゴールデンエイジ。</p>
+          <p class="t2">頭のやわらかさが頂点にあるこの時期の働きかけが、いちばんよく効きます。</p>
+        </div>
+        <div class="ph" data-ph="1">
+          <p class="t1">「3才で何をしたかで——</p>
+          <p class="t2">幼児期の環境づくりは、親から子への何よりの贈りもの。</p>
+        </div>
+        <div class="ph" data-ph="2">
+          <p class="t1">——4才が決まります。」</p>
+          <p class="t2">一年の積み重ねが、次の一年の伸びしろになる。</p>
+        </div>
+        <div class="ph" data-ph="3">
+          <p class="t1">大脳の完成は、10才前後。</p>
+          <p class="t2">大脳がほぼ完成する10才前後までが、いちばんの伸ばしどき。だからCUBEは「いま」に集中します。</p>
+        </div>
+      </div>
+      <div class="age-track" aria-hidden="true">
+        <span class="cap">2才</span>
+        <span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span><span class="blk"></span>
+        <span class="cap">10才</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ============ REASONS ============ -->
   <section class="sec reasons" id="reasons">
@@ -885,6 +1012,116 @@
       }, {threshold:.15});
       tio.observe(box);
     }
+  })();
+
+  /* ---------- shared: build an assembling mini-cube lattice ---------- */
+  function buildLattice(tiltEl, opts){
+    var N = opts.n, SP = opts.sp, cls = opts.cls, faceCls = opts.faceCls;
+    var FACES = ["f","b","r","l","t","d"];
+    var half = (N-1)*SP/2;
+    var pieces = [];
+    for(var x=0; x<N; x++) for(var y=0; y<N; y++) for(var z=0; z<N; z++){
+      var d = document.createElement("div");
+      d.className = cls;
+      d.style.setProperty("--tx", (x*SP - half)+"px");
+      d.style.setProperty("--ty", (y*SP - half)+"px");
+      d.style.setProperty("--tz", (z*SP - half)+"px");
+      d.style.setProperty("--sx", (Math.random()*opts.scatter*2 - opts.scatter)+"px");
+      d.style.setProperty("--sy", (-opts.scatter*0.6 - Math.random()*opts.scatter*0.8)+"px");
+      d.style.setProperty("--sz", (Math.random()*opts.scatter*2 - opts.scatter)+"px");
+      for(var fi=0; fi<6; fi++){
+        var f = document.createElement("div");
+        f.className = faceCls + " " + faceCls + "-" + FACES[fi];
+        d.appendChild(f);
+      }
+      tiltEl.appendChild(d);
+      pieces.push({el:d, x:x, y:y, z:z});
+    }
+    pieces.sort(function(a,b){
+      if(a.y !== b.y) return b.y - a.y;
+      var da = a.x + a.z, db = b.x + b.z;
+      if(da !== db) return da - db;
+      return a.x - b.x;
+    });
+    return pieces;
+  }
+
+  /* ---------- critical sticky scrolltelling + brain-building cube ---------- */
+  (function(){
+    var wrap = document.getElementById("critical");
+    if(!wrap) return;
+    var num = document.getElementById("ageNum");
+    var phs = [].slice.call(wrap.querySelectorAll(".ph"));
+    var blks = [].slice.call(wrap.querySelectorAll(".age-track .blk"));
+    var ages = ["2","3","4","10"];
+    var cur = 0;
+    function setPhase(i){
+      if(i === cur) return;
+      cur = i;
+      num.textContent = ages[i];
+      if(!RM){
+        num.classList.remove("pop");
+        void num.offsetWidth;
+        num.classList.add("pop");
+      }
+      phs.forEach(function(p,j){ p.classList.toggle("act", j === i); });
+    }
+
+    var cubeWrap = document.getElementById("critCube");
+    var tilt = document.getElementById("critCubeTilt");
+    var ccN = document.getElementById("ccN");
+    var pieces = [];
+    if(tilt){
+      pieces = buildLattice(tilt, {n:3, sp:50, cls:"cc", faceCls:"ccf", scatter:260});
+      var accents = {5:"a-terra", 11:"a-denim", 17:"a-green", 22:"a-amber", 26:"a-terra"};
+      pieces.forEach(function(pc,i){ if(accents[i]) pc.el.classList.add(accents[i]); });
+    }
+    var built = -1;
+    function setBuilt(k){
+      if(k === built) return;
+      built = k;
+      pieces.forEach(function(pc,i){ pc.el.classList.toggle("in", i < k); });
+      if(ccN) ccN.textContent = k;
+      if(cubeWrap) cubeWrap.classList.toggle("done", k >= pieces.length);
+    }
+    if(RM) setBuilt(pieces.length);
+
+    var ry = -30, rafId = null, inView = false;
+    function spin(){
+      ry += 0.12;
+      tilt.style.transform = "rotateX(-22deg) rotateY(" + ry + "deg)";
+      rafId = inView ? requestAnimationFrame(spin) : null;
+    }
+    if(tilt && !RM && "IntersectionObserver" in window){
+      var cio = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          inView = en.isIntersecting;
+          if(inView && rafId === null) rafId = requestAnimationFrame(spin);
+        });
+      }, {threshold:0});
+      cio.observe(wrap);
+    }
+
+    var ticking = false;
+    function onScroll(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        ticking = false;
+        var vh = window.innerHeight;
+        var r = wrap.getBoundingClientRect();
+        var total = r.height - vh;
+        if(total <= 0) return;
+        var p = clamp(-r.top / total, 0, 1);
+        var i = p < .24 ? 0 : p < .52 ? 1 : p < .78 ? 2 : 3;
+        setPhase(i);
+        if(!RM) setBuilt(Math.round(p * pieces.length));
+        var fillN = Math.round(p * blks.length);
+        blks.forEach(function(b,j){ b.classList.toggle("fill", j < fillN); });
+      });
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    onScroll();
   })();
 
   /* faq: open all */
